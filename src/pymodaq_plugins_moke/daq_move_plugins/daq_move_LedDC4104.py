@@ -2,7 +2,7 @@ from pymodaq.daq_move.utility_classes import DAQ_Move_base  # base class
 from pymodaq.daq_move.utility_classes import comon_parameters  # common set of parameters for all actuators
 from pymodaq.daq_utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
 from easydict import EasyDict as edict  # type of dict
-
+import numpy as np
 from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
     DAQ_termination, Edge, DAQ_NIDAQ_source, \
     ClockSettings, AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
@@ -24,29 +24,30 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
     params = [
                  {'title': 'Top LED:', 'name': 'top_led', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'top_led_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao0'},
+                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao2'},
                      {'title': 'Value:', 'name': 'top_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
                      {'title': 'Activated?:', 'name': 'top_led_act', 'type': 'led_push', 'value': False}
                  ]},
                  {'title': 'Left LED:', 'name': 'left_led', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'left_led_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao1'},
+                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao3'},
                      {'title': 'Value:', 'name': 'left_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
                      {'title': 'Activated?:', 'name': 'left_led_act', 'type': 'led_push', 'value': False}
                  ]},
                  {'title': 'Right LED:', 'name': 'right_led', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'right_led_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao2'},
+                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao1'},
                      {'title': 'Value:', 'name': 'right_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
                      {'title': 'Activated?:', 'name': 'right_led_act', 'type': 'led_push', 'value': False}
                  ]},
                  {'title': 'Bottom LED:', 'name': 'bottom_led', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'bottom_led_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao3'},
+                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao0'},
                      {'title': 'Value:', 'name': 'bottom_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
                      {'title': 'Activated?:', 'name': 'bottom_led_act', 'type': 'led_push', 'value': False}
                  ]},
-                 {'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'lin', 'bounds': [0, 3.5]},
+                 {'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'lin', 'value': 0.0,
+                  'limits': [0, 3.5]},
                  {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False}]\
              + \
              [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group','visible':is_multiaxes, 'children':[
@@ -117,7 +118,9 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                 break
 
     def update_leds(self, led_values):
-        self.controller['ao'].task.StartTask()
+
+        self.controller['ao'].writeAnalog(1, 4, np.array([led_values[channel] for channel in led_values],
+                                                       dtype=np.float), autostart=True)
 
     def get_led_values(self):
         offset = self.settings.child('offset').value()
@@ -166,6 +169,8 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
             self.update_tasks()
 
+            self.emit_status(ThreadCommand('set_allowed_values', dict(decimals=0, minimum=0, maximum=3.5, step=0.1)))
+
             self.status.info = "Whatever info you want to log"
             self.status.controller = self.controller
             self.status.initialized = True
@@ -181,7 +186,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
         self.channels_led = [AOChannel(name=self.settings.child(channel, f'{channel}_ao').value(),
                                        source='Analog_Output', analog_type='Voltage',
-                                       value_min=-10., value_max=10., termination='Diff', )
+                                       value_min=-10., value_max=10.,)
                              for channel in self.channels]
 
 
@@ -205,13 +210,14 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         position = self.set_position_with_scaling(position)  # apply scaling if the user specified one
 
         axis = self.settings.child('multiaxes', 'axis').value()
-        if axis is not 'offset':
+        if axis!= 'offset':
             self.settings.child(axis, f'{axis}_val').setValue(position)
         else:
             self.settings.child(axis).setValue(position)
+        self.check_led_and_update()
 
 
-        self.emit_status(ThreadCommand('Update_Status',['Some info you want to log']))
+
         ##############################
 
 
@@ -230,11 +236,11 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         self.target_position = position + self.current_position
 
         axis = self.settings.child('multiaxes', 'axis').value()
-        if axis is not 'offset':
+        if axis != 'offset':
             self.settings.child(axis, f'{axis}_val').setValue(position)
         else:
             self.settings.child(axis).setValue(position)
-
+        self.check_led_and_update()
         self.emit_status(ThreadCommand('Update_Status',['Some info you want to log']))
         ##############################
 
