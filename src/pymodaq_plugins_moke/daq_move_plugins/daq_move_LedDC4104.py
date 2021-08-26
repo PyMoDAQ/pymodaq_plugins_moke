@@ -18,36 +18,37 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         =============== ==============
     """
     _controller_units = 'Volts'
+    led_limit = 3.5
     is_multiaxes = True  # set to True if this plugin is controlled for a multiaxis controller (with a unique communication link)
     stage_names = ['offset', 'top', 'left', 'right', 'bottom']  # "list of strings of the multiaxes
-    channels = ['top_led', 'left_led', 'right_led', 'bottom_led']
+    channels = ['top', 'left', 'right', 'bottom']
     params = [
-                 {'title': 'Top LED:', 'name': 'top_led', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'top_led_ao', 'type': 'list',
+                 {'title': 'Top LED:', 'name': 'top', 'type': 'group', 'children': [
+                     {'title': 'Name:', 'name': 'top_ao', 'type': 'list',
                       'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao2'},
-                     {'title': 'Value:', 'name': 'top_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
-                     {'title': 'Activated?:', 'name': 'top_led_act', 'type': 'led_push', 'value': False}
+                     {'title': 'Value:', 'name': 'top_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
+                     {'title': 'Activated?:', 'name': 'top_act', 'type': 'led_push', 'value': False}
                  ]},
-                 {'title': 'Left LED:', 'name': 'left_led', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'left_led_ao', 'type': 'list',
+                 {'title': 'Left LED:', 'name': 'left', 'type': 'group', 'children': [
+                     {'title': 'Name:', 'name': 'left_ao', 'type': 'list',
                       'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao3'},
-                     {'title': 'Value:', 'name': 'left_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
-                     {'title': 'Activated?:', 'name': 'left_led_act', 'type': 'led_push', 'value': False}
+                     {'title': 'Value:', 'name': 'left_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
+                     {'title': 'Activated?:', 'name': 'left_act', 'type': 'led_push', 'value': False}
                  ]},
-                 {'title': 'Right LED:', 'name': 'right_led', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'right_led_ao', 'type': 'list',
+                 {'title': 'Right LED:', 'name': 'right', 'type': 'group', 'children': [
+                     {'title': 'Name:', 'name': 'right_ao', 'type': 'list',
                       'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao1'},
-                     {'title': 'Value:', 'name': 'right_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
-                     {'title': 'Activated?:', 'name': 'right_led_act', 'type': 'led_push', 'value': False}
+                     {'title': 'Value:', 'name': 'right_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
+                     {'title': 'Activated?:', 'name': 'right_act', 'type': 'led_push', 'value': False}
                  ]},
-                 {'title': 'Bottom LED:', 'name': 'bottom_led', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'bottom_led_ao', 'type': 'list',
+                 {'title': 'Bottom LED:', 'name': 'bottom', 'type': 'group', 'children': [
+                     {'title': 'Name:', 'name': 'bottom_ao', 'type': 'list',
                       'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao0'},
-                     {'title': 'Value:', 'name': 'bottom_led_val', 'type': 'float', 'value': 0, 'min': 0, 'max': 3.5},
-                     {'title': 'Activated?:', 'name': 'bottom_led_act', 'type': 'led_push', 'value': False}
+                     {'title': 'Value:', 'name': 'bottom_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
+                     {'title': 'Activated?:', 'name': 'bottom_act', 'type': 'led_push', 'value': False}
                  ]},
                  {'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'lin', 'value': 0.0,
-                  'limits': [0, 3.5]},
+                  'limits': [0, led_limit]},
                  {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False}]\
              + \
              [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group','visible':is_multiaxes, 'children':[
@@ -70,7 +71,8 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         """
 
         super().__init__(parent, params_state)
-        self.led_values = dict(zip(self.channels, [0. for chan in self.channels]))
+        self.led_values = dict(zip(self.channels, [{f'{chan}_act': False,
+                                                    f'{chan}_val': 0.} for chan in self.channels]))
 
     def check_position(self):
         """Get the current position from the hardware with scaling conversion.
@@ -109,18 +111,33 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
         self.check_led_and_update()
 
+    def set_leds_external(self, led_values):
+        for led in led_values:
+            self.settings.child(led, f'{led}_act').setValue(led_values[led][f'{led}_act'])
+            self.settings.child(led, f'{led}_val').setValue(led_values[led][f'{led}_val'])
+        self.check_led_and_update()
+
     def check_led_and_update(self):
         led_values = self.get_led_values()
-        for key in led_values:
-            if led_values[key] != self.led_values[key]:
-                self.led_values = led_values
-                self.update_leds(led_values)
-                break
+        for led in led_values:
+            for key in led_values[led]:
+                if led_values[led][key] != self.led_values[led][key]:
+                    self.led_values = led_values
+                    self.update_leds(led_values)
+                    break
 
     def update_leds(self, led_values):
+        self.limit_led_values(led_values)
 
-        self.controller['ao'].writeAnalog(1, 4, np.array([led_values[channel] for channel in led_values],
-                                                       dtype=np.float), autostart=True)
+        self.controller['ao'].writeAnalog(1, 4,
+                                          np.array([led_values[channel][f'{channel}_val']
+                                                    if led_values[channel][f'{channel}_act']
+                                                    else 0. for channel in led_values],
+                                                   dtype=np.float), autostart=True)
+
+    def limit_led_values(self, led_values):
+        for channel in self.channels:
+            led_values[channel][f'{channel}_val'] = min([self.led_limit, led_values[channel][f'{channel}_val']])
 
     def get_led_values(self):
         offset = self.settings.child('offset').value()
@@ -128,7 +145,8 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         for channel in self.channels:
             val = self.settings.child(channel, f'{channel}_val').value()
             activated = self.settings.child(channel, f'{channel}_act').value()
-            leds_value[channel] = val + offset if activated else 0.
+            leds_value[channel] = {f'{channel}_val': val + offset,
+                                   f'{channel}_act': activated}
 
         return leds_value
 
@@ -210,7 +228,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         position = self.set_position_with_scaling(position)  # apply scaling if the user specified one
 
         axis = self.settings.child('multiaxes', 'axis').value()
-        if axis!= 'offset':
+        if axis != 'offset':
             self.settings.child(axis, f'{axis}_val').setValue(position)
         else:
             self.settings.child(axis).setValue(position)

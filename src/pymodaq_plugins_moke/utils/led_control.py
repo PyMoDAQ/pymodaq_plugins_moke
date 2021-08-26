@@ -18,24 +18,23 @@ class LedControl(QtCore.QObject):
     def __init__(self, area):
         self.area = area
         self.led_manual_control = None
+        self.dock_manual = None
+        self.dock_sequence = None
         self.setupUi()
 
     def setupUi(self):
 
-        dock_manual = gutils.Dock('LED Manual')
-        dock_sequence = gutils.Dock('LED Sequences')
+        self.dock_manual = gutils.Dock('LED Manual')
+        self.dock_sequence = gutils.Dock('LED Sequences')
 
-        self.area.addDock(dock_manual, 'top')
-        self.area.addDock(dock_sequence, 'below', dock_manual)
+        self.area.addDock(self.dock_manual, 'top')
+        self.area.addDock(self.dock_sequence, 'below', self.dock_manual)
 
         widget_manual = QtWidgets.QWidget()
         self.led_manual_control = ManualLedControl(widget_manual)
-        dock_manual.addWidget(widget_manual)
-        
+        self.dock_manual.addWidget(widget_manual)
 
-
-        dock_manual.raiseDock()
-
+        self.dock_manual.raiseDock()
 
 
 class ManualLedControl(QtCore.QObject):
@@ -108,7 +107,8 @@ class ManualLedControl(QtCore.QObject):
         offset = self.offset_all_slider.value()
         leds_value = dict([])
         for key in self.sliders:
-            leds_value[key] = self.sliders[key].value() + offset if self.leds[key].get_state() else 0.
+            leds_value[key] = {f'{key}_val': self.sliders[key].value() + offset,
+                               f'{key}_act': self.leds[key].get_state()}
 
         self.leds_value.emit(leds_value)
 
