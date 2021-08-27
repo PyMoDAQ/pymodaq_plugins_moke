@@ -49,7 +49,14 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                  ]},
                  {'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'lin', 'value': 0.0,
                   'limits': [0, led_limit]},
-                 {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False}]\
+                 {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False},
+                 {'title': 'Digital Triggering:', 'name': 'digital', 'type': 'group', 'children': [
+                     {'title': 'Name:', 'name': 'digital_di', 'type': 'list',
+                      'values': DAQmx.get_NIDAQ_channels(source_type='Digital_Input'),
+                      'value': 'cDAQ1Mod4/port0/line0'},
+                     {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False}
+                 ]},
+             ]\
              + \
              [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group','visible':is_multiaxes, 'children':[
                         {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes, 'default': False},
@@ -73,6 +80,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         super().__init__(parent, params_state)
         self.led_values = dict(zip(self.channels, [{f'{chan}_act': False,
                                                     f'{chan}_val': 0.} for chan in self.channels]))
+        self.led_type = 'manual'
 
     def check_position(self):
         """Get the current position from the hardware with scaling conversion.
@@ -116,6 +124,27 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
             self.settings.child(led, f'{led}_act').setValue(led_values[led][f'{led}_act'])
             self.settings.child(led, f'{led}_val').setValue(led_values[led][f'{led}_val'])
         self.check_led_and_update()
+
+    def set_led_type(self, led_type_dict):
+        """
+        Set the type of control for the LEDs. If set to sequence, the daqmx task is clocked on the changed state of a
+        digital channel receiving a high TTL state when the Camera is acquirring
+        Parameters
+        ----------
+        led_type_dict: (dict) with  a key either 'manual' or 'sequence'
+            In the case of sequence, the associated value is a list of dict containing the status of the LEDs
+
+        Returns
+        -------
+
+        """
+
+        is_sequence = 'sequence' in led_type_dict
+        self.led_type_dict = led_type_dict
+
+        if is_sequence != self.settings.child('digital', 'digital_act').value():
+            self.settings.child('digital', 'digital_act').setValue(is_sequence)
+            self.update_tasks()
 
     def check_led_and_update(self):
         led_values = self.get_led_values()
@@ -208,12 +237,34 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                              for channel in self.channels]
 
 
-        Nsamples = 1
 
-        self.clock_settings = ClockSettings(frequency=1000,
-                                            Nsamples=int(Nsamples))
 
-        self.controller['ao'].update_task(self.channels_led, self.clock_settings)
+        if self.settings.child('digital', 'digital_act').value() == 'sequence':
+            if self.controller['ao'].task.isTaskDone():
+                self.controller['ao'].task.stopTask()
+
+            Nsamples = 1
+            self.clock_settings = ClockSettings(frequency=1000,
+                                                Nsamples=int(Nsamples))
+            self.controller['ao'].update_task(self.channels_led, self.clock_settings)
+
+            led_values = self.get_led_values()
+            self.limit_led_values(led_values)
+
+            data = []
+            for ind in range(len(self.led_type_dict['sequence'])):
+                data.extend([led_values[channel][f'{channel}_val']
+                             if self.led_type_dict['sequence'][f'{channel}']
+                             else 0. for channel in led_values])
+                data.extend([0. for channel in led_values])
+
+            self.controller['ao'].writeAnalog(len(data), 4, np.array(data, dtype=np.float), autostart=True)
+
+        else:
+            Nsamples = 1
+            self.clock_settings = ClockSettings(frequency=1000,
+                                                Nsamples=int(Nsamples))
+            self.controller['ao'].update_task(self.channels_led, self.clock_settings)
 
 
     def move_Abs(self, position):

@@ -13,6 +13,7 @@ class MicroMOKE:
 
         self.led_control = LedControl(area)
         self.detector = self.modules_manager.get_mod_from_name('Camera', mod='det')
+        self.led_actuator = self.modules_manager.get_mod_from_name('LedDriver', mod='act')
 
         self.setup_UI()
         self.make_connection()
@@ -66,14 +67,14 @@ class MicroMOKE:
 
     def make_connection(self):
         self.led_control.led_manual_control.leds_value.connect(self.set_LEDs)
+        self.led_control.led_type_signal.connect(self.set_led_type)
 
     def set_LEDs(self, led_values):
-        led_actuator = self.modules_manager.get_mod_from_name('LedDriver', mod='act')
-        led_actuator.command_stage.emit(ThreadCommand('set_leds_external', [led_values]))
 
+        self.led_actuator.command_stage.emit(ThreadCommand('set_leds_external', [led_values]))
 
-
-
+    def set_led_type(self, led_type):
+        self.led_actuator.command_stage.emit(ThreadCommand('set_led_type', [led_type]))
 
 def main():
     from pymodaq.daq_utils.daq_utils import get_set_preset_path
