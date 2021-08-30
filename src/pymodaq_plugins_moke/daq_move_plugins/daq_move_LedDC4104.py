@@ -5,7 +5,10 @@ from easydict import EasyDict as edict  # type of dict
 import numpy as np
 from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
     DAQ_termination, Edge, DAQ_NIDAQ_source, \
-    ClockSettings, AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
+    ClockSettings, ChangeDetectionSettings,AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
+from pymodaq.daq_utils import gui_utils as gutils
+from pymodaq.daq_utils.parameter import utils as putils
+from pymodaq.daq_utils.parameter import parameterTypes as ptypes
 
 
 class DAQ_Move_LedDC4104(DAQ_Move_base):
@@ -51,10 +54,13 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                   'limits': [0, led_limit]},
                  {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False},
                  {'title': 'Digital Triggering:', 'name': 'digital', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'digital_di', 'type': 'list',
+                     {'title': 'Change on:', 'name': 'digital_di', 'type': 'list',
                       'values': DAQmx.get_NIDAQ_channels(source_type='Digital_Input'),
-                      'value': 'cDAQ1Mod4/port0/line0'},
-                     {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False}
+                      'value': 'cDAQ1Mod5/port0/line0'},
+                     {'title': 'Clock on:', 'name': 'digital_clock', 'type': 'list',
+                      'values': DAQmx.get_NIDAQ_channels(source_type='Terminals'),
+                      'value': '/cDAQ1/ChangeDetectionEvent'},
+                     {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False},
                  ]},
              ]\
              + \
@@ -81,6 +87,9 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         self.led_values = dict(zip(self.channels, [{f'{chan}_act': False,
                                                     f'{chan}_val': 0.} for chan in self.channels]))
         self.led_type = 'manual'
+
+        self.sequence_list = [dict(top=True, bottom=False, left=False, right=False),
+                              dict(top=False, bottom=True, left=False, right=False),]
 
     def check_position(self):
         """Get the current position from the hardware with scaling conversion.
@@ -117,7 +126,15 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
             for channel in self.channels:
                 self.settings.child(channel, f'{channel}_act').setValue(param.value())
 
-        self.check_led_and_update()
+        flag = '_act' in param.name() or '_val' in param.name() or 'offset' in param.name() or \
+               'activate_all' in param.name()
+        if flag and 'digital_act' != param.name() and not self.settings.child('digital', 'digital_act').value():
+            """
+            If only activated state or value of the led is changed, just update the "manual" value, else update the task
+            """
+            self.check_led_and_update()
+        else:
+            self.update_tasks()
 
     def set_leds_external(self, led_values):
         for led in led_values:
@@ -140,11 +157,12 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         """
 
         is_sequence = 'sequence' in led_type_dict
-        self.led_type_dict = led_type_dict
+        if is_sequence:
+            self.sequence_list = led_type_dict['sequence']
 
         if is_sequence != self.settings.child('digital', 'digital_act').value():
             self.settings.child('digital', 'digital_act').setValue(is_sequence)
-            self.update_tasks()
+        self.update_tasks()
 
     def check_led_and_update(self):
         led_values = self.get_led_values()
@@ -156,8 +174,6 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                     break
 
     def update_leds(self, led_values):
-        self.limit_led_values(led_values)
-
         self.controller['ao'].writeAnalog(1, 4,
                                           np.array([led_values[channel][f'{channel}_val']
                                                     if led_values[channel][f'{channel}_act']
@@ -170,14 +186,14 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
     def get_led_values(self):
         offset = self.settings.child('offset').value()
-        leds_value = dict([])
+        led_values = dict([])
         for channel in self.channels:
             val = self.settings.child(channel, f'{channel}_val').value()
             activated = self.settings.child(channel, f'{channel}_act').value()
-            leds_value[channel] = {f'{channel}_val': val + offset,
+            led_values[channel] = {f'{channel}_val': val + offset,
                                    f'{channel}_act': activated}
-
-        return leds_value
+        self.limit_led_values(led_values)
+        return led_values
 
     def ini_stage(self, controller=None):
         """Actuator communication initialization
@@ -212,7 +228,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                     self.controller = controller
             else:  # Master stage
 
-                self.controller = dict(ao=DAQmx())
+                self.controller = dict(ao=DAQmx(), di=DAQmx())
 
             self.update_tasks()
 
@@ -236,36 +252,46 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                                        value_min=-10., value_max=10.,)
                              for channel in self.channels]
 
+        self.channel_clock = [DIChannel(name=self.settings.child('digital', 'digital_di').value(),
+                                         source='Digital_Input')]
 
+        led_values = self.get_led_values()
+        if self.controller['ao'].task is not None:
+            if not self.controller['ao'].isTaskDone():
+                self.controller['ao'].stop()
+        if self.controller['di'].task is not None:
+            if not self.controller['di'].isTaskDone():
+                self.controller['di'].stop()
 
+        if self.settings.child('digital', 'digital_act').value():
+            clock_settings = ClockSettings(source=self.settings.child('digital', 'digital_clock').value(),
+                                           frequency=1000,
+                                           Nsamples=1000,
+                                           repetition=True)
+            digital_clock = ChangeDetectionSettings(rising_channel=self.settings.child('digital', 'digital_di').value(),
+                                                    falling_channel=self.settings.child('digital', 'digital_di').value(),
+                                                    repetition=True)
 
-        if self.settings.child('digital', 'digital_act').value() == 'sequence':
-            if self.controller['ao'].task.isTaskDone():
-                self.controller['ao'].task.stopTask()
-
-            Nsamples = 1
-            self.clock_settings = ClockSettings(frequency=1000,
-                                                Nsamples=int(Nsamples))
-            self.controller['ao'].update_task(self.channels_led, self.clock_settings)
-
-            led_values = self.get_led_values()
-            self.limit_led_values(led_values)
+            self.controller['di'].update_task(self.channel_clock, digital_clock)
+            self.controller['ao'].update_task(self.channels_led, clock_settings)
 
             data = []
-            for ind in range(len(self.led_type_dict['sequence'])):
-                data.extend([led_values[channel][f'{channel}_val']
-                             if self.led_type_dict['sequence'][f'{channel}']
-                             else 0. for channel in led_values])
-                data.extend([0. for channel in led_values])
+            for dic in self.sequence_list:
+                data.append([led_values[channel][f'{channel}_val']
+                             if dic[f'{channel}']
+                             else 0. for channel in self.channels])
+                data.append([0. for channel in led_values])
+            data = np.array(list(map(list, zip(*data))), dtype=np.float)  # somehow on the transpose of what you would expect
+            # but cannot just use the transpose function for numpy as data are no more contiguous...
 
-            self.controller['ao'].writeAnalog(len(data), 4, np.array(data, dtype=np.float), autostart=True)
+            self.controller['ao'].writeAnalog(2*len(self.sequence_list), len(self.channels_led), data, autostart=False)
+            self.controller['ao'].start()
+            self.controller['di'].start()
 
         else:
-            Nsamples = 1
-            self.clock_settings = ClockSettings(frequency=1000,
-                                                Nsamples=int(Nsamples))
-            self.controller['ao'].update_task(self.channels_led, self.clock_settings)
-
+            clock_settings = ClockSettings(frequency=1000, Nsamples=1)
+            self.controller['ao'].update_task(self.channels_led, clock_settings)
+            self.check_led_and_update()
 
     def move_Abs(self, position):
         """ Move the actuator to the absolute target defined by position

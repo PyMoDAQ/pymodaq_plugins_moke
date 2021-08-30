@@ -6,11 +6,7 @@ from pymodaq.resources.QtDesigner_Ressources import QtDesigner_ressources_rc
 from pymodaq.daq_utils.parameter.pymodaq_ptypes import SliderSpinBox, QLED
 from pymodaq.daq_utils import gui_utils as gutils
 from collections import OrderedDict
-
-from pymodaq_plugins_daqmx.hardware.national_instruments import daq_NIDAQmx
-from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
-    DAQ_termination, Edge, DAQ_NIDAQ_source, \
-    ClockSettings, AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
+from pathlib import Path
 
 
 
@@ -182,7 +178,8 @@ class SequenceLedControl(QtCore.QObject):
             if ind == 0:
                 self.radio_buttons[sequence].setChecked(True)
             self.sequences_label[sequence] = QtWidgets.QLabel()
-            self.sequences_label[sequence].setPixmap(QtGui.QPixmap(f'../utils/images/{sequence}_leds.png'))
+            image_path = str(Path(__file__).parent.joinpath(f'images/{sequence}_leds.png'))
+            self.sequences_label[sequence].setPixmap(QtGui.QPixmap(image_path))
 
             self.radio_group.addButton(self.radio_buttons[sequence])
             self.parent.layout().addWidget(self.radio_buttons[sequence], ind, 0)
