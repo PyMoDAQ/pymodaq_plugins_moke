@@ -130,6 +130,8 @@ class ManualLedControl(QtCore.QObject):
         for led in self.leds:
             self.leds[led].set_as(state)
 
+        self.emit_led_values()
+
     def display_state(self):
         for ind, key in enumerate(self.leds):
             print(f'{key} LED {"on" if self.leds[key].get_state() else "off"} with value {self.sliders[key].value()}')

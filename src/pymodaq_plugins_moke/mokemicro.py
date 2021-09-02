@@ -1,9 +1,11 @@
 import sys
 from PyQt5 import QtWidgets, QtGui, QtCore
 from pymodaq.daq_utils.gui_utils import DockArea
-from pymodaq.daq_utils.daq_utils import ThreadCommand
+from pymodaq.daq_utils.daq_utils import ThreadCommand, set_logger, get_module_name
 from pymodaq.dashboard import DashBoard
 from pymodaq_plugins_moke.utils.led_control import LedControl
+
+logger = set_logger(get_module_name(__file__))
 
 class MicroMOKE:
     def __init__(self, area, modules_manager):
@@ -69,12 +71,27 @@ class MicroMOKE:
         self.led_control.led_manual_control.leds_value.connect(self.set_LEDs)
         self.led_control.led_type_signal.connect(self.set_led_type)
 
+        self.detector.custom_sig.connect(self.info_detector)
+
+    def info_detector(self, status):
+        if status.command == 'stopped':
+            self.led_actuator.command_stage.emit(ThreadCommand('update_tasks'))
+            logger.debug('stopped')
+
     def set_LEDs(self, led_values):
 
         self.led_actuator.command_stage.emit(ThreadCommand('set_leds_external', [led_values]))
 
     def set_led_type(self, led_type):
+        was_grabing = False
+        if self.detector.grab_state:
+            was_grabing = True
+            self.detector.stop()
+        QtWidgets.QApplication.processEvents()
         self.led_actuator.command_stage.emit(ThreadCommand('set_led_type', [led_type]))
+
+        if was_grabing:
+            self.detector.grab()
 
 def main():
     from pymodaq.daq_utils.daq_utils import get_set_preset_path

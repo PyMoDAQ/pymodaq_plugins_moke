@@ -256,12 +256,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                                          source='Digital_Input')]
 
         led_values = self.get_led_values()
-        if self.controller['ao'].task is not None:
-            if not self.controller['ao'].isTaskDone():
-                self.controller['ao'].stop()
-        if self.controller['di'].task is not None:
-            if not self.controller['di'].isTaskDone():
-                self.controller['di'].stop()
+        self.stop_task_and_zero()
 
         if self.settings.child('digital', 'digital_act').value():
             clock_settings = ClockSettings(source=self.settings.child('digital', 'digital_clock').value(),
@@ -292,6 +287,19 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
             clock_settings = ClockSettings(frequency=1000, Nsamples=1)
             self.controller['ao'].update_task(self.channels_led, clock_settings)
             self.check_led_and_update()
+
+    def stop_task_and_zero(self):
+        if self.controller['ao'].task is not None:
+            if not self.controller['ao'].isTaskDone():
+                self.controller['ao'].stop()
+        if self.controller['di'].task is not None:
+            if not self.controller['di'].isTaskDone():
+                self.controller['di'].stop()
+        clock_settings = ClockSettings(frequency=1000, Nsamples=1)
+        self.controller['ao'].update_task(self.channels_led, clock_settings)
+
+        self.controller['ao'].writeAnalog(1, 4, np.array([0., 0., 0., 0.], dtype=np.float), autostart=True)
+        self.controller['ao'].stop()
 
     def move_Abs(self, position):
         """ Move the actuator to the absolute target defined by position
