@@ -4,7 +4,7 @@ from pymodaq.daq_utils.gui_utils import DockArea
 from pymodaq.daq_utils.daq_utils import ThreadCommand, set_logger, get_module_name
 from pymodaq.dashboard import DashBoard
 from pymodaq_plugins_moke.utils.led_control import LedControl
-
+from pathlib import Path
 logger = set_logger(get_module_name(__file__))
 
 class MicroMOKE:
@@ -48,6 +48,16 @@ class MicroMOKE:
         self.quit_action = QtWidgets.QAction(iconquit, "Quit program", None)
         self.quit_action.triggered.connect(self.quit_function)
 
+        image_path = str(Path(__file__).parent.joinpath(f'utils/images/sequence.png'))
+        iconsequence = QtGui.QIcon()
+        iconsequence.addPixmap(QtGui.QPixmap(image_path), QtGui.QIcon.Normal,
+                           QtGui.QIcon.Off)
+        self.toggle_sequence_action = QtWidgets.QAction(iconsequence, "Toggle between Manual Controler or Sequence "
+                                                                      "Control",
+                                                        None)
+        self.toggle_sequence_action.setCheckable(True)
+        self.toggle_sequence_action.triggered.connect(self.set_led_type)
+
         icon_detector = QtGui.QIcon()
         icon_detector.addPixmap(QtGui.QPixmap(":/icons/Icon_Library/camera.png"), QtGui.QIcon.Normal,
                                 QtGui.QIcon.Off)
@@ -60,6 +70,7 @@ class MicroMOKE:
         self.area.parent().addToolBar(self.toolbar)
         self.toolbar.addAction(self.quit_action)
         self.toolbar.addAction(self.detector_action)
+        self.toolbar.addAction(self.toggle_sequence_action)
 
     def run_detector(self):
         self.detector.grab()
@@ -70,6 +81,7 @@ class MicroMOKE:
     def make_connection(self):
         self.led_control.led_manual_control.leds_value.connect(self.set_LEDs)
         self.led_control.led_type_signal.connect(self.set_led_type)
+        self.led_control.led_sequence_control.sequence_signal.connect(self.set_led_type)
 
         self.detector.custom_sig.connect(self.info_detector)
 
@@ -82,7 +94,13 @@ class MicroMOKE:
 
         self.led_actuator.command_stage.emit(ThreadCommand('set_leds_external', [led_values]))
 
-    def set_led_type(self, led_type):
+    def set_led_type(self, led_type=None):
+        if led_type is None:
+            if not self.toggle_sequence_action.isChecked():
+                led_type = dict(manual=None)
+            else:
+                led_type = dict(sequence=self.led_control.led_sequence_control.sequence)
+
         was_grabing = False
         if self.detector.grab_state:
             was_grabing = True

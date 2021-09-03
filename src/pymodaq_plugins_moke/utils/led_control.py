@@ -24,9 +24,9 @@ class LedControl(QtCore.QObject):
         self.current_dock = 'manual'
         self.setupUi()
 
-        self.dock_manual.label.sigClicked.connect(self.dock_focus)
-        self.dock_sequence.label.sigClicked.connect(self.dock_focus)
-        self.led_sequence_control.sequence_signal.connect(self.send_led_signal)
+        # self.dock_manual.label.sigClicked.connect(self.dock_focus)
+        # self.dock_sequence.label.sigClicked.connect(self.dock_focus)
+        # self.led_sequence_control.sequence_signal.connect(self.send_led_signal)
 
     def dock_focus(self, label, ev):
         if self.dock_manual.isVisible() and self.current_dock == 'sequence':
@@ -37,13 +37,13 @@ class LedControl(QtCore.QObject):
             self.current_dock = 'sequence'
             self.send_led_signal()
 
-    def send_led_signal(self):
-        if self.current_dock == 'manual':
-            sig = dict(manual=None)
-        else:
-            sig = dict(sequence=self.led_sequence_control.sequence)
-
-        self.led_type_signal.emit(sig)
+    # def send_led_signal(self):
+    #     if self.current_dock == 'manual':
+    #         sig = dict(manual=None)
+    #     else:
+    #         sig = dict(sequence=self.led_sequence_control.sequence)
+    #
+    #     self.led_type_signal.emit(sig)
 
 
     def setupUi(self):

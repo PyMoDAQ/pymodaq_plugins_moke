@@ -174,11 +174,26 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                     break
 
     def update_leds(self, led_values):
-        self.controller['ao'].writeAnalog(1, 4,
-                                          np.array([led_values[channel][f'{channel}_val']
-                                                    if led_values[channel][f'{channel}_act']
-                                                    else 0. for channel in led_values],
-                                                   dtype=np.float), autostart=True)
+        if self.settings.child('digital', 'digital_act').value():
+            data = []
+            for dic in self.sequence_list:
+                data.append([led_values[channel][f'{channel}_val']
+                             if dic[f'{channel}']
+                             else 0. for channel in self.channels])
+                data.append([0. for channel in led_values])
+            data = np.array(list(map(list, zip(*data))),
+                            dtype=np.float)  # somehow on the transpose of what you would expect
+            # but cannot just use the transpose function for numpy as data are no more contiguous...
+
+            self.controller['ao'].writeAnalog(2 * len(self.sequence_list), len(self.channels_led), data,
+                                              autostart=False)
+
+        else:
+            self.controller['ao'].writeAnalog(1, 4,
+                                              np.array([led_values[channel][f'{channel}_val']
+                                                        if led_values[channel][f'{channel}_act']
+                                                        else 0. for channel in led_values],
+                                                       dtype=np.float), autostart=True)
 
     def limit_led_values(self, led_values):
         for channel in self.channels:
@@ -255,7 +270,6 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         self.channel_clock = [DIChannel(name=self.settings.child('digital', 'digital_di').value(),
                                          source='Digital_Input')]
 
-        led_values = self.get_led_values()
         self.stop_task_and_zero()
 
         if self.settings.child('digital', 'digital_act').value():
@@ -269,17 +283,8 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
             self.controller['di'].update_task(self.channel_clock, digital_clock)
             self.controller['ao'].update_task(self.channels_led, clock_settings)
+            self.check_led_and_update()
 
-            data = []
-            for dic in self.sequence_list:
-                data.append([led_values[channel][f'{channel}_val']
-                             if dic[f'{channel}']
-                             else 0. for channel in self.channels])
-                data.append([0. for channel in led_values])
-            data = np.array(list(map(list, zip(*data))), dtype=np.float)  # somehow on the transpose of what you would expect
-            # but cannot just use the transpose function for numpy as data are no more contiguous...
-
-            self.controller['ao'].writeAnalog(2*len(self.sequence_list), len(self.channels_led), data, autostart=False)
             self.controller['ao'].start()
             self.controller['di'].start()
 

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="dessin.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    id="svg8"
    version="1.1"
    viewBox="0 0 210 297"
    height="297mm"
-   width="210mm">
+   width="210mm"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2">
     <rect
@@ -2254,6 +2254,30 @@
        width="19.577494"
        height="12.962572"
        id="rect6173-7" />
+    <rect
+       x="45.435822"
+       y="59.667923"
+       width="19.577494"
+       height="12.962572"
+       id="rect845-03-27" />
+    <rect
+       id="rect845-1-6-4"
+       height="12.962572"
+       width="19.577494"
+       y="59.667923"
+       x="45.435822" />
+    <rect
+       id="rect845-0-7-26"
+       height="12.962572"
+       width="19.577494"
+       y="59.667923"
+       x="45.435822" />
+    <rect
+       id="rect845-3-9-45"
+       height="12.962572"
+       width="19.577494"
+       y="59.667923"
+       x="45.435822" />
   </defs>
   <sodipodi:namedview
      inkscape:guide-bbox="true"
@@ -2261,22 +2285,23 @@
      inkscape:snap-global="false"
      inkscape:window-maximized="1"
      inkscape:window-y="-8"
-     inkscape:window-x="1912"
-     inkscape:window-height="1137"
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
      inkscape:window-width="1920"
      showgrid="false"
      inkscape:document-rotation="0"
      inkscape:current-layer="g920"
      inkscape:document-units="mm"
-     inkscape:cy="539.99096"
-     inkscape:cx="272.16378"
-     inkscape:zoom="1.979899"
+     inkscape:cy="431.71394"
+     inkscape:cx="623.01158"
+     inkscape:zoom="3.959798"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
      bordercolor="#666666"
      pagecolor="#ffffff"
-     id="base">
+     id="base"
+     inkscape:pagecheckerboard="0">
     <sodipodi:guide
        id="guide996"
        orientation="0,-1"
@@ -2294,7 +2319,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2337,11 +2362,13 @@
             <text
                xml:space="preserve"
                id="text843-4-0"
-               style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+               style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
                transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-                 x="53.963704"
-                 y="60.335706"><tspan
-                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+                 x="53.965399"
+                 y="60.335706"
+                 id="tspan2551"><tspan
+                   style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                   id="tspan2549">Top</tspan></tspan></text>
           </g>
           <g
              style="stroke-width:0.763588"
@@ -2355,12 +2382,12 @@
                style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
             <text
                transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-               style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+               style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
                id="text843-5-7-95"
                xml:space="preserve"><tspan
-                 x="52.579067"
-                 y="60.516092"><tspan
-                   style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+                 x="52.579605"
+                 y="60.516092"
+                 id="tspan2553">Bott.</tspan></text>
           </g>
         </g>
         <circle
@@ -2371,12 +2398,12 @@
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.45064998,0,0,0.45064998,18.015404,143.01479)"
-           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
            id="text843-8-8-1"
            xml:space="preserve"><tspan
-             x="51.590846"
-             y="60.729276"><tspan
-               style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+             x="51.592866"
+             y="60.729276"
+             id="tspan2555">Right</tspan></text>
         <circle
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
            id="path841-96-7-4"
@@ -2386,11 +2413,11 @@
         <text
            xml:space="preserve"
            id="text843-6-9-7"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,3.5441665,134.08344)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2557">Left</tspan></text>
       </g>
       <g
          inkscape:export-ydpi="99"
@@ -2428,9 +2455,11 @@
              style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2561"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2559">Top</tspan></tspan></text>
         </g>
         <g
            id="g930"
@@ -2445,11 +2474,11 @@
           <text
              xml:space="preserve"
              id="text843-5"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2563">Bott.</tspan></text>
         </g>
         <g
            id="g925"
@@ -2464,11 +2493,11 @@
           <text
              xml:space="preserve"
              id="text843-8"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2565">Right</tspan></text>
         </g>
         <circle
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -2479,11 +2508,11 @@
         <text
            xml:space="preserve"
            id="text843-6"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2567">Left</tspan></text>
       </g>
       <text
          inkscape:export-ydpi="99"
@@ -2491,10 +2520,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_longitudinal_leds.png"
          xml:space="preserve"
          id="text843-6-1"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(1.1966482,0,0,1.1966482,-42.350039,61.160195)"><tspan
-           x="50.444404"
-           y="60.461983"><tspan>Exposure</tspan></tspan></text>
+           x="50.44793"
+           y="60.461983"
+           id="tspan2569">Exposure</tspan></text>
       <circle
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -2531,11 +2561,13 @@
           <text
              xml:space="preserve"
              id="text843-4"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2573"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2571">Top</tspan></tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -2549,12 +2581,12 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              id="text843-5-7"
              xml:space="preserve"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2575">Bott.</tspan></text>
         </g>
       </g>
       <g
@@ -2596,12 +2628,14 @@
                  style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
               <text
                  transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-2-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-2-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
                  id="text843-4-4-6"
                  xml:space="preserve"><tspan
-                   x="53.963704"
-                   y="60.335706"><tspan
-                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+                   x="53.965399"
+                   y="60.335706"
+                   id="tspan2579"><tspan
+                     style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                     id="tspan2577">Top</tspan></tspan></text>
             </g>
             <g
                id="g930-3-5-5"
@@ -2616,11 +2650,11 @@
               <text
                  xml:space="preserve"
                  id="text843-5-7-3-6"
-                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-2-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-2-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
                  transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-                   x="52.579067"
-                   y="60.516092"><tspan
-                     style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+                   x="52.579605"
+                   y="60.516092"
+                   id="tspan2581">Bott.</tspan></text>
             </g>
           </g>
         </g>
@@ -2633,11 +2667,11 @@
         <text
            xml:space="preserve"
            id="text843-8-8-6-2"
-           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-4-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-4-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
            transform="matrix(0.89527094,0,0,0.89527094,76.18503,80.086615)"><tspan
-             x="51.590846"
-             y="60.729276"><tspan
-               style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+             x="51.592866"
+             y="60.729276"
+             id="tspan2583">Right</tspan></text>
         <circle
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
            id="path841-96-7-2-3"
@@ -2647,11 +2681,11 @@
         <text
            xml:space="preserve"
            id="text843-6-9-1-5"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-7-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-7-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(1.1966482,0,0,1.1966482,47.436157,62.343395)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2585">Left</tspan></text>
       </g>
       <circle
          inkscape:export-ydpi="99"
@@ -2667,12 +2701,12 @@
          inkscape:export-xdpi="99"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_longitudinal_leds.png"
          transform="matrix(0.45064999,0,0,0.45064999,19.579228,96.114343)"
-         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
          id="text843-8-8"
          xml:space="preserve"><tspan
-           x="51.590846"
-           y="60.729276"><tspan
-             style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+           x="51.592866"
+           y="60.729276"
+           id="tspan2587">Right</tspan></text>
       <g
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -2711,12 +2745,14 @@
                style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
             <text
                transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-               style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-09);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+               style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-09);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
                id="text843-9"
                xml:space="preserve"><tspan
-                 x="53.963704"
-                 y="60.335706"><tspan
-                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+                 x="53.965399"
+                 y="60.335706"
+                 id="tspan2591"><tspan
+                   style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                   id="tspan2589">Top</tspan></tspan></text>
           </g>
           <g
              id="g930-7"
@@ -2731,11 +2767,11 @@
             <text
                xml:space="preserve"
                id="text843-5-6"
-               style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+               style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
                transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-                 x="52.579067"
-                 y="60.516092"><tspan
-                   style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+                 x="52.579605"
+                 y="60.516092"
+                 id="tspan2593">Bott.</tspan></text>
           </g>
           <g
              id="g925-6"
@@ -2750,11 +2786,11 @@
             <text
                xml:space="preserve"
                id="text843-8-0"
-               style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+               style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
                transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-                 x="51.590846"
-                 y="60.729276"><tspan
-                   style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+                 x="51.592866"
+                 y="60.729276"
+                 id="tspan2595">Right</tspan></text>
           </g>
           <circle
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -2765,11 +2801,11 @@
           <text
              xml:space="preserve"
              id="text843-6-6"
-             style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+             style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
              transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"><tspan
-               x="53.28391"
-               y="60.461983"><tspan
-                 style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+               x="53.283407"
+               y="60.461983"
+               id="tspan2597">Left</tspan></text>
         </g>
       </g>
       <g
@@ -2815,11 +2851,13 @@
               <text
                  xml:space="preserve"
                  id="text843-4-9"
-                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
                  transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-                   x="53.963704"
-                   y="60.335706"><tspan
-                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+                   x="53.965399"
+                   y="60.335706"
+                   id="tspan2601"><tspan
+                     style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                     id="tspan2599">Top</tspan></tspan></text>
             </g>
             <g
                style="stroke-width:0.763588"
@@ -2833,12 +2871,12 @@
                  style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
               <text
                  transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
                  id="text843-5-7-9"
                  xml:space="preserve"><tspan
-                   x="52.579067"
-                   y="60.516092"><tspan
-                     style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+                   x="52.579605"
+                   y="60.516092"
+                   id="tspan2603">Bott.</tspan></text>
             </g>
           </g>
         </g>
@@ -2850,12 +2888,12 @@
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.89527094,0,0,0.89527094,76.901748,30.919702)"
-           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
            id="text843-8-8-3"
            xml:space="preserve"><tspan
-             x="51.590846"
-             y="60.729276"><tspan
-               style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+             x="51.592866"
+             y="60.729276"
+             id="tspan2605">Right</tspan></text>
         <circle
            r="3.7797618"
            cy="84.607613"
@@ -2864,12 +2902,12 @@
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(1.1966482,0,0,1.1966482,48.152876,13.176482)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-9-8"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2607">Left</tspan></text>
       </g>
       <g
          style="stroke-width:0.763588"
@@ -2903,11 +2941,13 @@
           <text
              xml:space="preserve"
              id="text843-3"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-99);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-99);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2611"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2609">Top</tspan></tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -2921,12 +2961,12 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-29);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-29);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              id="text843-5-3"
              xml:space="preserve"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2613">Bott.</tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -2940,12 +2980,12 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-06"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2615">Right</tspan></text>
         </g>
         <circle
            r="1.9026079"
@@ -2955,20 +2995,21 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-40);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-40);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-0"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2617">Left</tspan></text>
       </g>
       <text
          transform="matrix(1.1966482,0,0,1.1966482,-42.565172,85.4266)"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          id="text843-6-1-3"
          xml:space="preserve"><tspan
-           x="50.444404"
-           y="60.461983"><tspan>Exposure</tspan></tspan></text>
+           x="50.44793"
+           y="60.461983"
+           id="tspan2619">Exposure</tspan></text>
       <g
          style="stroke-width:0.763588"
          id="g839-6-1"
@@ -3004,12 +3045,14 @@
                style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
             <text
                transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-               style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+               style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
                id="text843-4-4"
                xml:space="preserve"><tspan
-                 x="53.963704"
-                 y="60.335706"><tspan
-                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+                 x="53.965399"
+                 y="60.335706"
+                 id="tspan2623"><tspan
+                   style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                   id="tspan2621">Top</tspan></tspan></text>
           </g>
           <g
              id="g930-3-5"
@@ -3024,11 +3067,11 @@
             <text
                xml:space="preserve"
                id="text843-5-7-3"
-               style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+               style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
                transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-                 x="52.579067"
-                 y="60.516092"><tspan
-                   style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+                 x="52.579605"
+                 y="60.516092"
+                 id="tspan2625">Bott.</tspan></text>
           </g>
         </g>
       </g>
@@ -3041,11 +3084,11 @@
       <text
          xml:space="preserve"
          id="text843-8-8-6"
-         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
          transform="matrix(0.45064998,0,0,0.45064998,19.364098,120.25364)"><tspan
-           x="51.590846"
-           y="60.729276"><tspan
-             style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+           x="51.592866"
+           y="60.729276"
+           id="tspan2627">Right</tspan></text>
       <circle
          style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
          id="path841-96-7-2"
@@ -3055,11 +3098,11 @@
       <text
          xml:space="preserve"
          id="text843-6-9-1"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.60235339,0,0,0.60235339,4.8928596,111.32229)"><tspan
-           x="53.28391"
-           y="60.461983"><tspan
-             style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+           x="53.283407"
+           y="60.461983"
+           id="tspan2629">Left</tspan></text>
       <path
          style="fill:none;stroke:#000000;stroke-width:0.202032px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m 14.233965,158.81719 h 2.044126 l -0.01745,-3.92321 H 31.66036 v 3.92321"
@@ -3111,12 +3154,14 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-99-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-99-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843-3-8"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2633"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2631">Top</tspan></tspan></text>
         </g>
         <g
            id="g930-1-6"
@@ -3131,11 +3176,11 @@
           <text
              xml:space="preserve"
              id="text843-5-3-2"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-29-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-29-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2635">Bott.</tspan></text>
         </g>
         <g
            id="g925-10-0"
@@ -3150,11 +3195,11 @@
           <text
              xml:space="preserve"
              id="text843-8-06-2"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-5-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-5-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2637">Right</tspan></text>
         </g>
         <circle
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -3165,11 +3210,11 @@
         <text
            xml:space="preserve"
            id="text843-6-0-9"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-40-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-40-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2639">Left</tspan></text>
       </g>
       <g
          style="stroke-width:0.763588"
@@ -3211,11 +3256,13 @@
               <text
                  xml:space="preserve"
                  id="text843-4-4-6-4"
-                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-2-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-2-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
                  transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-                   x="53.963704"
-                   y="60.335706"><tspan
-                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+                   x="53.965399"
+                   y="60.335706"
+                   id="tspan2643"><tspan
+                     style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                     id="tspan2641">Top</tspan></tspan></text>
             </g>
             <g
                style="stroke-width:0.763588"
@@ -3229,12 +3276,12 @@
                  style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
               <text
                  transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-2-3-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-2-3-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
                  id="text843-5-7-3-6-4"
                  xml:space="preserve"><tspan
-                   x="52.579067"
-                   y="60.516092"><tspan
-                     style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+                   x="52.579605"
+                   y="60.516092"
+                   id="tspan2645">Bott.</tspan></text>
             </g>
           </g>
         </g>
@@ -3246,12 +3293,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.89527094,0,0,0.89527094,76.18503,80.086615)"
-           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-4-6-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+           style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-4-6-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
            id="text843-8-8-6-2-0"
            xml:space="preserve"><tspan
-             x="51.590846"
-             y="60.729276"><tspan
-               style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+             x="51.592866"
+             y="60.729276"
+             id="tspan2647">Right</tspan></text>
         <circle
            r="3.7797618"
            cy="133.77454"
@@ -3260,20 +3307,21 @@
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(1.1966482,0,0,1.1966482,47.436157,62.343395)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-7-6-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-7-6-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-9-1-5-7"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2649">Left</tspan></text>
       </g>
       <text
          xml:space="preserve"
          id="text843-6-1-3-0"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-0-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-0-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(1.1966482,0,0,1.1966482,-43.286708,108.14668)"><tspan
-           x="50.444404"
-           y="60.461983"><tspan>Exposure</tspan></tspan></text>
+           x="50.44793"
+           y="60.461983"
+           id="tspan2651">Exposure</tspan></text>
       <path
          sodipodi:nodetypes="ccccc"
          id="path994-3-0"
@@ -3326,11 +3374,13 @@
           <text
              xml:space="preserve"
              id="text843-3-8-6"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-99-2-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-99-2-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2655"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2653">Top</tspan></tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -3344,12 +3394,12 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-29-2-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-29-2-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              id="text843-5-3-2-0"
              xml:space="preserve"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2657">Bott.</tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -3363,12 +3413,12 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-5-8-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-5-8-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-06-2-0"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2659">Right</tspan></text>
         </g>
         <circle
            r="1.9026079"
@@ -3378,12 +3428,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-40-2-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-40-2-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-0-9-4"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2661">Left</tspan></text>
       </g>
       <circle
          inkscape:export-ydpi="99"
@@ -3400,11 +3450,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_longitudinal_leds.png"
          xml:space="preserve"
          id="text843-6-9"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.60235339,0,0,0.60235339,5.10799,87.182986)"><tspan
-           x="53.28391"
-           y="60.461983"><tspan
-             style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+           x="53.283407"
+           y="60.461983"
+           id="tspan2663">Left</tspan></text>
       <g
          transform="translate(51.641627,3.6537273)"
          id="g1494">
@@ -3443,12 +3493,14 @@
                  style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
               <text
                  transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-7-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+                 style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-7-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
                  id="text843-87-7"
                  xml:space="preserve"><tspan
-                   x="53.963704"
-                   y="60.335706"><tspan
-                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+                   x="53.965399"
+                   y="60.335706"
+                   id="tspan2667"><tspan
+                     style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                     id="tspan2665">Top</tspan></tspan></text>
             </g>
             <g
                id="g930-2-7"
@@ -3463,11 +3515,11 @@
               <text
                  xml:space="preserve"
                  id="text843-5-8-1"
-                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-2-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+                 style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-2-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
                  transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-                   x="52.579067"
-                   y="60.516092"><tspan
-                     style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+                   x="52.579605"
+                   y="60.516092"
+                   id="tspan2669">Bott.</tspan></text>
             </g>
           </g>
         </g>
@@ -3484,11 +3536,11 @@
           <text
              xml:space="preserve"
              id="text843-8-3-7"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-2-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-2-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2671">Right</tspan></text>
         </g>
         <circle
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -3499,11 +3551,11 @@
         <text
            xml:space="preserve"
            id="text843-6-6-1"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-44-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-44-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,18.408002,32.345532)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2673">Left</tspan></text>
       </g>
       <g
          style="stroke-width:0.763588"
@@ -3537,11 +3589,13 @@
           <text
              xml:space="preserve"
              id="text843-0"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-10);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-10);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2677"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2675">Top</tspan></tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -3555,12 +3609,12 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              id="text843-5-64"
              xml:space="preserve"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2679">Bott.</tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -3574,12 +3628,12 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-50);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-50);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-00"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2681">Right</tspan></text>
         </g>
         <circle
            r="1.9026079"
@@ -3589,12 +3643,12 @@
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-5"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2683">Left</tspan></text>
       </g>
       <rect
          inkscape:export-ydpi="99"
@@ -3611,11 +3665,12 @@
          inkscape:export-xdpi="99"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_longitudinal_leds.png"
          transform="matrix(0.81344034,0,0,0.81344034,-23.664329,66.678422)"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          id="text843-6-1-0"
          xml:space="preserve"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2685">One image</tspan></text>
       <rect
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -3632,10 +3687,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_longitudinal_leds.png"
          xml:space="preserve"
          id="text843-6-1-0-3"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.81344033,0,0,0.81344033,11.176147,66.805762)"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2687">One image</tspan></text>
       <rect
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.152718;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
          id="rect3786-34"
@@ -3646,10 +3702,11 @@
       <text
          xml:space="preserve"
          id="text843-6-1-0-1"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.81344033,0,0,0.81344033,-23.890963,91.049689)"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2689">One image</tspan></text>
       <rect
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.152718;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
          id="rect3786-5"
@@ -3660,10 +3717,11 @@
       <text
          xml:space="preserve"
          id="text843-6-1-0-9"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.81344033,0,0,0.81344033,10.959683,91.049689)"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2691">One image</tspan></text>
       <rect
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.152718;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
          id="rect3786-4"
@@ -3674,10 +3732,11 @@
       <text
          xml:space="preserve"
          id="text843-6-1-0-38"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-04);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-04);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.81344033,0,0,0.81344033,-26.488526,113.85052)"><tspan
-           x="52.010612"
-           y="60.461983"><tspan>One image panel 1</tspan></tspan></text>
+           x="52.015147"
+           y="60.461983"
+           id="tspan2693">One image panel 1</tspan></text>
       <rect
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.152718;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
          id="rect3786-8"
@@ -3693,8 +3752,8 @@
          style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.81344033,0,0,0.81344033,13.557247,113.99483)"><tspan
            x="45.435547"
-           y="60.461983"><tspan
-             style="text-align:start;text-anchor:start">One image panel 2</tspan></tspan></text>
+           y="60.461983"
+           id="tspan2695">One image panel 2</tspan></text>
       <g
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -3730,11 +3789,13 @@
           <text
              xml:space="preserve"
              id="text843-58"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2699"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2697">Top</tspan></tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -3748,12 +3809,12 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              id="text843-5-71"
              xml:space="preserve"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2701">Bott.</tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -3767,12 +3828,12 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-002"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2703">Right</tspan></text>
         </g>
         <circle
            r="1.9026079"
@@ -3782,23 +3843,120 @@
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-04"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2705">Left</tspan></text>
+      </g>
+      <g
+         inkscape:export-ydpi="50.297264"
+         inkscape:export-xdpi="50.297264"
+         inkscape:export-filename="C:\DAQ\pymodaq_git\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\sequence.png"
+         style="stroke-width:0.763588"
+         id="g1585-8-87"
+         transform="translate(108.21638,-5.32788)">
+        <g
+           transform="matrix(0.38436524,0,0,0.38436524,-6.86227,97.741085)"
+           id="g839-0-4">
+          <circle
+             style="fill:#aeb0b1;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+             id="path833-50-2"
+             cx="80.27356"
+             cy="63.945564"
+             r="16.30344" />
+          <path
+             style="fill:#001c5a;fill-opacity:1;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 80.273386,47.676815 c 2.829453,9.929344 8.834993,15.111915 16.291977,16.320144 -10.213957,4.41315 -14.396191,9.665567 -16.291977,16.21992 C 77.915446,70.576662 71.816004,66.894208 63.984477,63.96355 73.398709,62.37821 78.163278,56.38813 80.273386,47.676815 Z"
+             id="path835-51-0"
+             sodipodi:nodetypes="ccccc" />
+        </g>
+        <g
+           style="stroke-width:0.763588"
+           transform="matrix(0.50336714,0,0,0.50336714,-16.572763,91.464662)"
+           id="g935-7-4">
+          <circle
+             style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+             id="path841-21-1"
+             cx="80.587021"
+             cy="54.911121"
+             r="3.7797618" />
+          <text
+             xml:space="preserve"
+             id="text843-58-1"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-27);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
+             transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
+               x="53.965399"
+               y="60.335706"
+               id="tspan2709"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2707">Top</tspan></tspan></text>
+        </g>
+        <g
+           style="stroke-width:0.763588"
+           transform="matrix(0.50336714,0,0,0.50336714,0.04808649,88.297073)"
+           id="g930-31-2">
+          <circle
+             r="3.7797618"
+             cy="73.975601"
+             cx="47.567684"
+             id="path841-7-23-1"
+             style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+          <text
+             transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
+             id="text843-5-71-1"
+             xml:space="preserve"><tspan
+               x="52.579605"
+               y="60.516092"
+               id="tspan2711">Bott.</tspan></text>
+        </g>
+        <g
+           style="stroke-width:0.763588"
+           transform="matrix(0.50336715,0,0,0.50336715,-1.0742679,79.514394)"
+           id="g925-7-7">
+          <circle
+             r="3.7797618"
+             cy="85.037621"
+             cx="55.850094"
+             id="path841-9-2-49"
+             style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+          <text
+             transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-26);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
+             id="text843-8-002-3"
+             xml:space="preserve"><tspan
+               x="51.592866"
+               y="60.729276"
+               id="tspan2713">Right</tspan></text>
+        </g>
+        <circle
+           r="1.9026079"
+           cy="122.31956"
+           cx="20.945358"
+           id="path841-96-3-4"
+           style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+        <text
+           transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-45);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
+           id="text843-6-04-2"
+           xml:space="preserve"><tspan
+             x="53.283407"
+             y="60.461983"
+             id="tspan2715">Left</tspan></text>
       </g>
       <text
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          transform="matrix(1.1966482,0,0,1.1966482,-42.420861,36.321054)"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          id="text843-6-1-4"
          xml:space="preserve"><tspan
-           x="50.444404"
-           y="60.461983"><tspan>Exposure</tspan></tspan></text>
+           x="50.44793"
+           y="60.461983"
+           id="tspan2717">Exposure</tspan></text>
       <circle
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -3835,12 +3993,14 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-21);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-21);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843-4-6"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2721"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2719">Top</tspan></tspan></text>
         </g>
         <g
            id="g930-3-4"
@@ -3855,11 +4015,11 @@
           <text
              xml:space="preserve"
              id="text843-5-7-94"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-42);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-42);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2723">Bott.</tspan></text>
         </g>
       </g>
       <circle
@@ -3877,11 +4037,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          xml:space="preserve"
          id="text843-8-8-7"
-         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-46);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-46);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
          transform="matrix(0.45064998,0,0,0.45064998,19.508408,71.275201)"><tspan
-           x="51.590846"
-           y="60.729276"><tspan
-             style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+           x="51.592866"
+           y="60.729276"
+           id="tspan2725">Right</tspan></text>
       <circle
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -3896,12 +4056,12 @@
          inkscape:export-xdpi="99"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          transform="matrix(0.60235339,0,0,0.60235339,5.0371695,62.343845)"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          id="text843-6-9-17"
          xml:space="preserve"><tspan
-           x="53.28391"
-           y="60.461983"><tspan
-             style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+           x="53.283407"
+           y="60.461983"
+           id="tspan2727">Left</tspan></text>
       <rect
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -3918,10 +4078,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          xml:space="preserve"
          id="text843-6-1-0-56"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.81344033,0,0,0.81344033,-23.735149,41.839281)"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2729">One image</tspan></text>
       <path
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -3969,11 +4130,12 @@
          inkscape:export-xdpi="99"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          transform="matrix(0.81344033,0,0,0.81344033,-6.2061227,42.106358)"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          id="text843-6-1-0-56-5"
          xml:space="preserve"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2731">One image</tspan></text>
       <g
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -4008,12 +4170,14 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843-58-9"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2735"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2733">Top</tspan></tspan></text>
         </g>
         <g
            id="g930-31-5"
@@ -4028,11 +4192,11 @@
           <text
              xml:space="preserve"
              id="text843-5-71-2"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2737">Bott.</tspan></text>
         </g>
         <g
            id="g925-7-4"
@@ -4047,11 +4211,11 @@
           <text
              xml:space="preserve"
              id="text843-8-002-9"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2739">Right</tspan></text>
         </g>
         <circle
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4062,11 +4226,11 @@
         <text
            xml:space="preserve"
            id="text843-6-04-0"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,-12.365197,86.363463)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2741">Left</tspan></text>
       </g>
       <circle
          inkscape:export-ydpi="99"
@@ -4105,11 +4269,13 @@
           <text
              xml:space="preserve"
              id="text843-4-6-6"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-21-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-9-21-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2745"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2743">Top</tspan></tspan></text>
         </g>
         <g
            style="stroke-width:0.763588"
@@ -4123,12 +4289,12 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.1203054,0,0,1.1203054,-14.288082,7.061726)"
-             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-42-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+             style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-0-42-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
              id="text843-5-7-94-9"
              xml:space="preserve"><tspan
-               x="52.579067"
-               y="60.516092"><tspan
-                 style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+               x="52.579605"
+               y="60.516092"
+               id="tspan2747">Bott.</tspan></text>
         </g>
       </g>
       <circle
@@ -4145,12 +4311,12 @@
          inkscape:export-xdpi="99"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          transform="matrix(0.45064998,0,0,0.45064998,54.140552,71.357714)"
-         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-46-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+         style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-4-46-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
          id="text843-8-8-7-4"
          xml:space="preserve"><tspan
-           x="51.590846"
-           y="60.729276"><tspan
-             style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+           x="51.592866"
+           y="60.729276"
+           id="tspan2749">Right</tspan></text>
       <circle
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -4166,11 +4332,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          xml:space="preserve"
          id="text843-6-9-17-8"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-9-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-41-9-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.60235339,0,0,0.60235339,39.669314,62.426358)"><tspan
-           x="53.28391"
-           y="60.461983"><tspan
-             style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+           x="53.283407"
+           y="60.461983"
+           id="tspan2751">Left</tspan></text>
       <rect
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -4186,11 +4352,12 @@
          inkscape:export-xdpi="99"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          transform="matrix(0.81344033,0,0,0.81344033,11.1521,42.074859)"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          id="text843-6-1-0-56-2"
          xml:space="preserve"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2753">One image</tspan></text>
       <rect
          inkscape:export-ydpi="99"
          inkscape:export-xdpi="99"
@@ -4207,10 +4374,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\ver_full_leds.png"
          xml:space="preserve"
          id="text843-6-1-0-56-5-0"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-5-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-5-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(0.81344033,0,0,0.81344033,28.426021,42.188873)"><tspan
-           x="49.579856"
-           y="60.461983"><tspan>One image</tspan></tspan></text>
+           x="49.581871"
+           y="60.461983"
+           id="tspan2755">One image</tspan></text>
       <g
          transform="translate(0.10009756,-46.747117)"
          id="g1585-8-3"
@@ -4226,10 +4394,11 @@
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\hor_full_leds.png"
          xml:space="preserve"
          id="text843-6-1-4-1"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          transform="matrix(1.1966482,0,0,1.1966482,-42.249943,13.593555)"><tspan
-           x="50.444404"
-           y="60.461983"><tspan>Exposure</tspan></tspan></text>
+           x="50.44793"
+           y="60.461983"
+           id="tspan2757">Exposure</tspan></text>
       <g
          inkscape:export-ydpi="99.903656"
          inkscape:export-xdpi="99.903656"
@@ -4265,11 +4434,13 @@
           <text
              xml:space="preserve"
              id="text843-58-8"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2761"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2759">Top</tspan></tspan></text>
         </g>
         <circle
            transform="matrix(0.50336715,0,0,0.50336715,0.14818405,41.549956)"
@@ -4280,12 +4451,12 @@
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            id="text843-5-71-5"
            xml:space="preserve"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2763">Bott.</tspan></text>
         <g
            style="stroke-width:0.763588"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -4298,12 +4469,12 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-002-91"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2765">Right</tspan></text>
         </g>
         <circle
            transform="translate(0.10009764,-46.747117)"
@@ -4314,12 +4485,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-04-8"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2767">Left</tspan></text>
         <rect
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
            id="rect3786-9-9"
@@ -4330,10 +4501,11 @@
         <text
            xml:space="preserve"
            id="text843-6-1-0-56-4"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2769">One image</tspan></text>
       </g>
       <path
          inkscape:export-ydpi="99.903656"
@@ -4402,12 +4574,14 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843-58-8-6"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2773"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2771">Top</tspan></tspan></text>
         </g>
         <circle
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4419,11 +4593,11 @@
         <text
            xml:space="preserve"
            id="text843-5-71-5-5"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2775">Bott.</tspan></text>
         <g
            id="g925-7-2-9"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -4437,11 +4611,11 @@
           <text
              xml:space="preserve"
              id="text843-8-002-91-3"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2777">Right</tspan></text>
         </g>
         <circle
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4453,11 +4627,11 @@
         <text
            xml:space="preserve"
            id="text843-6-04-8-1"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2779">Left</tspan></text>
         <rect
            y="66.74575"
            x="16.599676"
@@ -4467,11 +4641,12 @@
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-1-0-56-4-6"
            xml:space="preserve"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2781">One image</tspan></text>
       </g>
       <g
          inkscape:export-ydpi="99.903656"
@@ -4508,12 +4683,14 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-6);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843-58-8-2"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2785"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2783">Top</tspan></tspan></text>
         </g>
         <circle
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4525,11 +4702,11 @@
         <text
            xml:space="preserve"
            id="text843-5-71-5-50"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2787">Bott.</tspan></text>
         <g
            id="g925-7-2-6"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -4543,11 +4720,11 @@
           <text
              xml:space="preserve"
              id="text843-8-002-91-7"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2789">Right</tspan></text>
         </g>
         <circle
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4559,11 +4736,11 @@
         <text
            xml:space="preserve"
            id="text843-6-04-8-9"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2791">Left</tspan></text>
         <rect
            y="66.74575"
            x="16.599676"
@@ -4573,11 +4750,12 @@
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-1-0-56-4-3"
            xml:space="preserve"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2793">One image</tspan></text>
       </g>
       <g
          inkscape:export-ydpi="99.903656"
@@ -4614,12 +4792,14 @@
              style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843-58-8-4"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2797"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2795">Top</tspan></tspan></text>
         </g>
         <circle
            style="fill:#898989;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4631,11 +4811,11 @@
         <text
            xml:space="preserve"
            id="text843-5-71-5-8"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2799">Bott.</tspan></text>
         <g
            id="g925-7-2-8"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -4649,11 +4829,11 @@
           <text
              xml:space="preserve"
              id="text843-8-002-91-5"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2801">Right</tspan></text>
         </g>
         <circle
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4665,11 +4845,11 @@
         <text
            xml:space="preserve"
            id="text843-6-04-8-0"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2803">Left</tspan></text>
         <rect
            y="66.74575"
            x="16.599676"
@@ -4679,22 +4859,24 @@
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-1-0-56-4-8"
            xml:space="preserve"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2805">One image</tspan></text>
       </g>
       <text
          inkscape:export-ydpi="99.903656"
          inkscape:export-xdpi="99.903656"
          inkscape:export-filename="C:\Users\weber\Labo\Programmes Python\PyMoDAQ_Git\pymodaq_plugins_folder\pymodaq_plugins_moke\src\pymodaq_plugins_moke\utils\images\full_leds.png"
          transform="matrix(1.1966482,0,0,1.1966482,-42.709479,-9.4337409)"
-         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-4-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+         style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-4-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
          id="text843-6-1-4-1-1"
          xml:space="preserve"><tspan
-           x="50.444404"
-           y="60.461983"><tspan>Exposure</tspan></tspan></text>
+           x="50.44793"
+           y="60.461983"
+           id="tspan2807">Exposure</tspan></text>
       <g
          inkscape:export-ydpi="99.903656"
          inkscape:export-xdpi="99.903656"
@@ -4730,12 +4912,14 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763589;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              id="text843-58-8-5"
              xml:space="preserve"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2811"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2809">Top</tspan></tspan></text>
         </g>
         <circle
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4747,11 +4931,11 @@
         <text
            xml:space="preserve"
            id="text843-5-71-5-1"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2813">Bott.</tspan></text>
         <g
            id="g925-7-2-3"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -4765,11 +4949,11 @@
           <text
              xml:space="preserve"
              id="text843-8-002-91-2"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2815">Right</tspan></text>
         </g>
         <circle
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -4781,11 +4965,11 @@
         <text
            xml:space="preserve"
            id="text843-6-04-8-18"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2817">Left</tspan></text>
         <rect
            y="66.74575"
            x="16.599676"
@@ -4795,11 +4979,12 @@
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-1-0-56-4-82"
            xml:space="preserve"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2819">One image</tspan></text>
       </g>
       <path
          inkscape:export-ydpi="99.903656"
@@ -4869,11 +5054,13 @@
           <text
              xml:space="preserve"
              id="text843-58-8-5-9"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2823"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2821">Top</tspan></tspan></text>
         </g>
         <circle
            transform="matrix(0.50336715,0,0,0.50336715,0.14818405,41.549956)"
@@ -4884,12 +5071,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            id="text843-5-71-5-1-0"
            xml:space="preserve"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2825">Bott.</tspan></text>
         <g
            style="stroke-width:0.763588"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -4902,12 +5089,12 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3-4);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-002-91-2-6"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2827">Right</tspan></text>
         </g>
         <circle
            transform="translate(0.10009764,-46.747117)"
@@ -4918,12 +5105,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-04-8-18-5"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2829">Left</tspan></text>
         <rect
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
            id="rect3786-9-9-1-9"
@@ -4934,10 +5121,11 @@
         <text
            xml:space="preserve"
            id="text843-6-1-0-56-4-82-4"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2831">One image</tspan></text>
       </g>
       <g
          inkscape:export-ydpi="99.903656"
@@ -4975,11 +5163,13 @@
           <text
              xml:space="preserve"
              id="text843-58-8-5-8"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2835"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2833">Top</tspan></tspan></text>
         </g>
         <circle
            transform="matrix(0.50336715,0,0,0.50336715,0.14818405,41.549956)"
@@ -4990,12 +5180,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4-0);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            id="text843-5-71-5-1-9"
            xml:space="preserve"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2837">Bott.</tspan></text>
         <g
            style="stroke-width:0.763588"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -5008,12 +5198,12 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3-2);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-002-91-2-1"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2839">Right</tspan></text>
         </g>
         <circle
            transform="translate(0.10009764,-46.747117)"
@@ -5024,12 +5214,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06-7);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-04-8-18-6"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2841">Left</tspan></text>
         <rect
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
            id="rect3786-9-9-1-90"
@@ -5040,10 +5230,11 @@
         <text
            xml:space="preserve"
            id="text843-6-1-0-56-4-82-3"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5-8);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2843">One image</tspan></text>
       </g>
       <g
          inkscape:export-ydpi="99.903656"
@@ -5081,11 +5272,13 @@
           <text
              xml:space="preserve"
              id="text843-58-8-5-1"
-             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622;"
+             style="font-style:normal;font-weight:normal;font-size:1.73544px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-03-9-96-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.536622"
              transform="matrix(1.4229532,0,0,1.4229532,2.0532167,-30.383074)"><tspan
-               x="53.963704"
-               y="60.335706"><tspan
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.73544px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:0.536622">Top</tspan></tspan></text>
+               x="53.965399"
+               y="60.335706"
+               id="tspan2847"><tspan
+                 style="font-family:Calibri;-inkscape-font-specification:Calibri"
+                 id="tspan2845">Top</tspan></tspan></text>
         </g>
         <circle
            transform="matrix(0.50336715,0,0,0.50336715,0.14818405,41.549956)"
@@ -5096,12 +5289,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.56392492,0,0,0.56392492,-7.0439669,45.104597)"
-           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159;"
+           style="font-style:normal;font-weight:normal;font-size:2.20426px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-1-6-9-4-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.68159"
            id="text843-5-71-5-1-1"
            xml:space="preserve"><tspan
-             x="52.579067"
-             y="60.516092"><tspan
-               style="font-size:2.20426px;stroke-width:0.68159">Bott.</tspan></tspan></text>
+             x="52.579605"
+             y="60.516092"
+             id="tspan2849">Bott.</tspan></text>
         <g
            style="stroke-width:0.763588"
            transform="matrix(0.50336715,0,0,0.50336715,-0.97417038,32.767277)"
@@ -5114,12 +5307,12 @@
              style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0763588;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
           <text
              transform="matrix(0.89527095,0,0,0.89527095,6.3180704,31.349734)"
-             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913;"
+             style="font-style:normal;font-weight:normal;font-size:2.75832px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-0-7-2-3-3);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.852913"
              id="text843-8-002-91-2-0"
              xml:space="preserve"><tspan
-               x="51.590846"
-               y="60.729276"><tspan
-                 style="font-size:2.75832px;stroke-width:0.852913">Right</tspan></tspan></text>
+               x="51.592866"
+               y="60.729276"
+               id="tspan2851">Right</tspan></text>
         </g>
         <circle
            transform="translate(0.10009764,-46.747117)"
@@ -5130,12 +5323,12 @@
            style="fill:#ffc700;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384365;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
         <text
            transform="matrix(0.60235339,0,0,0.60235339,-12.2651,39.616346)"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-9-7-06-1);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            id="text843-6-04-8-18-8"
            xml:space="preserve"><tspan
-             x="53.28391"
-             y="60.461983"><tspan
-               style="font-size:2.06363px;stroke-width:0.638109">Left</tspan></tspan></text>
+             x="53.283407"
+             y="60.461983"
+             id="tspan2853">Left</tspan></text>
         <rect
            style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.105108;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
            id="rect3786-9-9-1-1"
@@ -5146,10 +5339,11 @@
         <text
            xml:space="preserve"
            id="text843-6-1-0-56-4-82-2"
-           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109;"
+           style="font-style:normal;font-weight:normal;font-size:2.06363px;line-height:0.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845-3-4-9-03-43-5-9);fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.638109"
            transform="matrix(0.81344033,0,0,0.81344033,-23.564231,19.111782)"><tspan
-             x="49.579856"
-             y="60.461983"><tspan>One image</tspan></tspan></text>
+             x="49.581871"
+             y="60.461983"
+             id="tspan2855">One image</tspan></text>
       </g>
     </g>
     <path
