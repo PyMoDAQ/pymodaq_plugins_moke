@@ -165,6 +165,9 @@ class DAQ_2DViewer_MOKEGrabber(DAQ_2DViewer_AndorSCMOS):
         except Exception as e:
             logger.exception(str(e))
 
+    def activate_substraction(self, do_sub=False):
+        self.settings.child('do_sub').setValue(do_sub)
+
     def grab_data(self, Naverage=1, **kwargs):
         """
         """

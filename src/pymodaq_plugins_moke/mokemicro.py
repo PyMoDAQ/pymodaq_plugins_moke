@@ -23,7 +23,7 @@ class MicroMOKE:
         self.setup_camera()
 
     def setup_camera(self):
-        self.detector.settings.child('detector_settings', 'camera_settings', 'exposure').setValue(10)
+        self.detector.settings.child('detector_settings', 'camera_settings', 'exposure').setValue(100)
         QtWidgets.QApplication.processEvents()
         encoding = self.detector.settings.child('detector_settings', 'camera_settings', 'encoding').opts['limits'][2]
         self.detector.settings.child('detector_settings', 'camera_settings', 'encoding').setValue(encoding)
@@ -37,6 +37,7 @@ class MicroMOKE:
 
         for dock in self.detector.viewer_docks:
             self.detector.dockarea.moveDock(dock, 'right', self.led_control.dock_manual)
+        self.area.moveDock(self.led_control.dock_sequence, 'bottom', self.led_control.dock_manual)
 
         self.create_actions()
         self.create_toolbar()
@@ -91,22 +92,50 @@ class MicroMOKE:
             logger.debug('stopped')
 
     def set_LEDs(self, led_values):
-
         self.led_actuator.command_stage.emit(ThreadCommand('set_leds_external', [led_values]))
+        if self.toggle_sequence_action.isChecked():
+            self.set_led_type()
 
     def set_led_type(self, led_type=None):
-        if led_type is None:
+        if not isinstance(led_type, dict):
             if not self.toggle_sequence_action.isChecked():
                 led_type = dict(manual=None)
             else:
-                led_type = dict(sequence=self.led_control.led_sequence_control.sequence)
+                sequence = self.led_control.led_sequence_control.sequence
+                led_state = dict(top=False, bottom=False, left=False, right=False)
+                for seq in sequence:
+                    for led in seq:
+                        if seq[led] is True:
+                            led_state[led] = True
+                for led in led_state:
+                    self.led_control.led_manual_control.leds[led].set_as(led_state[led])
+                led_type = dict(sequence=sequence)
+
 
         was_grabing = False
         if self.detector.grab_state:
             was_grabing = True
             self.detector.stop()
+
         QtWidgets.QApplication.processEvents()
         self.led_actuator.command_stage.emit(ThreadCommand('set_led_type', [led_type]))
+        if 'sequence' in led_type:
+            do_sub = len(led_type['sequence']) > 1
+        else:
+            do_sub = False
+        self.detector.command_detector.emit(ThreadCommand('activate_substraction', [do_sub]))
+        if not do_sub:
+            self.detector.ui.viewers[0].setGradient('red', 'grey')
+            self.detector.ui.viewers[0].auto_levels_action_sym.setChecked(False)
+            self.detector.ui.viewers[0].auto_levels_action_sym.trigger()
+        else:
+
+            self.detector.ui.viewers[0].setGradient('red', 'bipolar')
+            self.detector.ui.viewers[0].auto_levels_action.setChecked(False)
+            self.detector.ui.viewers[0].auto_levels_action_sym.setChecked(True)
+            self.detector.ui.viewers[0].auto_levels_action.trigger()
+            self.detector.ui.viewers[0].auto_levels_action_sym.trigger()
+        QtWidgets.QApplication.processEvents()
 
         if was_grabing:
             self.detector.grab()

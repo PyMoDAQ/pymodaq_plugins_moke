@@ -52,7 +52,7 @@ class LedControl(QtCore.QObject):
         self.dock_sequence = gutils.Dock('LED Sequences')
 
         self.area.addDock(self.dock_manual, 'top')
-        self.area.addDock(self.dock_sequence, 'below', self.dock_manual)
+        self.area.addDock(self.dock_sequence, 'bottom', self.dock_manual)
 
         widget_manual = QtWidgets.QWidget()
         self.led_manual_control = ManualLedControl(widget_manual)
@@ -62,7 +62,7 @@ class LedControl(QtCore.QObject):
         self.led_sequence_control = SequenceLedControl(widget_sequence)
         self.dock_sequence.addWidget(widget_sequence)
 
-        self.dock_manual.raiseDock()
+
 
 
 class ManualLedControl(QtCore.QObject):

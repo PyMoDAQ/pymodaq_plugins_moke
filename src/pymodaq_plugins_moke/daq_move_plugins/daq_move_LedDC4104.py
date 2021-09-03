@@ -164,14 +164,17 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
             self.settings.child('digital', 'digital_act').setValue(is_sequence)
         self.update_tasks()
 
-    def check_led_and_update(self):
+    def check_led_and_update(self, force_update=False):
         led_values = self.get_led_values()
-        for led in led_values:
-            for key in led_values[led]:
-                if led_values[led][key] != self.led_values[led][key]:
-                    self.led_values = led_values
-                    self.update_leds(led_values)
-                    break
+        if not force_update:
+            for led in led_values:
+                for key in led_values[led]:
+                    if led_values[led][key] != self.led_values[led][key]:
+                        self.led_values = led_values
+                        self.update_leds(led_values)
+                        break
+        else:
+            self.update_leds(led_values)
 
     def update_leds(self, led_values):
         if self.settings.child('digital', 'digital_act').value():
@@ -283,7 +286,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
             self.controller['di'].update_task(self.channel_clock, digital_clock)
             self.controller['ao'].update_task(self.channels_led, clock_settings)
-            self.check_led_and_update()
+            self.check_led_and_update(force_update=True)
 
             self.controller['ao'].start()
             self.controller['di'].start()
@@ -291,7 +294,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         else:
             clock_settings = ClockSettings(frequency=1000, Nsamples=1)
             self.controller['ao'].update_task(self.channels_led, clock_settings)
-            self.check_led_and_update()
+            self.check_led_and_update(force_update=True)
 
     def stop_task_and_zero(self):
         if self.controller['ao'].task is not None:
