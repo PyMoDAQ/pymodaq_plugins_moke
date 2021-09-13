@@ -145,7 +145,8 @@ class DAQ_1DViewer_MokeMacro(DAQ_Viewer_base):
                                             Nsamples=int(Nsamples))
         self.clock_settings_phot = ClockSettings(frequency=100, Nsamples=10)
 
-        self.controller['do'].update_task([self.channel_do])
+        self.controller['do'].update_task([self.channel_do],
+                                          ClockSettings(frequency=1000, Nsamples=1))
         self.controller['ai'].update_task(self.channels_ai, self.clock_settings_ai)
         self.controller['phot_only'].update_task(self.channels_phot, self.clock_settings_phot)
 
