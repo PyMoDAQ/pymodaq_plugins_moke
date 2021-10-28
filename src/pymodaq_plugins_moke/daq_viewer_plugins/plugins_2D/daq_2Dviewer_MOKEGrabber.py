@@ -1,5 +1,5 @@
 import numpy as np
-from PyQt5 import QtWidgets, QtCore
+from qtpy import QtWidgets, QtCore
 from easydict import EasyDict as edict
 from pymodaq.daq_viewer.utility_classes import DAQ_Viewer_base
 from pymodaq.daq_utils.daq_utils import ThreadCommand, DataFromPlugins, Axis, set_logger, get_module_name, zeros_aligned

@@ -1,5 +1,5 @@
 import sys
-from PyQt5 import QtWidgets
+from qtpy import QtWidgets
 from pymodaq.daq_utils.gui_utils import DockArea
 from pymodaq.daq_viewer.daq_viewer_main import DAQ_Viewer
 

@@ -1,5 +1,5 @@
 import sys
-from PyQt5 import QtWidgets, QtCore, QtGui
+from qtpy import QtWidgets, QtCore, QtGui
 
 from pyqtgraph.parametertree import Parameter, ParameterTree
 from pymodaq.resources.QtDesigner_Ressources import QtDesigner_ressources_rc
@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 class LedControl(QtCore.QObject):
-    led_type_signal = QtCore.pyqtSignal(dict)
+    led_type_signal = QtCore.Signal(dict)
 
     def __init__(self, area):
         super().__init__()
@@ -66,7 +66,7 @@ class LedControl(QtCore.QObject):
 
 
 class ManualLedControl(QtCore.QObject):
-    leds_value = QtCore.pyqtSignal(dict)
+    leds_value = QtCore.Signal(dict)
 
     def __init__(self, parent_widget):
         super().__init__()
@@ -148,7 +148,7 @@ class ManualLedControl(QtCore.QObject):
 
 class SequenceLedControl(QtCore.QObject):
 
-    sequence_signal = QtCore.pyqtSignal()
+    sequence_signal = QtCore.Signal()
 
     sequence_types = ['polar', 'polar_hor', 'polar_ver', 'longitudinal_hor', 'longitudinal_ver', 'longitudinal_dual']
     sequence_titles = ['Polar', 'Polar Horizontal', 'Polar Vertical', 'Longitudinal Horizontal',

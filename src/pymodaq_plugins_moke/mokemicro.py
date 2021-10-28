@@ -1,5 +1,5 @@
 import sys
-from PyQt5 import QtWidgets, QtGui, QtCore
+from qtpy import QtWidgets, QtGui, QtCore
 from pymodaq.daq_utils.gui_utils import DockArea
 from pymodaq.daq_utils.daq_utils import ThreadCommand, set_logger, get_module_name
 from pymodaq.dashboard import DashBoard

@@ -163,7 +163,7 @@ class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
 
 def main():
     import sys
-    from PyQt5 import QtWidgets
+    from qtpy import QtWidgets
     from pymodaq.daq_viewer.daq_viewer_main import DAQ_Viewer
     from pymodaq.daq_utils.gui_utils import DockArea
     from pathlib import Path

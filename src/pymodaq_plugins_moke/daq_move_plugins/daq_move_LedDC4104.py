@@ -385,7 +385,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
 def main():
     import sys
-    from PyQt5 import QtWidgets
+    from qtpy import QtWidgets
     from pymodaq.daq_move.daq_move_main import DAQ_Move
     from pathlib import Path
     app = QtWidgets.QApplication(sys.argv)
