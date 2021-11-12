@@ -26,15 +26,15 @@ class DAQ_1DViewer_MokeMacro(DAQ_Viewer_base):
         {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': 1.4, 'min': 0., 'suffix': 'Ohm'},
         {'title': 'Oe/A (solenoid):', 'name': 'solenoid', 'type': 'float', 'value': 97.},
         {'title': 'DO MagField:', 'name': 'do_mag', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Digital_Output'), 'value': 'cDAQ1Mod2/port0/line0'},
+         'limits': DAQmx.get_NIDAQ_channels(source_type='Digital_Output'), 'value': 'cDAQ1Mod2/port0/line0'},
         {'title': 'AI Phot. 1:', 'name': 'ai_phot1', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai0'},
+         'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai0'},
         {'title': 'AI Phot. 2:', 'name': 'ai_phot2', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai1'},
+         'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai1'},
         {'title': 'AI Ampli.:', 'name': 'ai_ampli', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai2'},
+         'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai2'},
         {'title': 'AI HField:', 'name': 'ai_hfield', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai3'},
+         'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai3'},
         ]
 
     def __init__(self, parent=None, params_state=None):

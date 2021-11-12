@@ -28,25 +28,25 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
     params = [
                  {'title': 'Top LED:', 'name': 'top', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'top_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao2'},
+                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao2'},
                      {'title': 'Value:', 'name': 'top_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
                      {'title': 'Activated?:', 'name': 'top_act', 'type': 'led_push', 'value': False}
                  ]},
                  {'title': 'Left LED:', 'name': 'left', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'left_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao3'},
+                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao3'},
                      {'title': 'Value:', 'name': 'left_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
                      {'title': 'Activated?:', 'name': 'left_act', 'type': 'led_push', 'value': False}
                  ]},
                  {'title': 'Right LED:', 'name': 'right', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'right_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao1'},
+                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao1'},
                      {'title': 'Value:', 'name': 'right_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
                      {'title': 'Activated?:', 'name': 'right_act', 'type': 'led_push', 'value': False}
                  ]},
                  {'title': 'Bottom LED:', 'name': 'bottom', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'bottom_ao', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao0'},
+                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao0'},
                      {'title': 'Value:', 'name': 'bottom_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
                      {'title': 'Activated?:', 'name': 'bottom_act', 'type': 'led_push', 'value': False}
                  ]},
@@ -55,10 +55,10 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                  {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False},
                  {'title': 'Digital Triggering:', 'name': 'digital', 'type': 'group', 'children': [
                      {'title': 'Change on:', 'name': 'digital_di', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Digital_Input'),
+                      'limits': DAQmx.get_NIDAQ_channels(source_type='Digital_Input'),
                       'value': 'cDAQ1Mod5/port0/line0'},
                      {'title': 'Clock on:', 'name': 'digital_clock', 'type': 'list',
-                      'values': DAQmx.get_NIDAQ_channels(source_type='Terminals'),
+                      'limits': DAQmx.get_NIDAQ_channels(source_type='Terminals'),
                       'value': '/cDAQ1/ChangeDetectionEvent'},
                      {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False},
                  ]},
@@ -66,8 +66,8 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
              + \
              [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group','visible':is_multiaxes, 'children':[
                         {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes, 'default': False},
-                        {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master', 'values': ['Master', 'Slave']},
-                        {'title': 'Axis:', 'name': 'axis', 'type': 'list',  'values':stage_names},]}]\
+                        {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master', 'limits': ['Master', 'Slave']},
+                        {'title': 'Axis:', 'name': 'axis', 'type': 'list',  'limits':stage_names},]}]\
              + comon_parameters
 
     def __init__(self, parent=None, params_state=None):

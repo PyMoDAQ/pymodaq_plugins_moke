@@ -17,7 +17,7 @@ class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
         {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': 1.0, 'min': 0., 'suffix': 'Ohm'},
         {'title': 'Oe/A (solenoid):', 'name': 'solenoid', 'type': 'float', 'value': 1.},
         {'title': 'AI HField:', 'name': 'ai_hfield', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai0'},
+         'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai0'},
         ]
     hardware_averaging = True
     live_mode_available = True
