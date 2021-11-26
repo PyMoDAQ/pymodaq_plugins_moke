@@ -13,14 +13,12 @@ class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
     """
     """
     params = comon_parameters+[
-        {'title': 'Frequency Acq.:', 'name': 'frequency', 'type': 'int', 'value': 1000, 'min': 1},
-        {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': 1.0, 'min': 0., 'suffix': 'Ohm'},
-        {'title': 'Oe/A (solenoid):', 'name': 'solenoid', 'type': 'float', 'value': 1.},
-        {'title': 'AI HField:', 'name': 'ai_hfield', 'type': 'list',
-         'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai0'},
+        {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': 1.5, 'min': 0., 'suffix': 'Ohm'},
+        {'title': 'AI Channel:', 'name': 'ai_channel', 'type': 'list',
+         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai0'},
         ]
-    hardware_averaging = True
-    live_mode_available = True
+    hardware_averaging = False
+    live_mode_available = False
 
     def __init__(self, parent=None, params_state=None):
         super().__init__(parent, params_state)
@@ -81,13 +79,13 @@ class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
 
     def update_tasks(self):
 
-        self.channels_ai = [AIChannel(name=self.settings.child('ai_hfield').value(),
+        self.channels_ai = [AIChannel(name=self.settings.child('ai_channel').value(),
                                       source='Analog_Input', analog_type='Voltage',
                                       value_min=-10., value_max=10., termination='Diff', ),
                             ]
 
-        self.clock_settings_ai = ClockSettings(frequency=self.settings.child('frequency').value(),
-                                            Nsamples=int(self.Nsamples), repetition=self.live)
+        self.clock_settings_ai = ClockSettings(frequency=1000,
+                                            Nsamples=10, repetition=self.live)
 
         self.controller['ai'].update_task(self.channels_ai, self.clock_settings_ai)
 
@@ -123,33 +121,15 @@ class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
 
         if update:
             self.update_tasks()
-
-
         while not self.controller['ai'].isTaskDone():
             self.controller['ai'].task.StopTask()
-        if self.controller['ai'].c_callback is None:
-                self.controller['ai'].register_callback(self.read_data)
-        self.controller['ai'].task.StartTask()
 
-    def read_data(self, taskhandle, status, callbackdata):
-        self.channels = self.channels_ai
-        self.data = self.controller['ai'].readAnalog(len(self.channels), self.clock_settings_ai)
-        self.Nsamples = self.clock_settings_ai.Nsamples
-        self.controller['ai'].task.StopTask()
+        data = self.controller['ai'].readAnalog(len(self.channels_ai), self.clock_settings_ai)
+        data_tot = np.mean(data) / self.settings.child('resistance').value()
 
-        self.emit_data(self.data)
-        return 0  #mandatory for the PyDAQmx callback
-
-    def emit_data(self, data):
-        channels_name = [ch.name for ch in self.channels]
-
-        #logger.debug(f'data shape: {data.shape}')
-        data_tot = np.mean(data)
-        Bfield = data_tot / self.settings.child('resistance').value() * self.settings.child('solenoid').value()
-
-        self.data_grabed_signal.emit([DataFromPlugins(name='NI AI', data=[np.array([Bfield])],
+        self.data_grabed_signal.emit([DataFromPlugins(name='Current', data=[np.array([data_tot])],
                                                       dim='Data0D',
-                                      labels=['Bfield'])])
+                                      labels=['Current'])])
 
     def stop(self):
         try:

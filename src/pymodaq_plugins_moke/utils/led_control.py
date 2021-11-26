@@ -3,7 +3,8 @@ from qtpy import QtWidgets, QtCore, QtGui
 
 from pyqtgraph.parametertree import Parameter, ParameterTree
 from pymodaq.resources.QtDesigner_Ressources import QtDesigner_ressources_rc
-from pymodaq.daq_utils.parameter.pymodaq_ptypes import SliderSpinBox, QLED
+from pymodaq.daq_utils.parameter.pymodaq_ptypes import SliderSpinBox
+from pymodaq.daq_utils.plotting.widgets.qled import QLED
 from pymodaq.daq_utils import gui_utils as gutils
 from collections import OrderedDict
 from pathlib import Path
