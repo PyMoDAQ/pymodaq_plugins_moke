@@ -169,14 +169,19 @@ class SequenceLedControl(QtCore.QObject):
 
     def setupUi(self):
 
-        self.parent.setLayout(QtWidgets.QGridLayout())
-
+        self.parent.setLayout(QtWidgets.QVBoxLayout())
+        self.scroll_widget = QtWidgets.QWidget()
+        self.scroll_widget.setLayout(QtWidgets.QVBoxLayout())
+        self.parent.layout().addWidget(self.scroll_widget)
         self.radio_group = QtWidgets.QButtonGroup()
 
         self.radio_buttons = OrderedDict([])
         self.sequences_label = OrderedDict([])
-
+        widgets = []
         for ind, sequence in enumerate(self.sequence_types):
+            widgets.append(QtWidgets.QWidget())
+            widgets[-1].setLayout(QtWidgets.QHBoxLayout())
+            self.scroll_widget.layout().addWidget(widgets[-1])
             self.radio_buttons[sequence] = QtWidgets.QRadioButton(self.sequence_titles[ind])
             if ind == 0:
                 self.radio_buttons[sequence].setChecked(True)
@@ -185,11 +190,16 @@ class SequenceLedControl(QtCore.QObject):
             self.sequences_label[sequence].setPixmap(QtGui.QPixmap(image_path))
 
             self.radio_group.addButton(self.radio_buttons[sequence])
-            self.parent.layout().addWidget(self.radio_buttons[sequence], ind, 0)
-            self.parent.layout().addWidget(self.sequences_label[sequence], ind, 1)
+            widgets[-1].layout().addWidget(self.radio_buttons[sequence])
+            widgets[-1].layout().addWidget(self.sequences_label[sequence])
 
-        self.parent.layout().setRowStretch(len(self.sequence_types), 1)
-        self.parent.layout().setColumnStretch(2, 1)
+        # self.parent.layout().setRowStretch(len(self.sequence_types), 1)
+        # self.parent.layout().setColumnStretch(2, 1)
+        self.scrollarea = QtWidgets.QScrollArea()
+        self.scrollarea.setWidget(self.scroll_widget)
+        self.parent.layout().addWidget(self.scrollarea)
+        self.parent.setMinimumWidth(570)
+        self.parent.setMaximumWidth(570)
 
     def update_sequence(self, button):
         seq_type = self.sequence_types[self.sequence_titles.index(button.text())]
@@ -212,6 +222,7 @@ class SequenceLedControl(QtCore.QObject):
                              dict(top=False, bottom=False, left=False, right=True)]
 
         self.sequence_signal.emit()
+
 
 def main_sequence():
     app = QtWidgets.QApplication(sys.argv)

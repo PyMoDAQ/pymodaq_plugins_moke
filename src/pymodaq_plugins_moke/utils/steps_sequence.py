@@ -168,6 +168,7 @@ class StepsSequencer(gutils.CustomApp):
 
         self.setup_table_view()
         self.update_model()
+        self.setup_ui()
 
     def connect_things(self):
         pass

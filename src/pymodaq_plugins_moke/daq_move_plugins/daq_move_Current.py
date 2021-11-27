@@ -13,6 +13,7 @@ from pymodaq.daq_utils.parameter import parameterTypes as ptypes
 device_ao = 'cDAQ1Mod4'
 device_ai = 'cDAQ1Mod1'
 
+
 class DAQ_Move_Current(DAQ_Move_base):
     """
         Wrapper object to access the Mock fonctionnalities, similar wrapper for all controllers.
