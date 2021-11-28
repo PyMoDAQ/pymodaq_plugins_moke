@@ -8,6 +8,7 @@ from pymodaq.daq_utils.scanner import TableModelSequential
 from pyqtgraph.parametertree import Parameter, ParameterTree
 from pymodaq.daq_utils.parameter import pymodaq_ptypes as ptypes
 from pymodaq.daq_utils.parameter import utils as putils
+from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
 
 
 class TableViewCustom(QtWidgets.QTableView):
@@ -158,6 +159,7 @@ class StepsSequencer(gutils.CustomApp):
     positions_signal = QtCore.Signal(np.ndarray)
     params = [dict(title='Npts', name='npts', type='int', readonly=True),
               dict(title='', label='Send Points', name='send_points', type='bool_push'),
+              dict(title='', label='Show Points', name='show_points', type='bool_push'),
               dict(title='Steps', name='table', type='table_view', delegate=gutils.SpinBoxDelegate, menu=True)]
 
     def __init__(self, dockarea):
@@ -228,6 +230,16 @@ class StepsSequencer(gutils.CustomApp):
             if param.value():
                 self.emit_positions()
                 param.setValue(False)
+        elif param.name() == 'show_points':
+            if param.value():
+                self.show_positions()
+                param.setValue(False)
+
+    def show_positions(self):
+        widget = QtWidgets.QWidget()
+        self.viewer = Viewer1D(widget)
+        widget.show()
+        self.viewer.show_data([self.update_steps_calculation()])
 
     def evaluate_nsteps(self):
         Nsteps = 1

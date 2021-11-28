@@ -326,15 +326,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         else:
             self.settings.child(axis).setValue(position)
         self.check_led_and_update()
-
-
-
-        ##############################
-
-
-
         self.target_position = position
-        self.poll_moving()  #start a loop to poll the current actuator value and compare it with target position
 
     def move_Rel(self, position):
         """ Move the actuator to the relative target actuator value defined by position
@@ -353,9 +345,6 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
             self.settings.child(axis).setValue(position)
         self.check_led_and_update()
         self.emit_status(ThreadCommand('Update_Status',['Some info you want to log']))
-        ##############################
-
-        self.poll_moving()
 
     def move_Home(self):
         """
@@ -367,8 +356,6 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
 
         pass
         self.emit_status(ThreadCommand('Update_Status', ['No possible Homing']))
-        ##############################
-
 
     def stop_motion(self):
       """
@@ -380,7 +367,6 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
       """
 
       self.move_done() #to let the interface know the actuator stopped
-      ##############################
 
 
 def main():

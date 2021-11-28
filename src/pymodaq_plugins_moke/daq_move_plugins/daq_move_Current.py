@@ -213,9 +213,6 @@ class DAQ_Move_Current(DAQ_Move_base):
         position = self.set_position_with_scaling(position)  # apply scaling if the user specified one
         self.write_ao(position)
 
-
-        self.poll_moving()  #start a loop to poll the current actuator value and compare it with target position
-
     def move_Rel(self, position):
         """ Move the actuator to the relative target actuator value defined by position
 
@@ -227,7 +224,6 @@ class DAQ_Move_Current(DAQ_Move_base):
         self.target_position = position + self.current_position
         position = self.set_position_relative_with_scaling(position)
         self.write_ao(position)
-        self.poll_moving()
 
     def write_ao(self, voltage):
         self.controller['ao'].writeAnalog(1, len(self.channels_ao),

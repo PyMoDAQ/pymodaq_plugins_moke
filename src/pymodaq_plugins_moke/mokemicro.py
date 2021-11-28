@@ -18,6 +18,9 @@ class MicroMOKE(gutils.CustomApp):
         self.detector = self.modules_manager.get_mod_from_name('Camera', mod='det')
         self.led_actuator = self.modules_manager.get_mod_from_name('LedDriver', mod='act')
 
+        self.scan_window = QtWidgets.QMainWindow()
+        self.dashboard.load_scan_module(win=self.scan_window)
+        self.show_scanner(False)
 
         self.setup_ui()
         self.setup_camera()
@@ -54,13 +57,16 @@ class MicroMOKE(gutils.CustomApp):
         self.add_action('load', 'Load', 'Open', "Load target file (.h5, .png, .jpg) or data from camera",
                         checkable=False)
         self.add_action('save', 'Save', 'SaveAs', "Save current data", checkable=False)
-        self.add_action('show', 'Show/hide Dashboard', 'read2', "Show Hide Dashboard", checkable=True)
+        self.add_action('showdash', 'Show/hide Dashboard', 'read2', "Show Hide Dashboard", checkable=True)
+        self.add_action('showscan', 'Show/hide Scanner', 'read2', "Show Hide Scanner Window", checkable=True)
+
 
     def connect_things(self):
         self.connect_action('quit', self.quit_function)
         self.connect_action('toggle_sequence', self.set_led_type)
         self.connect_action('grab', lambda: self.run_detector())
-        self.connect_action('show', self.show_dashboard)
+        self.connect_action('showdash', self.show_dashboard)
+        self.connect_action('showscan', self.show_scanner)
 
         self.led_control.led_manual_control.leds_value.connect(self.set_LEDs)
         self.led_control.led_type_signal.connect(self.set_led_type)
@@ -68,8 +74,13 @@ class MicroMOKE(gutils.CustomApp):
 
         self.detector.custom_sig.connect(self.info_detector)
 
+        self.steps_sequencer.positions_signal.connect(self.dashboard.scan_module.scanner.update_tabular_positions)
+
     def show_dashboard(self, show=True):
         self.dashboard.mainwindow.setVisible(show)
+
+    def show_scanner(self, show=True):
+        self.scan_window.setVisible(show)
 
     def run_detector(self):
         self.detector.grab()
