@@ -9,7 +9,7 @@ from pyqtgraph.parametertree import Parameter, ParameterTree
 from pymodaq.daq_utils.parameter import pymodaq_ptypes as ptypes
 from pymodaq.daq_utils.parameter import utils as putils
 from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
-
+from pymodaq.daq_utils.messenger import dialog
 
 class TableViewCustom(QtWidgets.QTableView):
     """
@@ -188,6 +188,7 @@ class StepsSequencer(gutils.CustomApp):
         self.dock = gutils.Dock('Steps Sequencer', size=(350, 350))
         self.dockarea.addDock(self.dock, 'left')
         self.dock.addWidget(self.settings_tree, 10)
+        self.settings_tree.setMinimumSize(350, 200)
 
     def emit_positions(self):
         self.positions_signal.emit(np.transpose(np.array([self.update_steps_calculation()])))
@@ -237,9 +238,9 @@ class StepsSequencer(gutils.CustomApp):
 
     def show_positions(self):
         widget = QtWidgets.QWidget()
-        self.viewer = Viewer1D(widget)
-        widget.show()
-        self.viewer.show_data([self.update_steps_calculation()])
+        viewer = Viewer1D(widget)
+        viewer.show_data([self.update_steps_calculation()])
+        dialog('Positions to be send to Tabular Scan', '', widget)
 
     def evaluate_nsteps(self):
         Nsteps = 1

@@ -28,8 +28,10 @@ class Hysteresis:
         self._trend.append(value)
 
     def __call__(self, x: float):
-        print(self._trend.get_trend())
-        if self._trend.get_trend() > 0:
+        trend = self._trend.get_trend()
+        if trend is None:
+            trend = 1
+        if trend > 0:
             x0 = self._x0
         else:
             x0 = -self._x0

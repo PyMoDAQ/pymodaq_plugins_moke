@@ -18,12 +18,23 @@ class MicroMOKE(gutils.CustomApp):
         self.detector = self.modules_manager.get_mod_from_name('Camera', mod='det')
         self.led_actuator = self.modules_manager.get_mod_from_name('LedDriver', mod='act')
 
-        self.scan_window = QtWidgets.QMainWindow()
-        self.dashboard.load_scan_module(win=self.scan_window)
-        self.show_scanner(False)
+        self.scan_window = None
 
         self.setup_ui()
         self.setup_camera()
+
+    def setup_scan(self):
+        if self.dashboard.scan_module is None:
+            self.scan_window = QtWidgets.QMainWindow()
+            self.dashboard.load_scan_module(win=self.scan_window)
+            self.setup_scan()
+            self.get_action('show_scan').setEnabled(True)
+            self.show_scanner(self.is_action_checked('show_scan'))
+
+        self.dashboard.scan_module.scanner.set_scan_type_and_subtypes('Tabular', 'Linear')
+        self.dashboard.scan_module.modules_manager.selected_detectors_name = ['Camera']
+        self.dashboard.scan_module.modules_manager.selected_actuators_name = ['Current']
+        QtWidgets.QApplication.processEvents()
 
     def setup_camera(self):
         try:
@@ -36,18 +47,27 @@ class MicroMOKE(gutils.CustomApp):
             QtWidgets.QApplication.processEvents()
             self.detector.settings.child('detector_settings', 'camera_settings', 'image_settings', 'bin_y').setValue(4)
             QtWidgets.QApplication.processEvents()
-        except Exception as e:  # will fail if a Mock camera is used for testing
+        except KeyError as e:  # will fail if a Mock camera is used for testing
             pass
+        finally:
+            self.detector.viewers[0].show_roi(True, False)
 
     def setup_docks(self):
         for dock in self.detector.viewer_docks:
             self.detector.dockarea.moveDock(dock, 'right', self.led_control.dock_manual)
         self.dockarea.moveDock(self.led_control.dock_sequence, 'bottom', self.led_control.dock_manual)
-        self.dockarea.moveDock(self.steps_sequencer.dock, 'right', self.detector.viewer_docks[-1])
+        self.dockarea.moveDock(self.steps_sequencer.dock, 'bottom', self.led_control.dock_manual)
         self.show_dashboard(False)
+        QtWidgets.QApplication.processEvents()
+        self.steps_sequencer.dock.resize(QtCore.QSize(350, 100))
 
     def setup_actions(self):
         self.add_action('quit', 'Quit', 'close2', "Quit program")
+        self.add_action('save_layout', 'Save Layout', 'SaveAs', "Save current dock layout", checkable=False)
+        self.add_action('load_layout', 'Load Layout', 'Open', "Load dock layout", checkable=False)
+
+        self.toolbar.addSeparator()
+
         image_path = str(Path(__file__).parent.joinpath(f'utils/images/sequence.png'))
         self.add_action('toggle_sequence', 'Toggle Sequence', image_path, checkable=True)
         self.add_action('grab', 'Grab', 'camera', "Grab from camera", checkable=True)
@@ -57,16 +77,18 @@ class MicroMOKE(gutils.CustomApp):
         self.add_action('load', 'Load', 'Open', "Load target file (.h5, .png, .jpg) or data from camera",
                         checkable=False)
         self.add_action('save', 'Save', 'SaveAs', "Save current data", checkable=False)
-        self.add_action('showdash', 'Show/hide Dashboard', 'read2', "Show Hide Dashboard", checkable=True)
-        self.add_action('showscan', 'Show/hide Scanner', 'read2', "Show Hide Scanner Window", checkable=True)
-
+        self.add_action('show_dash', 'Show/hide Dashboard', 'read2', "Show Hide Dashboard", checkable=True)
+        self.add_action('show_scan', 'Show/hide Scanner', 'read2', "Show Hide Scanner Window", checkable=True)
+        self.get_action('show_scan').setEnabled(False)
 
     def connect_things(self):
         self.connect_action('quit', self.quit_function)
         self.connect_action('toggle_sequence', self.set_led_type)
         self.connect_action('grab', lambda: self.run_detector())
-        self.connect_action('showdash', self.show_dashboard)
-        self.connect_action('showscan', self.show_scanner)
+        self.connect_action('show_dash', self.show_dashboard)
+        self.connect_action('show_scan', self.show_scanner)
+        self.connect_action('save_layout', self.save_layout)
+        self.connect_action('load_layout', self.load_layout)
 
         self.led_control.led_manual_control.leds_value.connect(self.set_LEDs)
         self.led_control.led_type_signal.connect(self.set_led_type)
@@ -74,13 +96,25 @@ class MicroMOKE(gutils.CustomApp):
 
         self.detector.custom_sig.connect(self.info_detector)
 
-        self.steps_sequencer.positions_signal.connect(self.dashboard.scan_module.scanner.update_tabular_positions)
+        self.steps_sequencer.positions_signal.connect(self.emit_positions)
+
+    def save_layout(self):
+        gutils.save_layout_state(self.dockarea)
+
+    def load_layout(self):
+        gutils.load_layout_state(self.dockarea)
+
+    def emit_positions(self, positions):
+        self.setup_scan()
+
+        self.dashboard.scan_module.scanner.update_tabular_positions(positions)
 
     def show_dashboard(self, show=True):
         self.dashboard.mainwindow.setVisible(show)
 
     def show_scanner(self, show=True):
-        self.scan_window.setVisible(show)
+        if self.scan_window is not None:
+            self.scan_window.setVisible(show)
 
     def run_detector(self):
         self.detector.grab()
