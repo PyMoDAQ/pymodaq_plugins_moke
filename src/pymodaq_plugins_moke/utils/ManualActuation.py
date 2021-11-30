@@ -7,8 +7,6 @@ from pymodaq.daq_utils import gui_utils as gutils
 from pyqtgraph.widgets.SpinBox import SpinBox
 
 
-
-
 class ManualActuation(gutils.CustomApp):
     def __init__(self, dockarea, Npush=3):
         super().__init__(dockarea)
@@ -39,12 +37,12 @@ class ManualActuation(gutils.CustomApp):
         vrel_layout.addWidget(QtWidgets.QLabel('Relative'), 0, alignment=QtCore.Qt.AlignHCenter)
         vabs_layout.addWidget(QtWidgets.QLabel('Absolute'), 0, alignment=QtCore.Qt.AlignHCenter)
 
-        self._epsilon = EditPushRel('go_to', '\u03B5')
+        self._epsilon = gutils.EditPushRel('go_to', '\u03B5')
         vrel_layout.addWidget(self._epsilon, 100, alignment=QtCore.Qt.AlignHCenter)
 
         self._abs_pushs = []
         for ind_abs in range(self.Npush):
-            self._abs_pushs.append(EditPush('go_to'))
+            self._abs_pushs.append(gutils.EditPush('go_to'))
             vabs_layout.addWidget(self._abs_pushs[-1], 100, alignment=QtCore.Qt.AlignHCenter)
 
         line = QtWidgets.QFrame()
