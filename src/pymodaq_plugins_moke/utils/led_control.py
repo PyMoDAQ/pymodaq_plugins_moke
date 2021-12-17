@@ -1,10 +1,10 @@
 import sys
+
+import pymodaq.daq_utils.gui_utils.dock
 from qtpy import QtWidgets, QtCore, QtGui
 
-from pyqtgraph.parametertree import Parameter, ParameterTree
-from pymodaq.resources.QtDesigner_Ressources import QtDesigner_ressources_rc
 from pymodaq.daq_utils.parameter.pymodaq_ptypes import SliderSpinBox
-from pymodaq.daq_utils.plotting.widgets.qled import QLED
+from pymodaq.daq_utils.gui_utils.widgets import QLED
 from pymodaq.daq_utils import gui_utils as gutils
 from collections import OrderedDict
 from pathlib import Path
@@ -49,8 +49,8 @@ class LedControl(QtCore.QObject):
 
     def setupUi(self):
 
-        self.dock_manual = gutils.Dock('LED Manual')
-        self.dock_sequence = gutils.Dock('LED Sequences')
+        self.dock_manual = pymodaq.daq_utils.gui_utils.dock.Dock('LED Manual')
+        self.dock_sequence = pymodaq.daq_utils.gui_utils.dock.Dock('LED Sequences')
 
         self.area.addDock(self.dock_manual, 'top')
         self.area.addDock(self.dock_sequence, 'bottom', self.dock_manual)
@@ -235,7 +235,7 @@ def main_sequence():
 def main():
     app = QtWidgets.QApplication(sys.argv)
     win = QtWidgets.QMainWindow()
-    area = gutils.DockArea()
+    area = pymodaq.daq_utils.gui_utils.dock.DockArea()
     win.setCentralWidget(area)
     prog = LedControl(area)
 

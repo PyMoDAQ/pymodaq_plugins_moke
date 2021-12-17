@@ -1,16 +1,18 @@
-import numpy as np
-
-from qtpy import QtWidgets, QtCore, QtGui
-from qtpy.QtWidgets import QWidget
-from pymodaq.daq_utils import daq_utils as utils
+from pymodaq.daq_utils.gui_utils.custom_app import CustomApp
+import pymodaq.daq_utils.gui_utils.dock
+from qtpy import QtWidgets, QtCore
 from pymodaq.daq_utils import gui_utils as gutils
-from pyqtgraph.widgets.SpinBox import SpinBox
+from pymodaq.daq_move.utility_classes import MoveCommand
 
 
-class ManualActuation(gutils.CustomApp):
-    def __init__(self, dockarea, Npush=3):
+class ManualActuation(CustomApp):
+    actuation_signal = QtCore.Signal(MoveCommand)
+
+    def __init__(self, dockarea, absolute_values=[0.1, 0.2, 0.8], relative_value=0.1):
         super().__init__(dockarea)
-        self.Npush = Npush
+        self.absolute_values = absolute_values
+        self.relative_value = relative_value
+        self.Npush = len(absolute_values)
         self.setup_ui()
 
     def connect_things(self):
@@ -18,15 +20,15 @@ class ManualActuation(gutils.CustomApp):
 
     def setup_actions(self):
         '''
-        subclass method from ActionManager
+        overridden method from ActionManager
         '''
         pass
 
     def setup_docks(self):
         '''
-        subclass method from CustomApp
+        overridden method from CustomApp
         '''
-        self.dock = gutils.Dock('ManualCurrent', size=(350, 350))
+        self.dock = pymodaq.daq_utils.gui_utils.dock.Dock('ManualCurrent', size=(350, 350))
         self.dockarea.addDock(self.dock, 'left')
         widget = QtWidgets.QWidget()
         hlayout = QtWidgets.QHBoxLayout()
@@ -37,13 +39,15 @@ class ManualActuation(gutils.CustomApp):
         vrel_layout.addWidget(QtWidgets.QLabel('Relative'), 0, alignment=QtCore.Qt.AlignHCenter)
         vabs_layout.addWidget(QtWidgets.QLabel('Absolute'), 0, alignment=QtCore.Qt.AlignHCenter)
 
-        self._epsilon = gutils.EditPushRel('go_to', '\u03B5')
+        self._epsilon = gutils.EditPushRel('go_to', text='\u03B5', ini_value=self.relative_value)
         vrel_layout.addWidget(self._epsilon, 100, alignment=QtCore.Qt.AlignHCenter)
+        self._epsilon.clicked.connect(self.emit_actuation)
 
         self._abs_pushs = []
         for ind_abs in range(self.Npush):
-            self._abs_pushs.append(gutils.EditPush('go_to'))
+            self._abs_pushs.append(gutils.EditPush('go_to', ini_value=self.absolute_values[ind_abs]))
             vabs_layout.addWidget(self._abs_pushs[-1], 100, alignment=QtCore.Qt.AlignHCenter)
+            self._abs_pushs[-1].clicked.connect(self.emit_actuation)
 
         line = QtWidgets.QFrame()
         line.setFrameShape(line.VLine)
@@ -56,6 +60,13 @@ class ManualActuation(gutils.CustomApp):
         widget.setMaximumHeight(220)
         self.dock.addWidget(widget)
 
+    def emit_actuation(self, editpushinfo):
+        """
+        emit the value to set in the possibly connected actuators
+        """
+        self.actuation_signal.emit(MoveCommand(move_type=editpushinfo.type,
+                                               value=editpushinfo.value))
+
     @property
     def epsilon(self):
         return self._epsilon_edit.value()
@@ -64,11 +75,18 @@ class ManualActuation(gutils.CustomApp):
     def espilon(self, value):
         return self._epsilon_edit.setValue(value)
 
+
+@QtCore.Slot(dict)
+def print_actuation(actuation: MoveCommand):
+    print(f'Move {actuation.move_type} with {actuation.value} magnitude')
+
+
 def main():
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    dockarea = gutils.DockArea()
+    dockarea = pymodaq.daq_utils.gui_utils.dock.DockArea()
     prog = ManualActuation(dockarea)
+    prog.actuation_signal.connect(print_actuation)
     dockarea.show()
     sys.exit(app.exec_())
 
