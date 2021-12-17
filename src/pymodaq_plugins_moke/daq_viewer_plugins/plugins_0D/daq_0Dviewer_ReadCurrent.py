@@ -2,20 +2,25 @@ import numpy as np
 from easydict import EasyDict as edict
 from pymodaq.daq_utils.daq_utils import ThreadCommand, getLineInfo, DataFromPlugins, Axis, set_logger, get_module_name
 from pymodaq.daq_viewer.utility_classes import DAQ_Viewer_base, comon_parameters
-
+from pymodaq.daq_utils import config as config_mod
 from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
     DAQ_termination, Edge, DAQ_NIDAQ_source, \
     ClockSettings, AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
 
 logger = set_logger(get_module_name(__file__))
 
+config = config_mod.Config(config_path=config_mod.get_set_local_dir().joinpath('config_moke.toml'))
+device_ai = config('micro', 'device_ai')
+channel_ai = config('micro', 'channel_ai')
+resistor = config('micro', 'resistor')
+
 class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
     """
     """
     params = comon_parameters+[
-        {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': 1.5, 'min': 0., 'suffix': 'Ohm'},
+        {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': resistor, 'min': 0., 'suffix': 'Ohm'},
         {'title': 'AI Channel:', 'name': 'ai_channel', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': 'cDAQ1Mod1/ai0'},
+         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': f'{device_ai}/{channel_ai}'},
         ]
     hardware_averaging = False
     live_mode_available = False

@@ -9,9 +9,15 @@ from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ
 from pymodaq.daq_utils import gui_utils as gutils
 from pymodaq.daq_utils.parameter import utils as putils
 from pymodaq.daq_utils.parameter import parameterTypes as ptypes
+from pymodaq.daq_utils import config as config_mod
 
-device_ao = 'cDAQ1Mod4'
-device_ai = 'cDAQ1Mod1'
+
+config = config_mod.Config(config_path=config_mod.get_set_local_dir().joinpath('config_moke.toml'))
+device_ao = config('micro', 'device_ao')
+channel_ao = config('micro', 'channel_ao')
+device_ai = config('micro', 'device_ai')
+channel_ai = config('micro', 'channel_ai')
+resistor = config('micro', 'resistor')
 
 
 class DAQ_Move_Current(DAQ_Move_base):
@@ -33,7 +39,7 @@ class DAQ_Move_Current(DAQ_Move_base):
                  {'title': 'AO Voltage:', 'name': 'ao', 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': 'ao_channel', 'type': 'list',
                       'values': DAQmx.get_NIDAQ_channels(devices=[device_ao], source_type='Analog_Output'),
-                      'value': 'cDAQ1Mod4/ao0'},
+                      'value': f'{device_ao}/{channel_ao}'},
                      {'title': 'Min:', 'name': 'ao_min', 'type': 'list',
                       'values': [r[0] for r in DAQmx.getAOVoltageRange(device_ao)]},
                      {'title': 'Max:', 'name': 'ao_max', 'type': 'list',
@@ -42,12 +48,13 @@ class DAQ_Move_Current(DAQ_Move_base):
                {'title': 'AI Voltage:', 'name': 'ai', 'type': 'group', 'children': [
                    {'title': 'Name:', 'name': 'ai_channel', 'type': 'list',
                     'values': DAQmx.get_NIDAQ_channels(devices=[device_ai], source_type='Analog_Input'),
-                    'value': 'cDAQ1Mod4/ao0'},
+                    'value': f'{device_ai}/{channel_ai}'},
                    {'title': 'Min:', 'name': 'ai_min', 'type': 'list',
                     'values': [r[0] for r in DAQmx.getAIVoltageRange(device_ai)]},
                    {'title': 'Max:', 'name': 'ai_max', 'type': 'list',
                     'values': [r[1] for r in DAQmx.getAIVoltageRange(device_ai)]},
-                   {'title': 'Resistor (Ohm):', 'name': 'resistor', 'type': 'float', 'value': 1.5},
+                   {'title': 'Resistor (Ohm):', 'name': 'resistor', 'type': 'float',
+                    'value': resistor},
                    {'title': 'Use it?', 'name': 'use_R', 'type': 'bool', 'value': True},
                ]},
                
