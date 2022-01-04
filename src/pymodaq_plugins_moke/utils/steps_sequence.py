@@ -1,4 +1,8 @@
 import numpy as np
+from pymodaq.daq_utils.gui_utils.custom_app import CustomApp
+from pymodaq.daq_utils.gui_utils.dock import Dock, DockArea
+from pymodaq.daq_utils.gui_utils.file_io import select_file
+from pymodaq.daq_utils.gui_utils.widgets.table import TableModel, SpinBoxDelegate
 
 from qtpy import QtWidgets, QtCore, QtGui
 from qtpy.QtWidgets import QWidget
@@ -10,6 +14,7 @@ from pymodaq.daq_utils.parameter import pymodaq_ptypes as ptypes
 from pymodaq.daq_utils.parameter import utils as putils
 from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
 from pymodaq.daq_utils.messenger import dialog
+
 
 class TableViewCustom(QtWidgets.QTableView):
     """
@@ -71,7 +76,7 @@ class TableViewCustom(QtWidgets.QTableView):
             self.menu.exec(event.globalPos())
 
 
-class TableModelSequential(gutils.TableModel):
+class TableModelSequential(TableModel):
     def __init__(self, data, **kwargs):
         header = ['Start', 'Stop', 'Step']
         editable = [True, True, True]
@@ -127,7 +132,7 @@ class TableModelSequential(gutils.TableModel):
         self.remove_row(row)
 
     def load_txt(self):
-        fname = gutils.select_file(start_path=None, save=False, ext='*')
+        fname = select_file(start_path=None, save=False, ext='*')
         if fname is not None and fname != '':
             while self.rowCount(self.index(-1, -1)) > 0:
                 self.remove_row(0)
@@ -138,7 +143,7 @@ class TableModelSequential(gutils.TableModel):
             self.set_data_all(data)
 
     def save_txt(self):
-        fname = gutils.select_file(start_path=None, save=True, ext='dat')
+        fname = select_file(start_path=None, save=True, ext='dat')
         if fname is not None and fname != '':
             np.savetxt(fname, self.get_data_all(), delimiter='\t')
 
@@ -154,13 +159,13 @@ class ItemDelegate(QtWidgets.QAbstractItemDelegate):
         pass
 
 
-class StepsSequencer(gutils.CustomApp):
+class StepsSequencer(CustomApp):
 
     positions_signal = QtCore.Signal(np.ndarray)
     params = [dict(title='Npts', name='npts', type='int', readonly=True),
               dict(title='', label='Send Points', name='send_points', type='bool_push'),
               dict(title='', label='Show Points', name='show_points', type='bool_push'),
-              dict(title='Steps', name='table', type='table_view', delegate=gutils.SpinBoxDelegate, menu=True)]
+              dict(title='Steps', name='table', type='table_view', delegate=SpinBoxDelegate, menu=True)]
 
     def __init__(self, dockarea):
         super().__init__(dockarea)
@@ -185,7 +190,7 @@ class StepsSequencer(gutils.CustomApp):
         '''
         subclass method from CustomApp
         '''
-        self.dock = gutils.Dock('Steps Sequencer', size=(350, 350))
+        self.dock = Dock('Steps Sequencer', size=(350, 350))
         self.dockarea.addDock(self.dock, 'left')
         self.dock.addWidget(self.settings_tree, 10)
         self.settings_tree.setMinimumSize(350, 200)
@@ -196,7 +201,7 @@ class StepsSequencer(gutils.CustomApp):
     def setup_table_view(self):
         self._table_view = putils.get_widget_from_tree(self.settings_tree, ptypes.TableViewCustom)[0]
         styledItemDelegate = QtWidgets.QStyledItemDelegate()
-        styledItemDelegate.setItemEditorFactory(gutils.SpinBoxDelegate(decimals=6))
+        styledItemDelegate.setItemEditorFactory(SpinBoxDelegate(decimals=6))
         self._table_view.setItemDelegate(styledItemDelegate)
 
         #self._table_view.horizontalHeader().setResizeMode(QtWidgets.QHeaderView.ResizeToContents)
@@ -273,7 +278,7 @@ def print_positions(positions: np.ndarray):
 def main():
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    dockarea = gutils.DockArea()
+    dockarea = DockArea()
     prog = StepsSequencer(dockarea)
     prog.positions_signal.connect(print_positions)
     dockarea.show()
