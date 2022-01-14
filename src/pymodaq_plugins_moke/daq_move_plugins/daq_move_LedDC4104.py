@@ -9,6 +9,16 @@ from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ
 from pymodaq.daq_utils import gui_utils as gutils
 from pymodaq.daq_utils.parameter import utils as putils
 from pymodaq.daq_utils.parameter import parameterTypes as ptypes
+from pymodaq.daq_utils import config as config_mod
+
+config_path = config_mod.get_set_local_dir().joinpath('config_moke.toml')
+config = config_mod.Config(config_path=config_path)
+
+device = config('micro', 'led', 'device_ao')
+ao_channels = config('micro', 'led', 'channels_ao')
+di_name = f"{config('micro', 'led', 'device_di')}/" \
+          f"{config('micro', 'led', 'port_di')}/" \
+          f"{config('micro', 'led', 'line_di')}"
 
 
 class DAQ_Move_LedDC4104(DAQ_Move_base):
@@ -25,50 +35,33 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
     is_multiaxes = True  # set to True if this plugin is controlled for a multiaxis controller (with a unique communication link)
     stage_names = ['offset', 'top', 'left', 'right', 'bottom']  # "list of strings of the multiaxes
     channels = ['top', 'left', 'right', 'bottom']
-    params = [
-                 {'title': 'Top LED:', 'name': 'top', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'top_ao', 'type': 'list',
-                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao2'},
-                     {'title': 'Value:', 'name': 'top_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
-                     {'title': 'Activated?:', 'name': 'top_act', 'type': 'led_push', 'value': False}
-                 ]},
-                 {'title': 'Left LED:', 'name': 'left', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'left_ao', 'type': 'list',
-                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao3'},
-                     {'title': 'Value:', 'name': 'left_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
-                     {'title': 'Activated?:', 'name': 'left_act', 'type': 'led_push', 'value': False}
-                 ]},
-                 {'title': 'Right LED:', 'name': 'right', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'right_ao', 'type': 'list',
-                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao1'},
-                     {'title': 'Value:', 'name': 'right_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
-                     {'title': 'Activated?:', 'name': 'right_act', 'type': 'led_push', 'value': False}
-                 ]},
-                 {'title': 'Bottom LED:', 'name': 'bottom', 'type': 'group', 'children': [
-                     {'title': 'Name:', 'name': 'bottom_ao', 'type': 'list',
-                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'), 'value': 'cDAQ1Mod3/ao0'},
-                     {'title': 'Value:', 'name': 'bottom_val', 'type': 'float', 'value': 0, 'min': 0, 'max': led_limit},
-                     {'title': 'Activated?:', 'name': 'bottom_act', 'type': 'led_push', 'value': False}
-                 ]},
-                 {'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'lin', 'value': 0.0,
-                  'limits': [0, led_limit]},
-                 {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False},
-                 {'title': 'Digital Triggering:', 'name': 'digital', 'type': 'group', 'children': [
-                     {'title': 'Change on:', 'name': 'digital_di', 'type': 'list',
-                      'limits': DAQmx.get_NIDAQ_channels(source_type='Digital_Input'),
-                      'value': 'cDAQ1Mod5/port0/line0'},
-                     {'title': 'Clock on:', 'name': 'digital_clock', 'type': 'list',
-                      'limits': DAQmx.get_NIDAQ_channels(source_type='Terminals'),
-                      'value': '/cDAQ1/ChangeDetectionEvent'},
-                     {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False},
-                 ]},
-             ]\
-             + \
+    params = [{'title': f'{channels[ind]} LED:', 'name': channels[ind], 'type': 'group', 'children': [
+                     {'title': 'Name:', 'name': f'{channels[ind]}_ao', 'type': 'list',
+                      'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'),
+                      'value': f'{device}/{ao_channels[ind]}'},
+                     {'title': 'Value:', 'name': f'{channels[ind]}_val', 'type': 'float', 'value': 0, 'min': 0,
+                      'max': led_limit},
+                     {'title': 'Activated?:', 'name': f'{channels[ind]}_act', 'type': 'led_push', 'value': False}
+                 ]} for ind in range(len(ao_channels))] + \
+             [{'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'lin', 'value': 0.0,
+               'limits': [0, led_limit]},
+              {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False},
+              {'title': 'Digital Triggering:', 'name': 'digital', 'type': 'group', 'children': [
+                  {'title': 'Change on:', 'name': 'digital_di', 'type': 'list',
+                   'limits': DAQmx.get_NIDAQ_channels(source_type='Digital_Input'),
+                   'value': di_name},
+                  {'title': 'Clock on:', 'name': 'digital_clock', 'type': 'list',
+                   'limits': DAQmx.get_NIDAQ_channels(source_type='Terminals'),
+                   'value': f"/{config('micro', 'led', 'changedetectionevent_device')}/ChangeDetectionEvent"},
+                  {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False},
+              ]}] + \
              [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group','visible':is_multiaxes, 'children':[
-                        {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes, 'default': False},
-                        {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master', 'limits': ['Master', 'Slave']},
-                        {'title': 'Axis:', 'name': 'axis', 'type': 'list',  'limits':stage_names},]}]\
-             + comon_parameters
+                 {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes,
+                  'default': False},
+                 {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master',
+                  'limits': ['Master', 'Slave']},
+                 {'title': 'Axis:', 'name': 'axis', 'type': 'list',  'limits': stage_names}]}] + \
+             comon_parameters
 
     def __init__(self, parent=None, params_state=None):
         """
