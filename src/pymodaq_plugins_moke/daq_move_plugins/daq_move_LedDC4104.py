@@ -5,21 +5,24 @@ from easydict import EasyDict as edict  # type of dict
 import numpy as np
 from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
     DAQ_termination, Edge, DAQ_NIDAQ_source, \
-    ClockSettings, ChangeDetectionSettings,AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
+    ClockSettings, ChangeDetectionSettings, AIChannel, Counter, AIThermoChannel, AOChannel,\
+    TriggerSettings, DOChannel, DIChannel
 from pymodaq.daq_utils import gui_utils as gutils
 from pymodaq.daq_utils.parameter import utils as putils
 from pymodaq.daq_utils.parameter import parameterTypes as ptypes
-from pymodaq.daq_utils import config as config_mod
 
-config_path = config_mod.get_set_local_dir().joinpath('config_moke.toml')
-config = config_mod.Config(config_path=config_path)
 
+from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
+
+config = ConfigMoKe()
 device = config('micro', 'led', 'device_ao')
 ao_channels = config('micro', 'led', 'channels_ao')
 di_name = f"{config('micro', 'led', 'device_di')}/" \
           f"{config('micro', 'led', 'port_di')}/" \
           f"{config('micro', 'led', 'line_di')}"
 
+channels = ['top', 'left', 'right', 'bottom']
+led_limit = 3.5
 
 class DAQ_Move_LedDC4104(DAQ_Move_base):
     """
@@ -31,10 +34,10 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         =============== ==============
     """
     _controller_units = 'Volts'
-    led_limit = 3.5
+
     is_multiaxes = True  # set to True if this plugin is controlled for a multiaxis controller (with a unique communication link)
     stage_names = ['offset', 'top', 'left', 'right', 'bottom']  # "list of strings of the multiaxes
-    channels = ['top', 'left', 'right', 'bottom']
+
     params = [{'title': f'{channels[ind]} LED:', 'name': channels[ind], 'type': 'group', 'children': [
                      {'title': 'Name:', 'name': f'{channels[ind]}_ao', 'type': 'list',
                       'limits': DAQmx.get_NIDAQ_channels(source_type='Analog_Output'),
@@ -55,7 +58,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                    'value': f"/{config('micro', 'led', 'changedetectionevent_device')}/ChangeDetectionEvent"},
                   {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False},
               ]}] + \
-             [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group','visible':is_multiaxes, 'children':[
+             [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group', 'visible': is_multiaxes, 'children': [
                  {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes,
                   'default': False},
                  {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master',
@@ -77,8 +80,8 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         """
 
         super().__init__(parent, params_state)
-        self.led_values = dict(zip(self.channels, [{f'{chan}_act': False,
-                                                    f'{chan}_val': 0.} for chan in self.channels]))
+        self.led_values = dict(zip(channels, [{f'{chan}_act': False,
+                                                    f'{chan}_val': 0.} for chan in channels]))
         self.led_type = 'manual'
 
         self.sequence_list = [dict(top=True, bottom=False, left=False, right=False),
@@ -116,7 +119,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         """
 
         if param.name() == "activate_all":
-            for channel in self.channels:
+            for channel in channels:
                 self.settings.child(channel, f'{channel}_act').setValue(param.value())
 
         flag = '_act' in param.name() or '_val' in param.name() or 'offset' in param.name() or \
@@ -175,7 +178,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
             for dic in self.sequence_list:
                 data.append([led_values[channel][f'{channel}_val']
                              if dic[f'{channel}']
-                             else 0. for channel in self.channels])
+                             else 0. for channel in channels])
                 data.append([0. for channel in led_values])
             data = np.array(list(map(list, zip(*data))),
                             dtype=np.float)  # somehow on the transpose of what you would expect
@@ -192,13 +195,13 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                                                        dtype=np.float), autostart=True)
 
     def limit_led_values(self, led_values):
-        for channel in self.channels:
-            led_values[channel][f'{channel}_val'] = min([self.led_limit, led_values[channel][f'{channel}_val']])
+        for channel in channels:
+            led_values[channel][f'{channel}_val'] = min([led_limit, led_values[channel][f'{channel}_val']])
 
     def get_led_values(self):
         offset = self.settings.child('offset').value()
         led_values = dict([])
-        for channel in self.channels:
+        for channel in channels:
             val = self.settings.child(channel, f'{channel}_val').value()
             activated = self.settings.child(channel, f'{channel}_act').value()
             led_values[channel] = {f'{channel}_val': val + offset,
@@ -261,7 +264,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         self.channels_led = [AOChannel(name=self.settings.child(channel, f'{channel}_ao').value(),
                                        source='Analog_Output', analog_type='Voltage',
                                        value_min=-10., value_max=10.,)
-                             for channel in self.channels]
+                             for channel in channels]
 
         self.channel_clock = [DIChannel(name=self.settings.child('digital', 'digital_di').value(),
                                          source='Digital_Input')]

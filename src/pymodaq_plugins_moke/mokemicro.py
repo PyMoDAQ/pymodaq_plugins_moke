@@ -11,10 +11,10 @@ from pymodaq_plugins_moke.utils import LedControl, StepsSequencer, ManualActuati
 from pymodaq.daq_utils.messenger import messagebox
 from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
 from pathlib import Path
+from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
 
+config = ConfigMoKe()
 logger = set_logger(get_module_name(__file__))
-config_path = config_mod.get_set_local_dir().joinpath('config_moke.toml')
-config = config_mod.Config(config_path=config_path)
 
 
 class MicroMOKE(CustomApp):
@@ -113,18 +113,20 @@ class MicroMOKE(CustomApp):
         self.get_action('show_scan').setEnabled(False)
 
         self.toolbar.addSeparator()
+        self.add_action('snap', 'Snap', 'camera_snap', "Snap from camera", checkable=False)
         self.add_action('grab', 'Grab', 'camera', "Grab from camera", checkable=True)
         self.add_action('do_scan', 'Do Scan', 'run2', checkable=True)
         self.get_action('do_scan').setEnabled(False)
 
     def show_config(self):
-        config_tree = config_mod.TreeFromToml(conf_path=config_path)
+        config_tree = config_mod.TreeFromToml(config=config)
         config_tree.show_dialog()
 
     def connect_things(self):
         self.connect_action('quit', self.quit_function)
         self.connect_action('toggle_sequence', self.set_led_type)
         self.connect_action('grab', lambda: self.run_detector())
+        self.connect_action('snap', lambda: self.run_detector(snap=True))
         self.connect_action('show_dash', self.show_dashboard)
         self.connect_action('show_scan', self.show_scanner)
         self.connect_action('save_layout', self.save_layout)
@@ -159,8 +161,11 @@ class MicroMOKE(CustomApp):
         if self.scan_window is not None:
             self.scan_window.setVisible(show)
 
-    def run_detector(self):
-        self.detector.grab()
+    def run_detector(self, snap=False):
+        if snap:
+            self.detector.snap()
+        else:
+            self.detector.grab()
 
     def quit_function(self):
         self.dockarea.parent().close()

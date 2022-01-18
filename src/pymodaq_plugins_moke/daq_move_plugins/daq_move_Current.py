@@ -12,12 +12,14 @@ from pymodaq.daq_utils.parameter import parameterTypes as ptypes
 from pymodaq.daq_utils import config as config_mod
 
 
-config = config_mod.Config(config_path=config_mod.get_set_local_dir().joinpath('config_moke.toml'))
-device_ao = config('micro', 'device_ao')
-channel_ao = config('micro', 'channel_ao')
-device_ai = config('micro', 'device_ai')
-channel_ai = config('micro', 'channel_ai')
-resistor = config('micro', 'resistor')
+from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
+
+config = ConfigMoKe()
+device_ao = config('micro', 'current', 'device_ao')
+channel_ao = config('micro', 'current', 'channel_ao')
+device_ai = config('micro', 'current', 'device_ai')
+channel_ai = config('micro', 'current', 'channel_ai')
+resistor = config('micro', 'current', 'resistor')
 
 
 class DAQ_Move_Current(DAQ_Move_base):
@@ -31,6 +33,7 @@ class DAQ_Move_Current(DAQ_Move_base):
     """
     _controller_units = 'Volts'
     ao_limits = [-1, 1]
+    _epsilon = 0.05
 
     is_multiaxes = False  # set to True if this plugin is controlled for a multiaxis controller (with a unique communication link)
     stage_names = []
@@ -44,6 +47,7 @@ class DAQ_Move_Current(DAQ_Move_base):
                       'values': [r[0] for r in DAQmx.getAOVoltageRange(device_ao)]},
                      {'title': 'Max:', 'name': 'ao_max', 'type': 'list',
                       'values': [r[1] for r in DAQmx.getAOVoltageRange(device_ao)]},
+                     {'title': 'Scaling:', 'name': 'controller_scaling', 'type': 'float', 'value': 0.402}
                  ]},
                {'title': 'AI Voltage:', 'name': 'ai', 'type': 'group', 'children': [
                    {'title': 'Name:', 'name': 'ai_channel', 'type': 'list',
@@ -88,11 +92,15 @@ class DAQ_Move_Current(DAQ_Move_base):
         -------
         float: The position obtained after scaling conversion.
         """
+        #pos = self.target_position
 
-        pos = self.target_position
+        while not self.controller['ai'].isTaskDone():
+            self.controller['ai'].task.StopTask()
 
+        data = self.controller['ai'].readAnalog(len(self.channels_ai), self.clock_settings_ai)
+        pos = np.mean(data) / self.settings.child('ai', 'resistor').value()
+        pos = self.get_position_with_scaling(pos)
 
-        #pos = self.get_position_with_scaling(pos)
         self.emit_status(ThreadCommand('check_position', [pos]))
         return pos
 
@@ -192,8 +200,8 @@ class DAQ_Move_Current(DAQ_Move_base):
         clock_settings = ClockSettings(frequency=1000, Nsamples=1)
         self.controller['ao'].update_task(self.channels_ao, clock_settings)
 
-        clock_settings_ai = ClockSettings(frequency=1000, Nsamples=10)
-        self.controller['ai'].update_task(self.channels_ai, clock_settings)
+        self.clock_settings_ai = ClockSettings(frequency=1000, Nsamples=10)
+        self.controller['ai'].update_task(self.channels_ai, self.clock_settings_ai)
 
 
     def stop_task_and_zero(self, zero=0.):
@@ -218,7 +226,7 @@ class DAQ_Move_Current(DAQ_Move_base):
         position = self.check_bound(position)  #if user checked bounds, the defined bounds are applied here
         self.target_position = position
         position = self.set_position_with_scaling(position)  # apply scaling if the user specified one
-        self.write_ao(position)
+        self.write_ao(position / self.settings.child('ao', 'controller_scaling').value())
 
     def move_Rel(self, position):
         """ Move the actuator to the relative target actuator value defined by position
@@ -230,7 +238,7 @@ class DAQ_Move_Current(DAQ_Move_base):
         position = self.check_bound(self.current_position + position) - self.current_position
         self.target_position = position + self.current_position
         position = self.set_position_relative_with_scaling(position)
-        self.write_ao(position)
+        self.write_ao(self.target_position / self.settings.child('ao', 'controller_scaling').value())
 
     def write_ao(self, voltage):
         self.controller['ao'].writeAnalog(1, len(self.channels_ao),

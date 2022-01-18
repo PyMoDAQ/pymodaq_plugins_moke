@@ -10,7 +10,9 @@ import sys
 
 from pymodaq_plugins_andor.daq_viewer_plugins.plugins_2D.daq_2Dviewer_AndorSCMOS import DAQ_2DViewer_AndorSCMOS
 from time import perf_counter
+from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
 
+config = ConfigMoKe()
 logger = set_logger(get_module_name(__file__))
 
 

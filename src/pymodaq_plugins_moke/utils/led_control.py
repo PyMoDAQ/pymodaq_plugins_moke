@@ -10,7 +10,6 @@ from collections import OrderedDict
 from pathlib import Path
 
 
-
 class LedControl(QtCore.QObject):
     led_type_signal = QtCore.Signal(dict)
 
