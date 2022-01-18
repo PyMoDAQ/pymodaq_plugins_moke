@@ -125,7 +125,7 @@ class TableModelSequential(TableModel):
         if data is not None:
             self.insert_data(row, [float(d) for d in data])
         else:
-            self.insert_data(row, self.default_row)
+            self.insert_data(row, self.default_row[:])
 
     @QtCore.Slot(int)
     def remove_data(self, row):
