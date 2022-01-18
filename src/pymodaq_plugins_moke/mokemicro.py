@@ -62,12 +62,13 @@ class MicroMOKE(CustomApp):
         try:
             self.detector.settings.child('detector_settings', 'camera_settings', 'exposure').setValue(100)
             QtWidgets.QApplication.processEvents()
-            encoding = self.detector.settings.child('detector_settings', 'camera_settings', 'encoding').opts['limits'][2]
+            encoding = self.detector.settings.child('detector_settings', 'camera_settings',
+                                                    'encoding').opts['limits'][2]
             self.detector.settings.child('detector_settings', 'camera_settings', 'encoding').setValue(encoding)
             QtWidgets.QApplication.processEvents()
-            self.detector.settings.child('detector_settings', 'camera_settings', 'image_settings', 'bin_x').setValue(4)
+            self.detector.settings.child('detector_settings', 'camera_settings', 'image_settings', 'bin_x').setValue(2)
             QtWidgets.QApplication.processEvents()
-            self.detector.settings.child('detector_settings', 'camera_settings', 'image_settings', 'bin_y').setValue(4)
+            self.detector.settings.child('detector_settings', 'camera_settings', 'image_settings', 'bin_y').setValue(2)
             QtWidgets.QApplication.processEvents()
         except KeyError as e:  # will fail if a Mock camera is used for testing
             pass

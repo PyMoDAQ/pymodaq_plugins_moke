@@ -33,7 +33,7 @@ class DAQ_Move_Current(DAQ_Move_base):
     """
     _controller_units = 'Volts'
     ao_limits = [-1, 1]
-    _epsilon = 0.01
+    _epsilon = 0.005
 
     is_multiaxes = False  # set to True if this plugin is controlled for a multiaxis controller (with a unique communication link)
     stage_names = []
