@@ -1,16 +1,17 @@
 import sys
+from qtpy import QtWidgets, QtGui, QtCore
+from pathlib import Path
 
 from pymodaq.daq_utils.gui_utils.custom_app import CustomApp
 from pymodaq.daq_utils.gui_utils.dock import Dock
 import pymodaq.daq_utils.gui_utils.layout
-from qtpy import QtWidgets, QtGui, QtCore
 from pymodaq.daq_utils import config as config_mod
 from pymodaq.daq_utils.daq_utils import ThreadCommand, set_logger, get_module_name
-from pymodaq.dashboard import DashBoard
+
 from pymodaq_plugins_moke.utils import LedControl, StepsSequencer, ManualActuation
 from pymodaq.daq_utils.messenger import messagebox
 from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
-from pathlib import Path
+
 from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
 
 config = ConfigMoKe()
@@ -228,6 +229,8 @@ def main():
     from pymodaq.daq_utils.daq_utils import get_set_preset_path
     from pymodaq.daq_utils.gui_utils import DockArea
     from pathlib import Path
+    from pymodaq.dashboard import DashBoard
+
     app = QtWidgets.QApplication(sys.argv)
     win = QtWidgets.QMainWindow()
     area = DockArea()
