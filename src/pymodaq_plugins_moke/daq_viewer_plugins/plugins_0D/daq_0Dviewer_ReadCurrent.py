@@ -6,11 +6,11 @@ from pymodaq.daq_utils import config as config_mod
 from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
     DAQ_termination, Edge, DAQ_NIDAQ_source, \
     ClockSettings, AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
-from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
+from pymodaq_plugins_moke.utils.configuration import Config
 
 logger = set_logger(get_module_name(__file__))
 
-config = ConfigMoKe()
+config = Config()
 
 device_ai = config('micro', 'current', 'device_ai')
 channel_ai = config('micro', 'current', 'channel_ai')

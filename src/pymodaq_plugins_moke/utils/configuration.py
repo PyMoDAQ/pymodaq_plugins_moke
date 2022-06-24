@@ -5,7 +5,7 @@ config_base_path = Path(__file__).parent.parent.joinpath('config_moke_template.t
 config_path = get_set_local_dir().joinpath('config_moke.toml')
 
 
-class ConfigMoKe(Config):
+class Config(Config):
     def __init__(self):
         super().__init__(config_path, config_base_path)
 

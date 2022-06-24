@@ -12,9 +12,9 @@ from pymodaq_plugins_moke.utils import LedControl, StepsSequencer, ManualActuati
 from pymodaq.daq_utils.messenger import messagebox
 from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
 
-from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
+from pymodaq_plugins_moke.utils.configuration import Config as ConfigMOKE
 
-config = ConfigMoKe()
+config = ConfigMOKE()
 logger = set_logger(get_module_name(__file__))
 
 

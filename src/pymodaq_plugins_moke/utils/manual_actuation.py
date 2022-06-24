@@ -3,7 +3,7 @@ import pymodaq.daq_utils.gui_utils.dock
 from qtpy import QtWidgets, QtCore
 from pymodaq.daq_utils import gui_utils as gutils
 from pymodaq.daq_move.utility_classes import MoveCommand
-from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
+from pymodaq_plugins_moke.utils.configuration import Config as ConfigMOKE
 
 
 class ManualActuation(CustomApp):
@@ -84,7 +84,7 @@ def print_actuation(actuation: MoveCommand):
 
 def main():
     import sys
-    config = ConfigMoKe()
+    config = ConfigMOKE()
     absolute_current_values = config('micro', 'actuation', 'absolute_current_values')
     relative_value = config('micro', 'actuation', 'relative_value')
 

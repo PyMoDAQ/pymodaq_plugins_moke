@@ -12,9 +12,9 @@ from pymodaq.daq_utils.parameter import parameterTypes as ptypes
 from pymodaq.daq_utils import config as config_mod
 
 
-from pymodaq_plugins_moke.utils.miscelanous import ConfigMoKe
+from pymodaq_plugins_moke.utils.configuration import Config
 
-config = ConfigMoKe()
+config = Config()
 device_ao = config('micro', 'current', 'device_ao')
 channel_ao = config('micro', 'current', 'channel_ao')
 device_ai = config('micro', 'current', 'device_ai')
