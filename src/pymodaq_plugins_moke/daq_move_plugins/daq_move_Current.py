@@ -50,6 +50,7 @@ class DAQ_Move_Current(DAQ_Move_base):
                      {'title': 'Scaling:', 'name': 'controller_scaling', 'type': 'float', 'value': 0.402}
                  ]},
                {'title': 'AI Voltage:', 'name': 'ai', 'type': 'group', 'children': [
+                   {'title': 'Read from ai?', 'name': 'read_ai', 'type': 'bool', 'value': False},
                    {'title': 'Name:', 'name': 'ai_channel', 'type': 'list',
                     'values': DAQmx.get_NIDAQ_channels(devices=[device_ai], source_type='Analog_Input'),
                     'value': f'{device_ai}/{channel_ai}'},
@@ -59,7 +60,7 @@ class DAQ_Move_Current(DAQ_Move_base):
                     'values': [r[1] for r in DAQmx.getAIVoltageRange(device_ai)]},
                    {'title': 'Resistor (Ohm):', 'name': 'resistor', 'type': 'float',
                     'value': resistor},
-                   {'title': 'Use it?', 'name': 'use_R', 'type': 'bool', 'value': True},
+                   {'title': 'Use Resistor?', 'name': 'use_R', 'type': 'bool', 'value': True},
                ]},
                
                  {'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group', 'visible': is_multiaxes, 'children': [
@@ -92,18 +93,18 @@ class DAQ_Move_Current(DAQ_Move_base):
         -------
         float: The position obtained after scaling conversion.
         """
-        #pos = self.target_position
+        if not self.settings['ai', 'read_ai']:
+            pos = self.target_position
+        else:
+            while not self.controller['ai'].isTaskDone():
+                self.controller['ai'].task.StopTask()
 
-        while not self.controller['ai'].isTaskDone():
-            self.controller['ai'].task.StopTask()
+            data = self.controller['ai'].readAnalog(len(self.channels_ai), self.clock_settings_ai)
+            pos = np.mean(data) / self.settings.child('ai', 'resistor').value()
 
-        data = self.controller['ai'].readAnalog(len(self.channels_ai), self.clock_settings_ai)
-        pos = np.mean(data) / self.settings.child('ai', 'resistor').value()
         pos = self.get_position_with_scaling(pos)
-
         self.emit_status(ThreadCommand('check_position', [pos]))
         return pos
-
 
     def close(self):
         """
