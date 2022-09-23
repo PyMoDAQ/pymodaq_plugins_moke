@@ -23,7 +23,7 @@ class DAQ_1DViewer_MokeMacro(DAQ_Viewer_base):
         {'title': 'Frequency Magnet:', 'name': 'frequency_magnet', 'type': 'float', 'value': 50., 'default': 50.,
          'min': 0., 'suffix': 'Hz'},
         {'title': 'Gain:', 'name': 'gain', 'type': 'float', 'value': 500., 'min': 0.},
-        {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': 1.4, 'min': 0., 'suffix': 'Ohm'},
+        {'title': 'Resistance (Ohm):', 'name': 'resistance', 'type': 'float', 'value': 1.0004, 'min': 0.},
         {'title': 'Oe/A (solenoid):', 'name': 'solenoid', 'type': 'float', 'value': 97.},
         {'title': 'DO MagField:', 'name': 'do_mag', 'type': 'list',
          'limits': DAQmx.get_NIDAQ_channels(source_type='Digital_Output'), 'value': 'cDAQ1Mod2/port0/line0'},
