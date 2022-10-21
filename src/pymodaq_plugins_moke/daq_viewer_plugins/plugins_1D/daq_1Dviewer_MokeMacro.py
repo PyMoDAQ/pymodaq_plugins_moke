@@ -1,7 +1,7 @@
 import numpy as np
 from easydict import EasyDict as edict
 from pymodaq.daq_utils.daq_utils import ThreadCommand, getLineInfo, DataFromPlugins, Axis
-from pymodaq.daq_viewer.utility_classes import DAQ_Viewer_base, comon_parameters
+from pymodaq.control_modules.viewer_utility_classes import DAQ_Viewer_base, comon_parameters
 
 from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
     DAQ_termination, Edge, DAQ_NIDAQ_source, \

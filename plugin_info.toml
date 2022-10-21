@@ -3,7 +3,7 @@
 [plugin-info]
 SHORT_PLUGIN_NAME = 'moke'  
 
-package-url = 'https://github.com/CEMES-CNRS/pymodaq_plugins_moke' #to modify
+package-url = 'https://github.com/PyMoDAQ/pymodaq_plugins_moke' #to modify
 description = 'Kerr Magneto Optics experiments'
 
 author = 'Sebastien Weber'
