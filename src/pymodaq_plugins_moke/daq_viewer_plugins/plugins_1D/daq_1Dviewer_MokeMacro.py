@@ -8,7 +8,6 @@ from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ
     ClockSettings, AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
 
 
-
 class DAQ_1DViewer_MokeMacro(DAQ_Viewer_base):
     """
     """
