@@ -1,20 +1,20 @@
 import sys
-from qtpy import QtWidgets, QtGui, QtCore
+from qtpy import QtWidgets, QtCore
 from pathlib import Path
 
-from pymodaq.daq_utils.gui_utils.custom_app import CustomApp
-from pymodaq.daq_utils.gui_utils.dock import Dock
-import pymodaq.daq_utils.gui_utils.layout
-from pymodaq.daq_utils import config as config_mod
-from pymodaq.daq_utils.daq_utils import ThreadCommand, set_logger, get_module_name
+from pymodaq.utils.gui_utils.custom_app import CustomApp
+from pymodaq.utils.gui_utils.dock import Dock
+from pymodaq.utils.gui_utils import layout
+from pymodaq.utils import config as config_mod
+from pymodaq.utils.daq_utils import ThreadCommand
+from pymodaq.utils.logger import set_logger, get_module_name
 
-from pymodaq_plugins_moke.utils import LedControl, StepsSequencer, ManualActuation
-from pymodaq.daq_utils.messenger import messagebox
-from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
+from pymodaq_plugins_moke.hardware import LedControl, StepsSequencer, ManualActuation
+from pymodaq.utils.messenger import messagebox
+from pymodaq.utils.plotting.data_viewers.viewer1D import Viewer1D
 
-from pymodaq_plugins_moke.utils.configuration import Config as ConfigMOKE
+from pymodaq_plugins_moke import config
 
-config = ConfigMOKE()
 logger = set_logger(get_module_name(__file__))
 
 
@@ -147,10 +147,10 @@ class MicroMOKE(CustomApp):
         self.steps_sequencer.positions_signal.connect(self.emit_positions)
 
     def save_layout(self):
-        pymodaq.daq_utils.gui_utils.layout.save_layout_state(self.dockarea)
+        layout.save_layout_state(self.dockarea)
 
     def load_layout(self):
-        pymodaq.daq_utils.gui_utils.layout.load_layout_state(self.dockarea)
+        layout.load_layout_state(self.dockarea)
 
     def emit_positions(self, positions):
         self.setup_scan()
@@ -227,8 +227,8 @@ class MicroMOKE(CustomApp):
 
 
 def main():
-    from pymodaq.daq_utils.daq_utils import get_set_preset_path
-    from pymodaq.daq_utils.gui_utils import DockArea
+    from pymodaq.utils.daq_utils import get_set_preset_path
+    from pymodaq.utils.gui_utils import DockArea
     from pathlib import Path
     from pymodaq.dashboard import DashBoard
 

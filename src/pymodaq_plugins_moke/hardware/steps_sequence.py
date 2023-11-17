@@ -1,19 +1,20 @@
 import numpy as np
-from pymodaq.daq_utils.gui_utils.custom_app import CustomApp
-from pymodaq.daq_utils.gui_utils.dock import Dock, DockArea
-from pymodaq.daq_utils.gui_utils.file_io import select_file
-from pymodaq.daq_utils.gui_utils.widgets.table import TableModel, SpinBoxDelegate
+from pymodaq.utils.gui_utils.custom_app import CustomApp
+from pymodaq.utils.gui_utils.dock import Dock, DockArea
+from pymodaq.utils.gui_utils.file_io import select_file
+from pymodaq.utils.gui_utils.widgets.table import TableModel, SpinBoxDelegate
 
 from qtpy import QtWidgets, QtCore, QtGui
 from qtpy.QtWidgets import QWidget
-from pymodaq.daq_utils import daq_utils as utils
-from pymodaq.daq_utils import gui_utils as gutils
-from pymodaq.daq_utils.scanner import TableModelSequential
+from pymodaq.utils import daq_utils as utils
+
+from pymodaq.utils.scanner.scanners._1d_scanners import S
+from pymodaq.utils.scanner import TableModelSequential
 from pyqtgraph.parametertree import Parameter, ParameterTree
-from pymodaq.daq_utils.parameter import pymodaq_ptypes as ptypes
-from pymodaq.daq_utils.parameter import utils as putils
-from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
-from pymodaq.daq_utils.messenger import dialog
+from pymodaq.utils.parameter import pymodaq_ptypes as ptypes
+from pymodaq.utils.parameter import utils as putils
+from pymodaq.utils.plotting.data_viewers.viewer1D import Viewer1D
+from pymodaq.utils.messenger import dialog
 
 
 class TableViewCustom(QtWidgets.QTableView):

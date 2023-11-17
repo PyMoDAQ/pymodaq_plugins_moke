@@ -1,9 +1,9 @@
-from pymodaq.daq_utils.gui_utils.custom_app import CustomApp
-import pymodaq.daq_utils.gui_utils.dock
+from pymodaq.utils.gui_utils.custom_app import CustomApp
+from pymodaq.utils.gui_utils.dock import Dock, DockArea
 from qtpy import QtWidgets, QtCore
-from pymodaq.daq_utils import gui_utils as gutils
-from pymodaq.daq_move.utility_classes import MoveCommand
-from pymodaq_plugins_moke.utils.configuration import Config as ConfigMOKE
+from pymodaq.utils import gui_utils as gutils
+from pymodaq.control_modules.move_utility_classes import MoveCommand
+from pymodaq_plugins_moke import config
 
 
 class ManualActuation(CustomApp):
@@ -29,7 +29,7 @@ class ManualActuation(CustomApp):
         '''
         overridden method from CustomApp
         '''
-        self.dock = pymodaq.daq_utils.gui_utils.dock.Dock('ManualCurrent', size=(350, 350))
+        self.dock = Dock('ManualCurrent', size=(350, 350))
         self.dockarea.addDock(self.dock, 'left')
         widget = QtWidgets.QWidget()
         hlayout = QtWidgets.QHBoxLayout()
@@ -84,12 +84,11 @@ def print_actuation(actuation: MoveCommand):
 
 def main():
     import sys
-    config = ConfigMOKE()
     absolute_current_values = config('micro', 'actuation', 'absolute_current_values')
     relative_value = config('micro', 'actuation', 'relative_value')
 
     app = QtWidgets.QApplication(sys.argv)
-    dockarea = pymodaq.daq_utils.gui_utils.dock.DockArea()
+    dockarea = DockArea()
     prog = ManualActuation(dockarea, absolute_current_values, relative_value)
     prog.actuation_signal.connect(print_actuation)
     dockarea.show()

@@ -1,18 +1,12 @@
-import numpy as np
 from qtpy import QtWidgets, QtCore
-from easydict import EasyDict as edict
-from pymodaq.control_modules.viewer_utility_classes import DAQ_Viewer_base
-from pymodaq.daq_utils.daq_utils import ThreadCommand, DataFromPlugins, Axis, set_logger, get_module_name, zeros_aligned
-from pymodaq.control_modules.viewer_utility_classes import comon_parameters
-from pymodaq.daq_utils.parameter.utils import iter_children
-import platform
-import sys
+from pymodaq.utils.daq_utils import ThreadCommand
+from pymodaq.utils.data import DataFromPlugins
+from pymodaq.utils.logger import set_logger, get_module_name
 
 from pymodaq_plugins_andor.daq_viewer_plugins.plugins_2D.daq_2Dviewer_AndorSCMOS import DAQ_2DViewer_AndorSCMOS
 from time import perf_counter
-from pymodaq_plugins_moke.utils.configuration import Config
+from pymodaq_plugins_moke import config
 
-config = Config()
 logger = set_logger(get_module_name(__file__))
 
 
