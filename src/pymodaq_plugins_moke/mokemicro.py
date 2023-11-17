@@ -11,7 +11,7 @@ from pymodaq.daq_utils.daq_utils import ThreadCommand, set_logger, get_module_na
 from pymodaq_plugins_moke.utils import LedControl, StepsSequencer, ManualActuation
 from pymodaq.daq_utils.messenger import messagebox
 from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
-from pymodaq.control_modules.daq_viewer import DAQ_Viewer
+
 from pymodaq_plugins_moke.utils.configuration import Config as ConfigMOKE
 
 config = ConfigMOKE()
@@ -26,7 +26,7 @@ class MicroMOKE(CustomApp):
         self.manual_actuation = ManualActuation(dockarea,
                                                 absolute_values=config('micro', 'actuation', 'absolute_current_values'),
                                                 relative_value=config('micro', 'actuation', 'relative_value'))
-        self.detector: DAQ_Viewer = self.modules_manager.get_mod_from_name('Camera', mod='det')
+        self.detector = self.modules_manager.get_mod_from_name('Camera', mod='det')
         self.current_actuator = self.modules_manager.get_mod_from_name('Current', mod='act')
         self.led_actuator = self.modules_manager.get_mod_from_name('LedDriver', mod='act')
 
@@ -133,8 +133,6 @@ class MicroMOKE(CustomApp):
         self.connect_action('show_scan', self.show_scanner)
         self.connect_action('save_layout', self.save_layout)
         self.connect_action('load_layout', self.load_layout)
-
-        self.connect_action('save', self.detector.save_current)
 
         self.connect_action('config', self.show_config)
 
