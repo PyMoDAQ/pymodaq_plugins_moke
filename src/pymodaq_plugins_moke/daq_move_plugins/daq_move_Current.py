@@ -1,20 +1,10 @@
-from pymodaq.control_modules.move_utility_classes import DAQ_Move_base  # base class
-from pymodaq.daq_move.utility_classes import comon_parameters  # common set of parameters for all actuators
-from pymodaq.daq_utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
+from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, comon_parameters_fun, main
+from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
 from easydict import EasyDict as edict  # type of dict
 import numpy as np
-from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
-    DAQ_termination, Edge, DAQ_NIDAQ_source, \
-    ClockSettings, ChangeDetectionSettings,AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
-from pymodaq.daq_utils import gui_utils as gutils
-from pymodaq.daq_utils.parameter import utils as putils
-from pymodaq.daq_utils.parameter import parameterTypes as ptypes
-from pymodaq.daq_utils import config as config_mod
+from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import (DAQmx, ClockSettings, AIChannel, AOChannel)
+from pymodaq_plugins_moke import config
 
-
-from pymodaq_plugins_moke.utils.configuration import Config
-
-config = Config()
 device_ao = config('micro', 'current', 'device_ao')
 channel_ao = config('micro', 'current', 'channel_ao')
 device_ai = config('micro', 'current', 'device_ai')
@@ -61,15 +51,7 @@ class DAQ_Move_Current(DAQ_Move_base):
                    {'title': 'Resistor (Ohm):', 'name': 'resistor', 'type': 'float',
                     'value': resistor},
                    {'title': 'Use Resistor?', 'name': 'use_R', 'type': 'bool', 'value': True},
-               ]},
-               
-                 {'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group', 'visible': is_multiaxes, 'children': [
-                     {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes,
-                      'default': False},
-                     {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master',
-                      'values': ['Master', 'Slave']},
-                     {'title': 'Axis:', 'name': 'axis', 'type': 'list', 'values': stage_names}, ]}] \
-             + comon_parameters
+               ]}] + comon_parameters_fun(is_multiaxes, epsilon=_epsilon)
 
     def __init__(self, parent=None, params_state=None):
         """
@@ -86,7 +68,7 @@ class DAQ_Move_Current(DAQ_Move_base):
 
         super().__init__(parent, params_state)
 
-    def check_position(self):
+    def get_actuator_value(self):
         """Get the current position from the hardware with scaling conversion.
 
         Returns
@@ -103,7 +85,6 @@ class DAQ_Move_Current(DAQ_Move_base):
             pos = np.mean(data) / self.settings.child('ai', 'resistor').value()
 
         pos = self.get_position_with_scaling(pos)
-        self.emit_status(ThreadCommand('check_position', [pos]))
         return pos
 
     def close(self):
@@ -216,7 +197,7 @@ class DAQ_Move_Current(DAQ_Move_base):
         self.write_ao(0.)
         self.controller['ao'].stop()
 
-    def move_Abs(self, position):
+    def move_abs(self, position):
         """ Move the actuator to the absolute target defined by position
 
         Parameters
@@ -229,7 +210,7 @@ class DAQ_Move_Current(DAQ_Move_base):
         position = self.set_position_with_scaling(position)  # apply scaling if the user specified one
         self.write_ao(position / self.settings.child('ao', 'controller_scaling').value())
 
-    def move_Rel(self, position):
+    def move_rel(self, position):
         """ Move the actuator to the relative target actuator value defined by position
 
         Parameters
@@ -244,9 +225,9 @@ class DAQ_Move_Current(DAQ_Move_base):
     def write_ao(self, voltage):
         self.controller['ao'].writeAnalog(1, len(self.channels_ao),
                                           np.array([voltage for ind in range(len(self.channels_ao))],
-                                                   dtype=np.float),
+                                                   dtype=float),
                                           autostart=True)
-    def move_Home(self):
+    def move_home(self):
         """
           Send the update status thread command.
             See Also
@@ -271,20 +252,5 @@ class DAQ_Move_Current(DAQ_Move_base):
       ##############################
 
 
-def main():
-    import sys
-    from PyQt5 import QtWidgets
-    from pymodaq.daq_move.daq_move_main import DAQ_Move
-    from pathlib import Path
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    prog = DAQ_Move(Form, title="test",)
-    Form.show()
-    prog.actuator = Path(__file__).stem[9:]
-    prog.init()
-
-    sys.exit(app.exec_())
-
-
 if __name__ == '__main__':
-    main()
+    main(__file__, init=True)

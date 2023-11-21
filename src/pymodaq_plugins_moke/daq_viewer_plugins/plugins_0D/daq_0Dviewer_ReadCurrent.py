@@ -1,16 +1,14 @@
 import numpy as np
 from easydict import EasyDict as edict
-from pymodaq.daq_utils.daq_utils import ThreadCommand, getLineInfo, DataFromPlugins, Axis, set_logger, get_module_name
-from pymodaq.control_modules.viewer_utility_classes import DAQ_Viewer_base, comon_parameters
-from pymodaq.daq_utils import config as config_mod
-from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
-    DAQ_termination, Edge, DAQ_NIDAQ_source, \
-    ClockSettings, AIChannel, Counter, AIThermoChannel, AOChannel, TriggerSettings, DOChannel, DIChannel
-from pymodaq_plugins_moke.utils.configuration import Config
+from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo
+from pymodaq.utils.data import DataFromPlugins
+from pymodaq.utils.logger import set_logger, get_module_name
+from pymodaq.control_modules.viewer_utility_classes import DAQ_Viewer_base, comon_parameters, main
+from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, ClockSettings, AIChannel
+from pymodaq_plugins_moke import config
 
 logger = set_logger(get_module_name(__file__))
 
-config = Config()
 
 device_ai = config('micro', 'current', 'device_ai')
 channel_ai = config('micro', 'current', 'channel_ai')
@@ -149,27 +147,5 @@ class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
         return ''
 
 
-def main():
-    import sys
-    from qtpy import QtWidgets
-    from pymodaq.daq_viewer.daq_viewer_main import DAQ_Viewer
-    from pymodaq.daq_utils.gui_utils import DockArea
-    from pathlib import Path
-
-    app = QtWidgets.QApplication(sys.argv)
-    win = QtWidgets.QMainWindow()
-    area = DockArea()
-    win.setCentralWidget(area)
-    win.resize(1000, 500)
-    win.setWindowTitle('PyMoDAQ Viewer')
-    prog = DAQ_Viewer(area, title="Testing", DAQ_type='DAQ0D')
-    win.show()
-    prog.daq_type = 'DAQ0D'
-    QtWidgets.QApplication.processEvents()
-    prog.detector = Path(__file__).stem[13:]
-    prog.init_det()
-    sys.exit(app.exec_())
-
-
 if __name__ == '__main__':
-    main()
+    main(__file__, init=True)

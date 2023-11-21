@@ -1,20 +1,14 @@
-from pymodaq.control_modules.move_utility_classes import DAQ_Move_base  # base class
-from pymodaq.daq_move.utility_classes import comon_parameters  # common set of parameters for all actuators
-from pymodaq.daq_utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
+from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, comon_parameters_fun, main
+from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
 from easydict import EasyDict as edict  # type of dict
 import numpy as np
-from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, DAQ_analog_types, DAQ_thermocouples,\
-    DAQ_termination, Edge, DAQ_NIDAQ_source, \
-    ClockSettings, ChangeDetectionSettings, AIChannel, Counter, AIThermoChannel, AOChannel,\
-    TriggerSettings, DOChannel, DIChannel
-from pymodaq.daq_utils import gui_utils as gutils
-from pymodaq.daq_utils.parameter import utils as putils
-from pymodaq.daq_utils.parameter import parameterTypes as ptypes
+from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, ClockSettings, ChangeDetectionSettings, \
+    AOChannel, \
+    DIChannel
+
+from pymodaq_plugins_moke import config
 
 
-from pymodaq_plugins_moke.utils.configuration import Config
-
-config = Config()
 device = config('micro', 'led', 'device_ao')
 ao_channels = config('micro', 'led', 'channels_ao')
 di_name = f"{config('micro', 'led', 'device_di')}/" \
@@ -23,6 +17,7 @@ di_name = f"{config('micro', 'led', 'device_di')}/" \
 
 channels = ['top', 'left', 'right', 'bottom']
 led_limit = 3.5
+
 
 class DAQ_Move_LedDC4104(DAQ_Move_base):
     """
@@ -57,14 +52,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                    'limits': DAQmx.get_NIDAQ_channels(source_type='Terminals'),
                    'value': f"/{config('micro', 'led', 'changedetectionevent_device')}/ChangeDetectionEvent"},
                   {'title': 'Activated?:', 'name': 'digital_act', 'type': 'led_push', 'value': False},
-              ]}] + \
-             [{'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group', 'visible': is_multiaxes, 'children': [
-                 {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes,
-                  'default': False},
-                 {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master',
-                  'limits': ['Master', 'Slave']},
-                 {'title': 'Axis:', 'name': 'axis', 'type': 'list',  'limits': stage_names}]}] + \
-             comon_parameters
+              ]}] + comon_parameters_fun(is_multiaxes, axes_names=stage_names)
 
     def __init__(self, parent=None, params_state=None):
         """
@@ -87,7 +75,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         self.sequence_list = [dict(top=True, bottom=False, left=False, right=False),
                               dict(top=False, bottom=True, left=False, right=False),]
 
-    def check_position(self):
+    def get_actuator_value(self):
         """Get the current position from the hardware with scaling conversion.
 
         Returns
@@ -99,9 +87,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         ##
 
         pos = self.get_position_with_scaling(pos)
-        self.emit_status(ThreadCommand('check_position',[pos]))
         return pos
-
 
     def close(self):
         """
@@ -181,7 +167,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                              else 0. for channel in channels])
                 data.append([0. for channel in led_values])
             data = np.array(list(map(list, zip(*data))),
-                            dtype=np.float)  # somehow on the transpose of what you would expect
+                            dtype=float)  # somehow on the transpose of what you would expect
             # but cannot just use the transpose function for numpy as data are no more contiguous...
 
             self.controller['ao'].writeAnalog(2 * len(self.sequence_list), len(self.channels_led), data,
@@ -192,7 +178,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                                               np.array([led_values[channel][f'{channel}_val']
                                                         if led_values[channel][f'{channel}_act']
                                                         else 0. for channel in led_values],
-                                                       dtype=np.float), autostart=True)
+                                                       dtype=float), autostart=True)
 
     def limit_led_values(self, led_values):
         for channel in channels:
@@ -302,10 +288,10 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         clock_settings = ClockSettings(frequency=1000, Nsamples=1)
         self.controller['ao'].update_task(self.channels_led, clock_settings)
 
-        self.controller['ao'].writeAnalog(1, 4, np.array([0., 0., 0., 0.], dtype=np.float), autostart=True)
+        self.controller['ao'].writeAnalog(1, 4, np.array([0., 0., 0., 0.], dtype=float), autostart=True)
         self.controller['ao'].stop()
 
-    def move_Abs(self, position):
+    def move_abs(self, position):
         """ Move the actuator to the absolute target defined by position
 
         Parameters
@@ -324,7 +310,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         self.check_led_and_update()
         self.target_position = position
 
-    def move_Rel(self, position):
+    def move_rel(self, position):
         """ Move the actuator to the relative target actuator value defined by position
 
         Parameters
@@ -342,7 +328,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         self.check_led_and_update()
         self.emit_status(ThreadCommand('Update_Status',['Some info you want to log']))
 
-    def move_Home(self):
+    def move_home(self):
         """
           Send the update status thread command.
             See Also
@@ -365,20 +351,5 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
       self.move_done() #to let the interface know the actuator stopped
 
 
-def main():
-    import sys
-    from qtpy import QtWidgets
-    from pymodaq.daq_move.daq_move_main import DAQ_Move
-    from pathlib import Path
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    prog = DAQ_Move(Form, title="test",)
-    Form.show()
-    prog.actuator = Path(__file__).stem[9:]
-    prog.init()
-
-    sys.exit(app.exec_())
-
-
 if __name__ == '__main__':
-    main()
+    main(__file__, init=True)

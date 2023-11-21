@@ -1,33 +1,38 @@
 import sys
-from qtpy import QtWidgets, QtGui, QtCore
+from pymodaq.utils.gui_utils import DockArea
+from pymodaq.dashboard import DashBoard
+
+from qtpy import QtWidgets, QtCore
 from pathlib import Path
+from pymodaq.utils.parameter import Parameter
+from pymodaq.utils.gui_utils.custom_app import CustomApp
+from pymodaq.utils.gui_utils.dock import Dock
+from pymodaq.utils.gui_utils import layout
+from pymodaq.utils import config as config_mod
+from pymodaq.utils.daq_utils import ThreadCommand
+from pymodaq.utils.logger import set_logger, get_module_name
 
-from pymodaq.daq_utils.gui_utils.custom_app import CustomApp
-from pymodaq.daq_utils.gui_utils.dock import Dock
-import pymodaq.daq_utils.gui_utils.layout
-from pymodaq.daq_utils import config as config_mod
-from pymodaq.daq_utils.daq_utils import ThreadCommand, set_logger, get_module_name
+from pymodaq_plugins_moke.hardware import LedControl,  ManualActuation, StepsSequencer
 
-from pymodaq_plugins_moke.utils import LedControl, StepsSequencer, ManualActuation
-from pymodaq.daq_utils.messenger import messagebox
-from pymodaq.daq_utils.plotting.data_viewers.viewer1D import Viewer1D
-from pymodaq.control_modules.daq_viewer import DAQ_Viewer
-from pymodaq_plugins_moke.utils.configuration import Config as ConfigMOKE
+from pymodaq.utils.messenger import messagebox
+from pymodaq.utils.plotting.data_viewers.viewer1D import Viewer1D
 
-config = ConfigMOKE()
+from pymodaq_plugins_moke import config
+
 logger = set_logger(get_module_name(__file__))
 
 
 class MicroMOKE(CustomApp):
-    def __init__(self, dockarea, dashboard):
+    def __init__(self, dockarea: DockArea, dashboard: DashBoard):
         super().__init__(dockarea, dashboard)
         self.led_control = LedControl(dockarea)
-        self.steps_sequencer = StepsSequencer(dockarea)
+
         self.manual_actuation = ManualActuation(dockarea,
                                                 absolute_values=config('micro', 'actuation', 'absolute_current_values'),
                                                 relative_value=config('micro', 'actuation', 'relative_value'))
-        self.detector: DAQ_Viewer = self.modules_manager.get_mod_from_name('Camera', mod='det')
+        self.detector = self.modules_manager.get_mod_from_name('Camera', mod='det')
         self.current_actuator = self.modules_manager.get_mod_from_name('Current', mod='act')
+        self.steps_sequencer = StepsSequencer(dockarea, self.current_actuator)
         self.led_actuator = self.modules_manager.get_mod_from_name('LedDriver', mod='act')
 
         self.scan_window = None
@@ -45,9 +50,9 @@ class MicroMOKE(CustomApp):
             self.show_scanner(self.is_action_checked('show_scan'))
             self.connect_action('do_scan', self.dashboard.scan_module.do_scan)
             self.connect_action('do_scan', self.show_hide_live_viewer)
-            self.dashboard.scan_module.live_data_1D_signal.connect(self.update_live_viewer)
+            #self.dashboard.scan_module.live_data_1D_signal.connect(self.update_live_viewer)
 
-        self.dashboard.scan_module.scanner.set_scan_type_and_subtypes('Tabular', 'Linear')
+        self.dashboard.scan_module.scanner.set_scan_type_and_subtypes('Scan1D', 'Sparse')
         self.dashboard.scan_module.modules_manager.selected_detectors_name = ['Camera']
         self.dashboard.scan_module.modules_manager.selected_actuators_name = ['Current']
         QtWidgets.QApplication.processEvents()
@@ -134,8 +139,6 @@ class MicroMOKE(CustomApp):
         self.connect_action('save_layout', self.save_layout)
         self.connect_action('load_layout', self.load_layout)
 
-        self.connect_action('save', self.detector.save_current)
-
         self.connect_action('config', self.show_config)
 
         self.led_control.led_manual_control.leds_value.connect(self.set_LEDs)
@@ -146,17 +149,17 @@ class MicroMOKE(CustomApp):
 
         self.manual_actuation.actuation_signal.connect(self.current_actuator.move)
 
-        self.steps_sequencer.positions_signal.connect(self.emit_positions)
+        self.steps_sequencer.scanner_parameter.connect(self.update_scanner)
 
     def save_layout(self):
-        pymodaq.daq_utils.gui_utils.layout.save_layout_state(self.dockarea)
+        layout.save_layout_state(self.dockarea)
 
     def load_layout(self):
-        pymodaq.daq_utils.gui_utils.layout.load_layout_state(self.dockarea)
+        layout.load_layout_state(self.dockarea)
 
-    def emit_positions(self, positions):
+    def update_scanner(self, param: Parameter):
         self.setup_scan()
-        self.dashboard.scan_module.scanner.update_tabular_positions(positions)
+        self.dashboard.scan_module.scanner.scanner.settings.child('parsed_string').setValue(param.value())
 
     def show_dashboard(self, show=True):
         self.dashboard.mainwindow.setVisible(show)
@@ -176,11 +179,11 @@ class MicroMOKE(CustomApp):
 
     def info_detector(self, status):
         if status.command == 'stopped':
-            self.led_actuator.command_stage.emit(ThreadCommand('update_tasks'))
+            self.led_actuator.command_hardware.emit(ThreadCommand('update_tasks'))
             logger.debug('stopped')
 
     def set_LEDs(self, led_values):
-        self.led_actuator.command_stage.emit(ThreadCommand('set_leds_external', [led_values]))
+        self.led_actuator.command_hardware.emit(ThreadCommand('set_leds_external', [led_values]))
         if self.is_action_checked('toggle_sequence'):
             self.set_led_type()
 
@@ -205,12 +208,12 @@ class MicroMOKE(CustomApp):
             self.detector.stop()
 
         QtWidgets.QApplication.processEvents()
-        self.led_actuator.command_stage.emit(ThreadCommand('set_led_type', [led_type]))
+        self.led_actuator.command_hardware.emit(ThreadCommand('set_led_type', [led_type]))
         if 'sequence' in led_type:
             do_sub = len(led_type['sequence']) > 1
         else:
             do_sub = False
-        self.detector.command_detector.emit(ThreadCommand('activate_substraction', [do_sub]))
+        self.detector.command_hardware.emit(ThreadCommand('activate_substraction', [do_sub]))
         if not do_sub:
             self.detector.ui.viewers[0].set_gradient('red', 'grey')
             self.detector.ui.viewers[0].set_action_checked('auto_levels_sym', False)
@@ -229,8 +232,8 @@ class MicroMOKE(CustomApp):
 
 
 def main():
-    from pymodaq.daq_utils.daq_utils import get_set_preset_path
-    from pymodaq.daq_utils.gui_utils import DockArea
+    from pymodaq.utils.daq_utils import get_set_preset_path
+    from pymodaq.utils.gui_utils import DockArea
     from pathlib import Path
     from pymodaq.dashboard import DashBoard
 
