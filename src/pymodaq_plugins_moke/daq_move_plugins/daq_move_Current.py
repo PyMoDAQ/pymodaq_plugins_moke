@@ -1,4 +1,4 @@
-from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, comon_parameters, main
+from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, comon_parameters_fun, main
 from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
 from easydict import EasyDict as edict  # type of dict
 import numpy as np
@@ -51,15 +51,7 @@ class DAQ_Move_Current(DAQ_Move_base):
                    {'title': 'Resistor (Ohm):', 'name': 'resistor', 'type': 'float',
                     'value': resistor},
                    {'title': 'Use Resistor?', 'name': 'use_R', 'type': 'bool', 'value': True},
-               ]},
-               
-                 {'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group', 'visible': is_multiaxes, 'children': [
-                     {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes,
-                      'default': False},
-                     {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master',
-                      'values': ['Master', 'Slave']},
-                     {'title': 'Axis:', 'name': 'axis', 'type': 'list', 'values': stage_names}, ]}] \
-             + comon_parameters
+               ]}] + comon_parameters_fun(is_multiaxes, epsilon=_epsilon)
 
     def __init__(self, parent=None, params_state=None):
         """
@@ -93,7 +85,6 @@ class DAQ_Move_Current(DAQ_Move_base):
             pos = np.mean(data) / self.settings.child('ai', 'resistor').value()
 
         pos = self.get_position_with_scaling(pos)
-        self.emit_status(ThreadCommand('check_position', [pos]))
         return pos
 
     def close(self):
@@ -234,9 +225,9 @@ class DAQ_Move_Current(DAQ_Move_base):
     def write_ao(self, voltage):
         self.controller['ao'].writeAnalog(1, len(self.channels_ao),
                                           np.array([voltage for ind in range(len(self.channels_ao))],
-                                                   dtype=np.float),
+                                                   dtype=float),
                                           autostart=True)
-    def move_Home(self):
+    def move_home(self):
         """
           Send the update status thread command.
             See Also

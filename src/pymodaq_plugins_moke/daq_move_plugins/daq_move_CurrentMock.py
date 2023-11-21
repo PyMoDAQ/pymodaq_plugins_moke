@@ -1,4 +1,4 @@
-from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, main, comon_parameters  # common set of parameters for all actuators
+from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, main, comon_parameters_fun  # common set of parameters for all actuators
 from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
 from easydict import EasyDict as edict  # type of dict
 from pymodaq_plugins_moke.hardware.mock import MokeMockController
@@ -16,18 +16,9 @@ class DAQ_Move_CurrentMock(DAQ_Move_base):
     _controller_units = 'whatever'
     is_multiaxes = True
     stage_names = MokeMockController.axis
-    epsilon = 0.001
+    _epsilon = 0.001
 
-    params = [  # elements to be added in order to control your custom stage
-
-        {'title': 'MultiAxes:', 'name': 'multiaxes', 'type': 'group', 'visible': is_multiaxes, 'children': [
-            {'title': 'is Multiaxes:', 'name': 'ismultiaxes', 'type': 'bool', 'value': is_multiaxes,
-                'default': False},
-            {'title': 'Status:', 'name': 'multi_status', 'type': 'list', 'value': 'Master',
-                'limits': ['Master', 'Slave']},
-            {'title': 'Axis:', 'name': 'axis', 'type': 'list', 'limits': stage_names},
-
-        ]}] + comon_parameters
+    params = [] + comon_parameters_fun(is_multiaxes, stage_names, epsilon=_epsilon)
 
     def __init__(self, parent=None, params_state=None):
         super().__init__(parent, params_state)
@@ -49,7 +40,6 @@ class DAQ_Move_CurrentMock(DAQ_Move_base):
         # print('Pos from controller is {}'.format(pos))
         # pos=self.get_position_with_scaling(pos)
         self.current_position = pos
-        self.emit_status(ThreadCommand('check_position', [pos]))
         return pos
 
     def close(self):
