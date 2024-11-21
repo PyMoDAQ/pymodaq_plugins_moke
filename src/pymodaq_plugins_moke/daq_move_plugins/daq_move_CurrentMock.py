@@ -13,7 +13,7 @@ class DAQ_Move_CurrentMock(DAQ_Move_base):
         *params*          dictionnary
         =============== ==============
     """
-    _controller_units = 'whatever'
+    _controller_units = 'A'
     is_multiaxes = True
     stage_names = MokeMockController.axis
     _epsilon = 0.001

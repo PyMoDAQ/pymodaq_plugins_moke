@@ -21,7 +21,7 @@ class DAQ_Move_Current(DAQ_Move_base):
         *params*          dictionnary
         =============== ==============
     """
-    _controller_units = 'Volts'
+    _controller_units = 'V'
     ao_limits = [-1, 1]
     _epsilon = 0.005
 

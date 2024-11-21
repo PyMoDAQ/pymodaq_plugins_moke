@@ -28,7 +28,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
         *params*          dictionnary
         =============== ==============
     """
-    _controller_units = 'Volts'
+    _controller_units = 'V'
 
     is_multiaxes = True  # set to True if this plugin is controlled for a multiaxis controller (with a unique communication link)
     stage_names = ['offset', 'top', 'left', 'right', 'bottom']  # "list of strings of the multiaxes
@@ -41,7 +41,7 @@ class DAQ_Move_LedDC4104(DAQ_Move_base):
                       'max': led_limit},
                      {'title': 'Activated?:', 'name': f'{channels[ind]}_act', 'type': 'led_push', 'value': False}
                  ]} for ind in range(len(ao_channels))] + \
-             [{'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'lin', 'value': 0.0,
+             [{'title': 'Offset:', 'name': 'offset', 'type': 'slide', 'subtype': 'linear', 'value': 0.0,
                'limits': [0, led_limit]},
               {'title': 'Activate All:', 'name': 'activate_all', 'type': 'led_push', 'value': False},
               {'title': 'Digital Triggering:', 'name': 'digital', 'type': 'group', 'children': [
