@@ -3,7 +3,7 @@ from pymodaq.utils.daq_utils import ThreadCommand
 from pymodaq.utils.data import DataFromPlugins
 from pymodaq.utils.logger import set_logger, get_module_name
 
-from pymodaq_plugins_andor.daq_viewer_plugins.plugins_2D.daq_2Dviewer_AndorSCMOS import DAQ_2DViewer_AndorSCMOS
+from pymodaq_plugins_andor.daq_viewer_plugins.plugins_2D.daq_2Dviewer_AndorSCMOS import DAQ_2DViewer_AndorSCMOS, main
 from time import perf_counter
 from pymodaq_plugins_moke import config
 
@@ -168,7 +168,7 @@ class DAQ_2DViewer_MOKEGrabber(DAQ_2DViewer_AndorSCMOS):
         """
         """
         self.ind_sub = 0
-        Naverage_sub = 2 * Naverage if self.settings.child('do_sub').value() else Naverage
+        Naverage_sub = 2 * Naverage if self.settings['do_sub'] else Naverage
         super().grab_data(Naverage_sub, **kwargs)
         self.Naverage = Naverage
 
@@ -177,3 +177,6 @@ class DAQ_2DViewer_MOKEGrabber(DAQ_2DViewer_AndorSCMOS):
         QtWidgets.QApplication.processEvents()
         self.emit_status(ThreadCommand('stopped'))
 
+
+if __name__ == '__main__':
+    main(init=False)
