@@ -1,8 +1,8 @@
 from pymodaq.control_modules.viewer_utility_classes import DAQ_Viewer_base, main
 from easydict import EasyDict as edict
-from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo
+from pymodaq_utils.utils import ThreadCommand, getLineInfo
 from pymodaq.utils.data import DataFromPlugins, Axis
-from pymodaq.utils.math_utils import my_moment
+
 from pymodaq.control_modules.viewer_utility_classes import comon_parameters
 from pymodaq_plugins_moke.hardware.mock import MokeMockController
 

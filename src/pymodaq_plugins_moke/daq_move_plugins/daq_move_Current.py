@@ -1,5 +1,5 @@
 from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, comon_parameters_fun, main
-from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
+from pymodaq_utils.utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
 from easydict import EasyDict as edict  # type of dict
 import numpy as np
 from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import (DAQmx, ClockSettings, AIChannel, AOChannel)

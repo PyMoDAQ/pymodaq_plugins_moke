@@ -1,10 +1,9 @@
 import sys
-
-from pymodaq.utils.gui_utils.dock import Dock, DockArea
 from qtpy import QtWidgets, QtCore, QtGui
 
-from pymodaq.utils.parameter.pymodaq_ptypes import SliderSpinBox
-from pymodaq.utils.gui_utils.widgets import QLED
+from pymodaq_gui.utils.dock import Dock, DockArea
+from pymodaq_gui.parameter.pymodaq_ptypes import SliderSpinBox
+from pymodaq_gui.utils.widgets import QLED
 
 from collections import OrderedDict
 from pathlib import Path

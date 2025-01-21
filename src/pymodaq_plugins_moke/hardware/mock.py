@@ -1,5 +1,5 @@
 import numpy as np
-from pymodaq.daq_utils.daq_utils import gauss2D
+from pymodaq_utils.math_utils import gauss2D
 from .koch import image_from_koch
 
 
