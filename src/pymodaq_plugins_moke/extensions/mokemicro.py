@@ -249,22 +249,14 @@ class MicroMOKE(CustomExt):
 
 
 def main():
-    from pymodaq.utils.gui_utils.utils import mkQApp
+    from pymodaq_gui.utils.utils import mkQApp
     from pymodaq.utils.gui_utils.loader_utils import load_dashboard_with_preset
-    from pymodaq.utils.messenger import messagebox
+    from pymodaq_gui.messenger import messagebox
 
     app = mkQApp(EXTENSION_NAME)
-    try:
-        preset_file_name = plugin_config('presets', f'preset_for_{CLASS_NAME.lower()}')
-        load_dashboard_with_preset(preset_file_name, EXTENSION_NAME)
-        app.exec()
-
-    except ConfigError as e:
-        messagebox(f'No entry with name f"preset_for_{CLASS_NAME.lower()}" has been configured'
-                   f'in the plugin config file. The toml entry should be:\n'
-                   f'[presets]'
-                   f"preset_for_{CLASS_NAME.lower()} = {'a name for an existing preset'}"
-                   )
+    preset_file_name = plugin_config('presets', f'preset_for_{CLASS_NAME.lower()}')
+    load_dashboard_with_preset(preset_file_name, EXTENSION_NAME)
+    app.exec()
 
 
 if __name__ == '__main__':
