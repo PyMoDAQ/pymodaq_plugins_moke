@@ -4,7 +4,7 @@ from pymodaq_utils.utils import ThreadCommand, getLineInfo
 from pymodaq.utils.data import DataFromPlugins
 from pymodaq_utils.logger import set_logger, get_module_name
 from pymodaq.control_modules.viewer_utility_classes import DAQ_Viewer_base, comon_parameters, main
-from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, ClockSettings, AIChannel
+from pymodaq_plugins_daqmx.hardware.national_instruments.daqmx import DAQmx, ClockSettings, AIChannel, DAQ_NIDAQ_source
 from pymodaq_plugins_moke import config
 
 logger = set_logger(get_module_name(__file__))
@@ -21,7 +21,8 @@ class DAQ_0DViewer_ReadCurrent(DAQ_Viewer_base):
     params = comon_parameters+[
         {'title': 'Resistance:', 'name': 'resistance', 'type': 'float', 'value': resistor, 'min': 0., 'suffix': 'Ohm'},
         {'title': 'AI Channel:', 'name': 'ai_channel', 'type': 'list',
-         'values': DAQmx.get_NIDAQ_channels(source_type='Analog_Input'), 'value': f'{device_ai}/{channel_ai}'},
+         'limits': DAQmx.get_NIDAQ_channels(source_type=DAQ_NIDAQ_source.Analog_Input.name),
+         'value': f'{device_ai}/{channel_ai}'},
         ]
     hardware_averaging = False
     live_mode_available = False
