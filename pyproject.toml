@@ -14,7 +14,8 @@ description = 'Kerr Magneto Optics experiments'
 dependencies = [
     "pymodaq>=5.0.0",
     'pymodaq_plugins_daqmx',
-    'pymodaq_plugins_andor'
+    'pymodaq_plugins_andor',
+    'pillow',
     #todo: list here all dependencies your package may have
 ]
 
