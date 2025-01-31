@@ -8,19 +8,18 @@ from pymodaq_utils.utils import ThreadCommand
 from pymodaq_utils.logger import set_logger, get_module_name
 from pymodaq_utils.config import Config, ConfigError
 
+
 from pymodaq_gui.parameter import Parameter
 from pymodaq_gui.utils.dock import DockArea, Dock
 from pymodaq_gui.utils import layout
 
-from pymodaq.dashboard import DashBoard
 from pymodaq.extensions.utils import CustomExt
 
 from pymodaq_plugins_moke.hardware import LedControl,  ManualActuation, StepsSequencer
 
-from pymodaq_gui.messenger import messagebox
 from pymodaq_gui.plotting.data_viewers.viewer1D import Viewer1D
 
-from pymodaq_plugins_moke import config
+
 from pymodaq_plugins_moke.utils import Config as PluginConfig
 
 logger = set_logger(get_module_name(__file__))
@@ -44,8 +43,8 @@ class MicroMOKE(CustomExt):
         self.led_control = LedControl(parent)
 
         self.manual_actuation = ManualActuation(parent,
-                                                absolute_values=config('micro', 'actuation', 'absolute_current_values'),
-                                                relative_value=config('micro', 'actuation', 'relative_value'))
+                                                absolute_values=plugin_config('micro', 'actuation', 'absolute_current_values'),
+                                                relative_value=plugin_config('micro', 'actuation', 'relative_value'))
 
         self.detector = self.modules_manager.get_mod_from_name('Camera', mod='det')
         self.current_actuator = self.modules_manager.get_mod_from_name('Current', mod='act')
@@ -143,7 +142,8 @@ class MicroMOKE(CustomExt):
         self.get_action('do_scan').setEnabled(False)
 
     def show_config(self):
-        config_tree = config_mod.TreeFromToml(config=config)
+        from pymodaq_gui.utils.widgets.tree_toml import TreeFromToml
+        config_tree = TreeFromToml(plugin_config)
         config_tree.show_dialog()
 
     def connect_things(self):
@@ -251,11 +251,10 @@ class MicroMOKE(CustomExt):
 def main():
     from pymodaq_gui.utils.utils import mkQApp
     from pymodaq.utils.gui_utils.loader_utils import load_dashboard_with_preset
-    from pymodaq_gui.messenger import messagebox
 
     app = mkQApp(EXTENSION_NAME)
-    preset_file_name = plugin_config('presets', f'preset_for_{CLASS_NAME.lower()}')
-    load_dashboard_with_preset(preset_file_name, EXTENSION_NAME)
+    preset_file_name = plugin_config('micro', f'preset_for_{CLASS_NAME.lower()}')
+    dashboard, extension, win = load_dashboard_with_preset(preset_file_name, EXTENSION_NAME)
     app.exec()
 
 

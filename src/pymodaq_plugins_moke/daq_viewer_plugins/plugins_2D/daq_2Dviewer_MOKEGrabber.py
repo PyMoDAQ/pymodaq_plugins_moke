@@ -20,7 +20,6 @@ class DAQ_2DViewer_MOKEGrabber(DAQ_2DViewer_AndorSCMOS):
     params = DAQ_2DViewer_AndorSCMOS.params + \
         [{'title': 'Do substraction:', 'name': 'do_sub', 'type': 'bool', 'value': False}]
 
-
     def __init__(self, parent=None, params_state=None):
 
         super().__init__(parent, params_state)  # initialize base class with commom attributes and methods
@@ -179,4 +178,4 @@ class DAQ_2DViewer_MOKEGrabber(DAQ_2DViewer_AndorSCMOS):
 
 
 if __name__ == '__main__':
-    main(init=False)
+    main(__file__, init=False)
