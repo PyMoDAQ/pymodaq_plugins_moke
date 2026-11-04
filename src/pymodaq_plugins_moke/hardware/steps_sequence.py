@@ -1,21 +1,19 @@
 from typing import List, TYPE_CHECKING
 
 import numpy as np
-from pymodaq.utils.gui_utils.custom_app import CustomApp
-from pymodaq.utils.gui_utils.dock import Dock, DockArea
-from pymodaq.utils.managers.parameter_manager import ParameterManager, Parameter
+
+from pymodaq_gui.utils.dock import Dock, DockArea
+from pymodaq_gui.managers.parameter_manager import ParameterManager, Parameter
 
 from qtpy import QtWidgets, QtCore, QtGui
 from qtpy.QtWidgets import QWidget
-from pymodaq.utils import daq_utils as utils
+from pymodaq_utils import utils as utils
 
 from pymodaq.utils.scanner.scanners._1d_scanners import Scan1DSparse
-from pymodaq.utils.parameter import pymodaq_ptypes as ptypes
-from pymodaq.utils.parameter import utils as putils
-from pymodaq.utils.plotting.data_viewers.viewer1D import Viewer1D
+from pymodaq_gui.plotting.data_viewers.viewer1D import Viewer1D
 from pymodaq.utils.data import DataActuator
 from pymodaq.control_modules.daq_move import DAQ_Move
-from pymodaq.utils.messenger import dialog
+from pymodaq_gui.messenger import dialog
 
 
 class StepsSequencer(ParameterManager, QtCore.QObject):

@@ -1,38 +1,54 @@
 import sys
-from pymodaq.utils.gui_utils import DockArea
-from pymodaq.dashboard import DashBoard
+
 
 from qtpy import QtWidgets, QtCore
 from pathlib import Path
-from pymodaq.utils.parameter import Parameter
-from pymodaq.utils.gui_utils.custom_app import CustomApp
-from pymodaq.utils.gui_utils.dock import Dock
-from pymodaq.utils.gui_utils import layout
-from pymodaq.utils import config as config_mod
-from pymodaq.utils.daq_utils import ThreadCommand
-from pymodaq.utils.logger import set_logger, get_module_name
+
+from pymodaq_utils.utils import ThreadCommand
+from pymodaq_utils.logger import set_logger, get_module_name
+from pymodaq_utils.config import Config, ConfigError
+
+
+from pymodaq_gui.parameter import Parameter
+from pymodaq_gui.utils.dock import DockArea, Dock
+from pymodaq_gui.utils import layout
+
+from pymodaq.extensions.utils import CustomExt
 
 from pymodaq_plugins_moke.hardware import LedControl,  ManualActuation, StepsSequencer
 
-from pymodaq.utils.messenger import messagebox
-from pymodaq.utils.plotting.data_viewers.viewer1D import Viewer1D
+from pymodaq_gui.plotting.data_viewers.viewer1D import Viewer1D
 
-from pymodaq_plugins_moke import config
+
+from pymodaq_plugins_moke.utils import Config as PluginConfig
 
 logger = set_logger(get_module_name(__file__))
 
+main_config = Config()
+plugin_config = PluginConfig()
 
-class MicroMOKE(CustomApp):
-    def __init__(self, dockarea: DockArea, dashboard: DashBoard):
-        super().__init__(dockarea, dashboard)
-        self.led_control = LedControl(dockarea)
 
-        self.manual_actuation = ManualActuation(dockarea,
-                                                absolute_values=config('micro', 'actuation', 'absolute_current_values'),
-                                                relative_value=config('micro', 'actuation', 'relative_value'))
+EXTENSION_NAME = 'MicroMOKE'  # the name that will be displayed in the extension list in the
+# dashboard
+CLASS_NAME = 'MicroMOKE'  # this should be the name of your class defined below
+
+
+class MicroMOKE(CustomExt):
+
+    params = []
+
+    def __init__(self, parent: DockArea, dashboard):
+        super().__init__(parent, dashboard)
+
+        self.led_control = LedControl(parent)
+
+        self.manual_actuation = ManualActuation(parent,
+                                                absolute_values=plugin_config('micro', 'actuation', 'absolute_current_values'),
+                                                relative_value=plugin_config('micro', 'actuation', 'relative_value'))
+
         self.detector = self.modules_manager.get_mod_from_name('Camera', mod='det')
         self.current_actuator = self.modules_manager.get_mod_from_name('Current', mod='act')
-        self.steps_sequencer = StepsSequencer(dockarea, self.current_actuator)
+        self.steps_sequencer = StepsSequencer(parent, self.current_actuator)
         self.led_actuator = self.modules_manager.get_mod_from_name('LedDriver', mod='act')
 
         self.scan_window = None
@@ -126,7 +142,8 @@ class MicroMOKE(CustomApp):
         self.get_action('do_scan').setEnabled(False)
 
     def show_config(self):
-        config_tree = config_mod.TreeFromToml(config=config)
+        from pymodaq_gui.utils.widgets.tree_toml import TreeFromToml
+        config_tree = TreeFromToml(plugin_config)
         config_tree.show_dialog()
 
     def connect_things(self):
@@ -232,40 +249,13 @@ class MicroMOKE(CustomApp):
 
 
 def main():
-    from pymodaq.utils.daq_utils import get_set_preset_path
-    from pymodaq.utils.gui_utils import DockArea
-    from pathlib import Path
-    from pymodaq.dashboard import DashBoard
+    from pymodaq_gui.utils.utils import mkQApp
+    from pymodaq.utils.gui_utils.loader_utils import load_dashboard_with_preset
 
-    app = QtWidgets.QApplication(sys.argv)
-    win = QtWidgets.QMainWindow()
-    area = DockArea()
-    win.setCentralWidget(area)
-    win.resize(1000, 500)
-    win.setWindowTitle('PyMoDAQ Dashboard')
-
-    dashboard = DashBoard(area)
-    file = Path(get_set_preset_path()).joinpath("microMOKE.xml")
-    if not file.exists():
-        file = Path(get_set_preset_path()).joinpath("MokeMicro_Mock.xml")
-    if file.exists():
-        dashboard.set_preset_mode(file)
-        mm_area = DockArea()
-        mm_window = QtWidgets.QMainWindow()
-        mm_window.setCentralWidget(mm_area)
-        micromoke = MicroMOKE(mm_area, dashboard)
-        mm_window.show()
-        mm_window.setWindowTitle('MicroMOKE')
-        QtWidgets.QApplication.processEvents()
-
-
-
-    else:
-        messagebox(severity='warning', title=f"Impossible to load the DAQ_Scan Module",
-                   text=f"The default file specified in the configuration file does not exists!\n"
-                   f"{file}\n")
-
-    sys.exit(app.exec_())
+    app = mkQApp(EXTENSION_NAME)
+    preset_file_name = plugin_config('micro', f'preset_for_{CLASS_NAME.lower()}')
+    dashboard, extension, win = load_dashboard_with_preset(preset_file_name, EXTENSION_NAME)
+    app.exec()
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 from qtpy import QtWidgets, QtCore
-from pymodaq.utils.daq_utils import ThreadCommand
+from pymodaq_utils.utils import ThreadCommand
 from pymodaq.utils.data import DataFromPlugins
-from pymodaq.utils.logger import set_logger, get_module_name
+from pymodaq_utils.logger import set_logger, get_module_name
 
 from pymodaq_plugins_andor.daq_viewer_plugins.plugins_2D.daq_2Dviewer_AndorSCMOS import DAQ_2DViewer_AndorSCMOS, main
 from time import perf_counter
@@ -19,7 +19,6 @@ class DAQ_2DViewer_MOKEGrabber(DAQ_2DViewer_AndorSCMOS):
     live_mode_available = True
     params = DAQ_2DViewer_AndorSCMOS.params + \
         [{'title': 'Do substraction:', 'name': 'do_sub', 'type': 'bool', 'value': False}]
-
 
     def __init__(self, parent=None, params_state=None):
 
@@ -179,4 +178,4 @@ class DAQ_2DViewer_MOKEGrabber(DAQ_2DViewer_AndorSCMOS):
 
 
 if __name__ == '__main__':
-    main(init=False)
+    main(__file__, init=False)
