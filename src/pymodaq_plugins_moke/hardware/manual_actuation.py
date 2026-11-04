@@ -1,7 +1,10 @@
-from pymodaq.utils.gui_utils.custom_app import CustomApp
-from pymodaq.utils.gui_utils.dock import Dock, DockArea
 from qtpy import QtWidgets, QtCore
-from pymodaq.utils import gui_utils as gutils
+
+from pymodaq_gui.utils.custom_app import CustomApp
+from pymodaq_gui.utils.dock import Dock, DockArea
+
+
+from pymodaq_gui import utils as gutils
 from pymodaq.control_modules.move_utility_classes import MoveCommand
 from pymodaq_plugins_moke import config
 

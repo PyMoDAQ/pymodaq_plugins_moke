@@ -3,6 +3,7 @@
 
 
 [micro]
+    preset_for_micromoke = "microMOKE"
 
     [micro.current]
     device_ao = 'cDAQ1Mod4'

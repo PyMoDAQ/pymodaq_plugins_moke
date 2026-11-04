@@ -1,5 +1,5 @@
 from pymodaq.control_modules.move_utility_classes import DAQ_Move_base, main, comon_parameters_fun  # common set of parameters for all actuators
-from pymodaq.utils.daq_utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
+from pymodaq_utils.utils import ThreadCommand, getLineInfo  # object used to send info back to the main thread
 from easydict import EasyDict as edict  # type of dict
 from pymodaq_plugins_moke.hardware.mock import MokeMockController
 
