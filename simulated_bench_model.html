@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model of the simulated MOKE bench &mdash; pymodaq_plugins_moke  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pymodaq_plugins_moke documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pymodaq_plugins_moke
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model of the simulated MOKE bench</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#magnet">2. Magnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#magnetisation-of-the-sample">3. Magnetisation of the sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stoner-wohlfarth-default">3.1 Stoner-Wohlfarth (default)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tanh-loop">3.2 tanh loop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kerr-rotation">4. Kerr rotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#balanced-detection">5. Balanced detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-power-to-volts">5.1 From power to volts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#imperfections">6. Imperfections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-the-model-does-not-do">7. What the model does not do</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-it">8. Using it</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pymodaq_plugins_moke</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Model of the simulated MOKE bench</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/simulated_bench_model.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="model-of-the-simulated-moke-bench">
+<h1>Model of the simulated MOKE bench<a class="headerlink" href="#model-of-the-simulated-moke-bench" title="Link to this heading"></a></h1>
+<p>This page describes what the five <code class="docutils literal notranslate"><span class="pre">Moke...Sim</span></code> plugins compute (<code class="docutils literal notranslate"><span class="pre">src/pymodaq_plugins_moke/hardware/simulated_bench.py</span></code>),
+so that a user can choose the settings, check a result by hand, and know what is not simulated. The physics is a
+<strong>deliberately simple model</strong>, written from general knowledge of the magneto-optical Kerr effect. It has <strong>not been
+reviewed by MOKE experts</strong> yet, and nothing in it was compared with a real bench.</p>
+<p>The angles are drawn below.</p>
+<p><img alt="Angles of the simulated MOKE bench" src="_images/moke_bench_angles.png" /></p>
+<section id="overview">
+<h2>1. Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> magnet B(t) ──► magnetisation m ──► Kerr rotation θ_K ──► polarisation ──► half-wave plate ──► beam splitter ──► diodes A, B
+ (MokeMagnetSim)   (sample model)     (geometry: θ_i, ψ)   φ = 2α_eff + θ_K  (MokeWavePlateSim)                    (MokeBalancedSim)
+</pre></div>
+</div>
+<p>All the plugins share one object, the <em>bench</em> (<code class="docutils literal notranslate"><span class="pre">MokeBench</span></code>), through the PyMoDAQ controller: give them the same
+controller ID, one as <code class="docutils literal notranslate"><span class="pre">Master</span></code> (it creates the bench), the others as <code class="docutils literal notranslate"><span class="pre">Slave</span></code>. A plugin alone is its own master.</p>
+<p>Lab frame: <code class="docutils literal notranslate"><span class="pre">z</span></code> is the normal of the sample, <code class="docutils literal notranslate"><span class="pre">x</span></code> lies in the plane of incidence, <code class="docutils literal notranslate"><span class="pre">y</span></code> is perpendicular to both.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Plugin</p></th>
+<th class="head"><p>Quantity</p></th>
+<th class="head"><p>Unit</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Where it enters</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MokeMagnetSim</span></code></p></td>
+<td><p>field <code class="docutils literal notranslate"><span class="pre">B</span></code></p></td>
+<td><p>mT</p></td>
+<td><p>0</p></td>
+<td><p>magnet (section 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MokeMagnetSim</span></code> setting</p></td>
+<td><p>response time <code class="docutils literal notranslate"><span class="pre">tau</span></code></p></td>
+<td><p>ms</p></td>
+<td><p>50</p></td>
+<td><p>magnet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MokeMagnetSim</span></code> settings</p></td>
+<td><p>field direction <code class="docutils literal notranslate"><span class="pre">θ_H</span></code> (from the normal) and <code class="docutils literal notranslate"><span class="pre">φ_H</span></code> (azimuth)</p></td>
+<td><p>deg</p></td>
+<td><p>0, 0</p></td>
+<td><p>magnet, magnetisation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MokeSampleRotationSim</span></code></p></td>
+<td><p>sample azimuth <code class="docutils literal notranslate"><span class="pre">ψ</span></code></p></td>
+<td><p>deg</p></td>
+<td><p>0</p></td>
+<td><p>easy axis in the lab frame</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MokeGoniometerSim</span></code></p></td>
+<td><p>angle of incidence <code class="docutils literal notranslate"><span class="pre">θ_i</span></code></p></td>
+<td><p>deg</p></td>
+<td><p>45</p></td>
+<td><p>Kerr rotation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MokeWavePlateSim</span></code></p></td>
+<td><p>plate angle <code class="docutils literal notranslate"><span class="pre">α</span></code></p></td>
+<td><p>deg</p></td>
+<td><p>22.5</p></td>
+<td><p>balance</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MokeBalancedSim</span></code> settings</p></td>
+<td><p>sample, optics, imperfections</p></td>
+<td><p>see sections 3 to 6</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Settings of the detector are sent to the bench when they change (<code class="docutils literal notranslate"><span class="pre">commit_settings</span></code>) and at initialisation. Several
+detectors or actuators do not conflict: each plugin only sets its own settings.</p>
+</section>
+<section id="magnet">
+<h2>2. Magnet<a class="headerlink" href="#magnet" title="Link to this heading"></a></h2>
+<p>The applied field <code class="docutils literal notranslate"><span class="pre">B</span></code> (mT) follows its target <code class="docutils literal notranslate"><span class="pre">B_t</span></code> with a first-order response:</p>
+<div class="math notranslate nohighlight">
+\[B(t + \Delta t) = B_t + \left(B(t) - B_t\right) e^{-\Delta t/\tau}\]</div>
+<p>The bench computes this lazily, each time somebody asks for the field or for a signal, from the time elapsed since
+the previous call. <code class="docutils literal notranslate"><span class="pre">tau</span> <span class="pre">=</span> <span class="pre">0</span></code> is an instantaneous magnet. The actuator is polled by PyMoDAQ until the field is within
+<code class="docutils literal notranslate"><span class="pre">epsilon</span></code> (0.5 mT by default) of the target, as for a real power supply.</p>
+<p>The field is a vector of norm <code class="docutils literal notranslate"><span class="pre">B</span></code> along the direction given by the polar angle <code class="docutils literal notranslate"><span class="pre">θ_H</span></code> (0°: along the normal, polar
+geometry; 90°: in the plane) and the azimuth <code class="docutils literal notranslate"><span class="pre">φ_H</span></code> (0°: in the plane of incidence).</p>
+<p><strong>B and H.</strong> The simulation uses the applied field <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">=</span> <span class="pre">μ0</span> <span class="pre">H</span></code> in vacuum or air: 1 mT corresponds to 795.8 A/m, or
+10 Oe. The actuator axis is in mT; <code class="docutils literal notranslate"><span class="pre">pint</span></code> converts mT to A/m but not directly to Oe (CGS). Which of <code class="docutils literal notranslate"><span class="pre">B</span></code> or <code class="docutils literal notranslate"><span class="pre">H</span></code> is the
+right quantity to record is still to be decided with the experts.</p>
+</section>
+<section id="magnetisation-of-the-sample">
+<h2>3. Magnetisation of the sample<a class="headerlink" href="#magnetisation-of-the-sample" title="Link to this heading"></a></h2>
+<p>The state of the sample is a unit vector <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">(m_x,</span> <span class="pre">m_y,</span> <span class="pre">m_z)</span></code> in the lab frame. Two models, chosen in the detector
+setting <em>Magnetisation model</em>.</p>
+<p>The easy axis <code class="docutils literal notranslate"><span class="pre">e</span></code> is fixed in the sample: its polar angle <code class="docutils literal notranslate"><span class="pre">θ_e</span></code> (<em>Easy axis from the normal</em>) and its azimuth <code class="docutils literal notranslate"><span class="pre">φ_e</span></code>
+(<em>Easy axis azimuth</em>) are given in the sample frame. The sample rotation <code class="docutils literal notranslate"><span class="pre">ψ</span></code> turns it about <code class="docutils literal notranslate"><span class="pre">z</span></code>, so in the lab frame
+its azimuth is <code class="docutils literal notranslate"><span class="pre">φ_e</span> <span class="pre">+</span> <span class="pre">ψ</span></code>.</p>
+<section id="stoner-wohlfarth-default">
+<h3>3.1 Stoner-Wohlfarth (default)<a class="headerlink" href="#stoner-wohlfarth-default" title="Link to this heading"></a></h3>
+<p>A single magnetic domain with a uniaxial anisotropy along <code class="docutils literal notranslate"><span class="pre">e</span></code> and a Zeeman term. With <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">B</span> <span class="pre">/</span> <span class="pre">H_k</span></code> the reduced field
+vector (<code class="docutils literal notranslate"><span class="pre">H_k</span></code>, in mT, is the setting <em>Anisotropy field</em>), the energy density divided by <code class="docutils literal notranslate"><span class="pre">2K</span></code> is:</p>
+<div class="math notranslate nohighlight">
+\[ e(\mathbf m) = -\tfrac12 (\mathbf m\cdot\mathbf e)^2 - \mathbf h\cdot\mathbf m \]</div>
+<p><code class="docutils literal notranslate"><span class="pre">m</span></code> always sits in a <strong>local minimum</strong> of <code class="docutils literal notranslate"><span class="pre">e</span></code> on the unit sphere, the one it was already in. When the field changes,
+the simulation moves the minimum with the field and lets <code class="docutils literal notranslate"><span class="pre">m</span></code> relax to it (gradient descent, step 0.4, at most 600
+iterations, the field change being cut into steps of at most 2% of <code class="docutils literal notranslate"><span class="pre">H_k</span></code>). The minimum disappears at the switching
+field and <code class="docutils literal notranslate"><span class="pre">m</span></code> jumps to the other one. <strong>This is what produces the hysteresis</strong>: the state depends on the history of
+the field, not only on its present value. A tiny random tilt of <code class="docutils literal notranslate"><span class="pre">m</span></code> (1e-4 rad, a stand-in for thermal fluctuations)
+is added before each relaxation: without it <code class="docutils literal notranslate"><span class="pre">m</span></code> would stay forever on an unstable point when the field is exactly
+along the easy axis.</p>
+<p>Checks that the model reproduces (they are in the tests):</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Angle ψ_H between the field and the easy axis</p></th>
+<th class="head"><p>Switching field</p></th>
+<th class="head"><p>Loop</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0°</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">H_k</span></code></p></td>
+<td><p>square</p></td>
+</tr>
+<tr class="row-odd"><td><p>45°</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">H_k</span> <span class="pre">/</span> <span class="pre">2</span></code></p></td>
+<td><p>open, rounded</p></td>
+</tr>
+<tr class="row-even"><td><p>90°</p></td>
+<td><p>none (saturation at <code class="docutils literal notranslate"><span class="pre">H_k</span></code>)</p></td>
+<td><p>closed, no hysteresis</p></td>
+</tr>
+</tbody>
+</table>
+<p>The general switching field is <code class="docutils literal notranslate"><span class="pre">H_k</span> <span class="pre">/</span> <span class="pre">(cos^{2/3}ψ_H</span> <span class="pre">+</span> <span class="pre">sin^{2/3}ψ_H)^{3/2}</span></code> (the Stoner-Wohlfarth astroid).</p>
+<p>This is a <strong>coherent rotation</strong> model: no domains, no domain-wall propagation, no thermal activation, no minor-loop
+memory beyond what the single minimum gives. Real thin films with a square loop switch by nucleation and wall motion at
+a field below <code class="docutils literal notranslate"><span class="pre">H_k</span></code>: use the <em>tanh</em> model to put a measured coercive field.</p>
+</section>
+<section id="tanh-loop">
+<h3>3.2 tanh loop<a class="headerlink" href="#tanh-loop" title="Link to this heading"></a></h3>
+<p>A scalar loop along the easy axis, for a quick and readable hysteresis. The field component along the easy axis is
+<code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">B</span> <span class="pre">(\mathbf{B}_{dir}</span> <span class="pre">\cdot</span> <span class="pre">\mathbf</span> <span class="pre">e)</span></code>. Two branches limit the amplitude <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">\mathbf</span> <span class="pre">m</span> <span class="pre">\cdot</span> <span class="pre">\mathbf</span> <span class="pre">e</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[ a_\uparrow(h) = \tanh\frac{h - H_c}{w}, \qquad a_\downarrow(h) = \tanh\frac{h + H_c}{w} \]</div>
+<p>with the coercive field <code class="docutils literal notranslate"><span class="pre">H_c</span></code> and the switching width <code class="docutils literal notranslate"><span class="pre">w</span></code> (settings, in mT). When the field increases <code class="docutils literal notranslate"><span class="pre">a</span></code> becomes
+<code class="docutils literal notranslate"><span class="pre">max(a,</span> <span class="pre">a_↑(h))</span></code>, when it decreases <code class="docutils literal notranslate"><span class="pre">a</span></code> becomes <code class="docutils literal notranslate"><span class="pre">min(a,</span> <span class="pre">a_↓(h))</span></code>. <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">e</span></code>. The loop is symmetric, saturates at
+<code class="docutils literal notranslate"><span class="pre">|a|</span> <span class="pre">=</span> <span class="pre">1</span></code>, and has no angle dependence other than the projection of the field on the easy axis.</p>
+</section>
+</section>
+<section id="kerr-rotation">
+<h2>4. Kerr rotation<a class="headerlink" href="#kerr-rotation" title="Link to this heading"></a></h2>
+<p>For the magnetisation <code class="docutils literal notranslate"><span class="pre">m</span></code> and the angle of incidence <code class="docutils literal notranslate"><span class="pre">θ_i</span></code>, the polarisation rotation (rad) is:</p>
+<div class="math notranslate nohighlight">
+\[ \theta_K = K_\mathrm{pol}\, m_z + K_\mathrm{long} \sin\theta_i\; m_x \]</div>
+<p><code class="docutils literal notranslate"><span class="pre">K_pol</span></code> (<em>Polar Kerr rotation</em>, default 0.5 mrad) is the rotation at saturation with <code class="docutils literal notranslate"><span class="pre">m</span></code> along <code class="docutils literal notranslate"><span class="pre">+z</span></code>. <code class="docutils literal notranslate"><span class="pre">K_long</span></code>
+(<em>Longitudinal Kerr rotation</em>, default 0.3 mrad) is the rotation at saturation and 90° incidence with <code class="docutils literal notranslate"><span class="pre">m</span></code> along <code class="docutils literal notranslate"><span class="pre">+x</span></code>,
+in the plane of incidence. So:</p>
+<ul class="simple">
+<li><p>the polar term is independent of the angle of incidence (a simplification),</p></li>
+<li><p>the longitudinal term grows as <code class="docutils literal notranslate"><span class="pre">sin</span> <span class="pre">θ_i</span></code> and vanishes at normal incidence,</p></li>
+<li><p>the component <code class="docutils literal notranslate"><span class="pre">m_y</span></code>, perpendicular to the plane of incidence (transverse geometry), gives no rotation.</p></li>
+</ul>
+<p>For <strong>s polarisation</strong> the rotation is multiplied by <em>Kerr s / p ratio</em> (default 1). This is a placeholder: a real
+sample has different Kerr rotations in s and p, to be measured.</p>
+<p>The <strong>transverse</strong> term changes the reflected intensity, in p polarisation only:</p>
+<div class="math notranslate nohighlight">
+\[ P \;\to\; P\,\left(1 + K_\mathrm{trans}\, \sin\theta_i\; m_y\right) \]</div>
+<p>with <em>Transverse reflectivity change</em> <code class="docutils literal notranslate"><span class="pre">K_trans</span></code> (default 1e-3), visible on the <code class="docutils literal notranslate"><span class="pre">sum</span></code> channel.</p>
+<p>Not simulated: Kerr ellipticity, wavelength dependence, quadratic MOKE (terms in <code class="docutils literal notranslate"><span class="pre">cos</span> <span class="pre">2φ</span></code>), temperature, dependence
+of <code class="docutils literal notranslate"><span class="pre">K</span></code> on the angle of incidence beyond <code class="docutils literal notranslate"><span class="pre">sin</span> <span class="pre">θ_i</span></code>.</p>
+</section>
+<section id="balanced-detection">
+<h2>5. Balanced detection<a class="headerlink" href="#balanced-detection" title="Link to this heading"></a></h2>
+<p>After the sample the beam crosses a half-wave plate and a polarising beam splitter (Wollaston) that sends the
+components along its two axes to photodiodes A and B.</p>
+<p>A half-wave plate whose fast axis makes an angle <code class="docutils literal notranslate"><span class="pre">α_eff</span></code> with the axis of port B rotates the polarisation by
+<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">α_eff</span></code>. The beam starts polarised along the axis of port B, so the angle <code class="docutils literal notranslate"><span class="pre">φ</span></code> of the polarisation to that axis is:</p>
+<div class="math notranslate nohighlight">
+\[ \varphi = 2\,\alpha_\mathrm{eff} + \theta_K, \qquad \alpha_\mathrm{eff} = \alpha - \alpha_0 \]</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">α</span></code> is the angle of the plate (<code class="docutils literal notranslate"><span class="pre">MokeWavePlateSim</span></code>) and <code class="docutils literal notranslate"><span class="pre">α_0</span></code> the <strong>zero offset</strong> of the plate (detector setting
+<em>Waveplate zero offset</em>, default 0°; the user does not know it and finds the balance by looking for a zero
+difference). With <code class="docutils literal notranslate"><span class="pre">P</span></code> the power on the diodes (section 5.1), Malus’ law gives:</p>
+<div class="math notranslate nohighlight">
+\[ P_A = P \sin^2\varphi, \qquad P_B = P \cos^2\varphi, \qquad P_A - P_B = -P\cos 2\varphi \]</div>
+<p>At the <strong>balance</strong>, <code class="docutils literal notranslate"><span class="pre">α_eff</span> <span class="pre">=</span> <span class="pre">22.5°</span></code> (<code class="docutils literal notranslate"><span class="pre">φ</span> <span class="pre">=</span> <span class="pre">45°</span></code>), <code class="docutils literal notranslate"><span class="pre">P_A</span> <span class="pre">=</span> <span class="pre">P_B</span></code> when <code class="docutils literal notranslate"><span class="pre">θ_K</span> <span class="pre">=</span> <span class="pre">0</span></code> and</p>
+<div class="math notranslate nohighlight">
+\[ P_A - P_B = P \sin 2\theta_K \approx 2 P \theta_K \]</div>
+<p>Away from the balance by <code class="docutils literal notranslate"><span class="pre">δ</span></code> (in polarisation angle, <code class="docutils literal notranslate"><span class="pre">δ</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">α_eff</span> <span class="pre">-</span> <span class="pre">45°</span></code>):</p>
+<div class="math notranslate nohighlight">
+\[ P_A - P_B = P \sin\!\big(2(\theta_K + \delta)\big) \]</div>
+<ul class="simple">
+<li><p><strong>offset</strong> at zero field: <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">sin</span> <span class="pre">2δ</span></code>;</p></li>
+<li><p><strong>sensitivity</strong> to <code class="docutils literal notranslate"><span class="pre">θ_K</span></code>: multiplied by <code class="docutils literal notranslate"><span class="pre">cos</span> <span class="pre">2δ</span></code> (maximal at the balance; 10° of plate is <code class="docutils literal notranslate"><span class="pre">δ</span> <span class="pre">=</span> <span class="pre">20°</span></code>, a factor 0.77);</p></li>
+<li><p>the laser intensity noise cancels in the difference only at <code class="docutils literal notranslate"><span class="pre">δ</span> <span class="pre">=</span> <span class="pre">0</span></code> (section 6).</p></li>
+</ul>
+<section id="from-power-to-volts">
+<h3>5.1 From power to volts<a class="headerlink" href="#from-power-to-volts" title="Link to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[ P = P_0\, R\,\big(1 + \text{transverse term}\big) \]</div>
+<p>with <code class="docutils literal notranslate"><span class="pre">P_0</span></code> the <em>Power on the sample</em> (1 mW) and <code class="docutils literal notranslate"><span class="pre">R</span></code> the <em>Sample reflectivity</em> (0.5). Each diode converts power to
+voltage with the <em>responsivity</em> <code class="docutils literal notranslate"><span class="pre">ρ</span></code> (0.5 A/W) and the <em>amplifier gain</em> <code class="docutils literal notranslate"><span class="pre">G</span></code> (1 kV/A by default, setting in kV/A):</p>
+<div class="math notranslate nohighlight">
+\[ V_A = G \rho P_A, \qquad V_B = G \rho P_B \]</div>
+<p>The detector emits one 0D dataset, in V, with four channels:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Channel</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">diode_A</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">V_A</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">diode_B</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">V_B</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">difference</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">V_A</span> <span class="pre">-</span> <span class="pre">V_B</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sum</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">V_A</span> <span class="pre">+</span> <span class="pre">V_B</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recovering the Kerr rotation.</strong> The plugins do not compute it, so that any digitiser can be used with the same
+analysis. With equal gains, near the balance: <code class="docutils literal notranslate"><span class="pre">θ_K</span> <span class="pre">≈</span> <span class="pre">difference</span> <span class="pre">/</span> <span class="pre">(2</span> <span class="pre">sum)</span></code> (rad). In general:
+<code class="docutils literal notranslate"><span class="pre">θ_K</span> <span class="pre">=</span> <span class="pre">½</span> <span class="pre">arccos(−difference</span> <span class="pre">/</span> <span class="pre">sum)</span> <span class="pre">−</span> <span class="pre">2</span> <span class="pre">α_eff</span></code>. With the default values, <code class="docutils literal notranslate"><span class="pre">θ_K</span> <span class="pre">=</span> <span class="pre">0.5</span> <span class="pre">mrad</span></code> gives a difference of
+250 µV on a sum of 250 mV.</p>
+</section>
+</section>
+<section id="imperfections">
+<h2>6. Imperfections<a class="headerlink" href="#imperfections" title="Link to this heading"></a></h2>
+<p>The group <em>Imperfections</em> has a master switch (<em>Enabled</em>) and one switch per defect, each with its own value. Nothing
+is added when the master switch is off, and <code class="docutils literal notranslate"><span class="pre">grab_data</span></code> is then deterministic.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Defect (setting)</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Model</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Shot noise</p></td>
+<td><p>on</p></td>
+<td><p>white noise on each diode current, <code class="docutils literal notranslate"><span class="pre">σ_i</span> <span class="pre">=</span> <span class="pre">sqrt(2</span> <span class="pre">q</span> <span class="pre">I</span> <span class="pre">B_w)</span></code>, with <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">=</span> <span class="pre">ρ</span> <span class="pre">P_{A,B}</span></code> and the bandwidth <code class="docutils literal notranslate"><span class="pre">B_w</span> <span class="pre">=</span> <span class="pre">1/(2</span> <span class="pre">t_int)</span></code> from the <em>Integration time</em> (10 ms by default)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Electronic noise</p></td>
+<td><p>on, 20 µV rms</p></td>
+<td><p>independent Gaussian noise on each channel voltage</p></td>
+</tr>
+<tr class="row-even"><td><p>Laser intensity noise</p></td>
+<td><p>on, 0.1 % rms</p></td>
+<td><p>the power <code class="docutils literal notranslate"><span class="pre">P</span></code> is multiplied by <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">ε</span></code>, <code class="docutils literal notranslate"><span class="pre">ε</span></code> Gaussian: <strong>common</strong> to both diodes, so it appears in <code class="docutils literal notranslate"><span class="pre">sum</span></code> and cancels in <code class="docutils literal notranslate"><span class="pre">difference</span></code> only when <code class="docutils literal notranslate"><span class="pre">P_A</span> <span class="pre">=</span> <span class="pre">P_B</span></code> (balanced, no gain imbalance)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gain imbalance A/B</p></td>
+<td><p>off, 2 %</p></td>
+<td><p>the gain of A is multiplied by <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">g/2</span></code> and that of B by <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">g/2</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code> being the difference: the difference signal does not vanish at the balance and the laser noise leaks into it</p></td>
+</tr>
+<tr class="row-even"><td><p>Faraday rotation of the optics</p></td>
+<td><p>off, 5 µrad/mT</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">θ_K</span></code> receives a linear term <code class="docutils literal notranslate"><span class="pre">k_F</span> <span class="pre">B</span></code> (field-dependent background that has to be subtracted from the loops)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Slow drift of the polarisation</p></td>
+<td><p>off, 0.2 mrad, 60 s</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">θ_K</span></code> receives <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">sin(2π</span> <span class="pre">t</span> <span class="pre">/</span> <span class="pre">T)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">Naverage</span></code> in <code class="docutils literal notranslate"><span class="pre">grab_data</span></code> averages that number of independent readings.</p>
+</section>
+<section id="what-the-model-does-not-do">
+<h2>7. What the model does not do<a class="headerlink" href="#what-the-model-does-not-do" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>No domain structure, no minor loops with return-point memory, no thermal or viscous effects, no dependence on the
+sweep rate other than through the magnet response time.</p></li>
+<li><p>No Kerr ellipticity, quarter-wave compensator, PEM or lock-in (a modulated detection is planned as a separate
+detector).</p></li>
+<li><p>No dependence on the wavelength or the temperature, which exist in the MOKE ontology (<code class="docutils literal notranslate"><span class="pre">moke:Wavelength</span></code>,
+<code class="docutils literal notranslate"><span class="pre">moke:SampleTemperature</span></code>).</p></li>
+<li><p>No drift or hysteresis of the magnet itself (remanent field, heating), no Hall probe: the field read back is the
+modelled field.</p></li>
+<li><p>The simulation gives <strong>no semantic annotation</strong>; adding the role, quantity kind and unit of the data is the job of the
+extension that uses the plugins.</p></li>
+</ul>
+</section>
+<section id="using-it">
+<h2>8. Using it<a class="headerlink" href="#using-it" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Add the five plugins to a Dashboard experiment with the same <em>controller ID</em>, the magnet as <code class="docutils literal notranslate"><span class="pre">Master</span></code>.</p></li>
+<li><p>Set the sample (anisotropy field, easy axis, Kerr rotations) and, if wanted, the imperfections in the detector.</p></li>
+<li><p>Look for the balance: scan the plate angle and find <code class="docutils literal notranslate"><span class="pre">difference</span> <span class="pre">=</span> <span class="pre">0</span></code> (22.5° plus the hidden offset).</p></li>
+<li><p>Scan the field with the magnet as the scan axis and the detector as the signal: a hysteresis loop of the
+<code class="docutils literal notranslate"><span class="pre">difference</span></code> channel. Change <code class="docutils literal notranslate"><span class="pre">θ_i</span></code>, <code class="docutils literal notranslate"><span class="pre">ψ</span></code>, the field direction or the plate to see how the loop changes.</p></li>
+</ol>
+<p>The tests in <code class="docutils literal notranslate"><span class="pre">tests/test_simulated_bench.py</span></code> check the loop, the balance, the sensitivity, the geometry and the
+imperfections; <code class="docutils literal notranslate"><span class="pre">tests/test_simulated_plugins.py</span></code> drives the plugins as the Dashboard does (not through its GUI).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="pymodaq_plugins_moke documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CEMES.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
