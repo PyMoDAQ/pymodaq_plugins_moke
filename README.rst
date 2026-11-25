@@ -80,6 +80,15 @@ one as ``Master`` (it creates the bench) and the others as ``Slave``. A plugin a
 * Optional imperfections, each adjustable: shot noise, electronic noise, laser intensity noise (common mode),
   gain imbalance between the diodes, Faraday rotation of the optics, slow drift.
 
+The angles that the plugins control, and how they are measured, are drawn below (``docs/make_angles_figure.py``
+regenerates the figure): the angle of incidence (goniometer), the direction of the field (settings of the magnet),
+the azimuth of the sample (rotation stage) and of its easy axis, and the angle of the half-wave plate that balances the
+detection.
+
+.. image:: docs/moke_bench_angles.png
+   :alt: Definition of the angles of the simulated MOKE bench
+   :width: 100%
+
 The physics is approximate (see ``hardware/simulated_bench.py``) and has not been reviewed by MOKE experts yet.
 
 
