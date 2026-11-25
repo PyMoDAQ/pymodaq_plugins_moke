@@ -85,9 +85,11 @@ regenerates the figure): the angle of incidence (goniometer), the direction of t
 the azimuth of the sample (rotation stage) and of its easy axis, and the angle of the half-wave plate that balances the
 detection.
 
-.. image:: docs/moke_bench_angles.png
+.. image:: docs/source/moke_bench_angles.png
    :alt: Definition of the angles of the simulated MOKE bench
    :width: 100%
+
+The equations, the settings and the limits of the model are described in ``docs/source/simulated_bench_model.md`` (published as a GitHub Pages site by the ``documentation`` workflow).
 
 The physics is approximate (see ``hardware/simulated_bench.py``) and has not been reviewed by MOKE experts yet.
 

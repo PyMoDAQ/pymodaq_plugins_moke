@@ -1,0 +1,9 @@
+project = 'pymodaq_plugins_moke'
+copyright = '2025, CEMES'
+author = 'Sébastien Weber'
+extensions = ['myst_parser']
+myst_enable_extensions = ['dollarmath', 'amsmath']
+templates_path = []
+exclude_patterns = ['_build']
+html_theme = 'sphinx_rtd_theme'
+html_static_path = ['_static']

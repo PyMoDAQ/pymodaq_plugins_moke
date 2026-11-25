@@ -1,4 +1,4 @@
-"""Draws docs/moke_bench_angles.png / .svg: how the angles of the simulated MOKE bench are defined.
+"""Draws docs/source/moke_bench_angles.png / .svg: how the angles of the simulated MOKE bench are defined.
 
 Run ``python docs/make_angles_figure.py`` (needs matplotlib)."""
 from pathlib import Path
@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Arc, FancyArrowPatch, Polygon
 
-OUT = Path(__file__).parent
+OUT = Path(__file__).parent / "source"
 BEAM, FIELD, SAMPLE, POL, AXIS = '#c0392b', '#2471a3', '#444444', '#1e8449', '#7d3c98'
 
 
