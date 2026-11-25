@@ -29,11 +29,16 @@ Actuators
 * **Current**: current of the electromagnet, through a National Instruments analog output (needs ``pymodaq_plugins_daqmx``)
 * **CurrentMock**: simulated version of the above, with a magnetic hysteresis
 * **LedDC4104**: Thorlabs DC4104 four-channel LED driver of the Kerr microscope
+* **MokeMagnetSim**: simulated electromagnet (field in mT, first order response), see *Simulated MOKE bench* below
+* **MokeWavePlateSim**: simulated half-wave plate rotation mount (balance of the detection)
+* **MokeSampleRotationSim**: simulated rotation of the sample about its normal
+* **MokeGoniometerSim**: simulated angle of incidence
 
 Viewer0D
 ++++++++
 
 * **ReadCurrent**: reads the electromagnet current on a National Instruments analog input
+* **MokeBalancedSim**: simulated balanced detection (two photodiodes), see *Simulated MOKE bench* below
 
 Viewer1D
 ++++++++
@@ -51,6 +56,31 @@ Extensions
 ==========
 
 * **MicroMOKE**: acquisition of Kerr microscope images with the sequence of LED illuminations
+
+
+Simulated MOKE bench
+====================
+
+``MokeMagnetSim``, ``MokeWavePlateSim``, ``MokeSampleRotationSim``, ``MokeGoniometerSim`` and ``MokeBalancedSim`` simulate
+a MOKE bench with balanced detection, to develop and test acquisitions, scans and extensions without hardware.
+The five plugins share one simulated bench through the controller: give them the same *controller ID* in the Dashboard,
+one as ``Master`` (it creates the bench) and the others as ``Slave``. A plugin alone works as a master on its own bench.
+
+* The magnet field (mT) drives the magnetisation of a simulated sample. Two models: Stoner-Wohlfarth (vector
+  magnetisation, uniaxial anisotropy ``Hk`` along an easy axis, switching when the energy minimum disappears) and a
+  scalar ``tanh`` loop (coercive field, width).
+* The Kerr rotation is the sum of a polar term (magnetisation along the normal) and a longitudinal one (in the plane of
+  incidence, proportional to the sine of the angle of incidence). The geometry follows from the direction of the
+  field, the easy axis, the sample rotation and the angle of incidence. A transverse term changes the intensity (``p``
+  polarisation only).
+* The detector emits one 0D dataset with four channels in V: ``diode_A``, ``diode_B``, ``difference`` and ``sum``.
+  The balance is set by the half-wave plate angle (22.5 deg from its zero, an offset of which can be hidden), the
+  Kerr rotation is ``difference / (2 * sum)`` near the balance. The plugins add no Kerr rotation and no semantic
+  annotation: that is left to the extension or the analysis.
+* Optional imperfections, each adjustable: shot noise, electronic noise, laser intensity noise (common mode),
+  gain imbalance between the diodes, Faraday rotation of the optics, slow drift.
+
+The physics is approximate (see ``hardware/simulated_bench.py``) and has not been reviewed by MOKE experts yet.
 
 
 Installation instructions
