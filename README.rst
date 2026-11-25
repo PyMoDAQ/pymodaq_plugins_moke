@@ -89,7 +89,7 @@ detection.
    :alt: Definition of the angles of the simulated MOKE bench
    :width: 100%
 
-The equations, the settings and the limits of the model are described in ``docs/source/simulated_bench_model.md`` (published as a GitHub Pages site by the ``documentation`` workflow).
+The equations, the settings and the limits of the model are described in the documentation: https://pymodaq.github.io/pymodaq_plugins_moke/ (source: ``docs/source/simulated_bench_model.md``).
 
 The physics is approximate (see ``hardware/simulated_bench.py``) and has not been reviewed by MOKE experts yet.
 
